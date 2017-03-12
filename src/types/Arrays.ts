@@ -6,25 +6,45 @@ import { has } from "../util/Functions";
  * @class Arrays
  */
 export default class Arrays {
-    static has(value: string[]): boolean {
-        return has(value) && value.length > 0
+
+    /**
+     * Checks the given array is exist or not or index is exist or not.
+     * @param src {any[]}
+     * @param index? { number }
+     * @return {boolean}
+     */
+    static has(src: any[], index?: number): boolean {
+        if(!has(src)) return false;
+        return has(index)? src.length > index : src.length > 0
     }
     /**
-     * gets length of the keys which are defined in the given object.
-     * @param obj
+     * Gets length of the given array.
+     * @param src {any[]}
      * @returns {number}
      */
-    public static getLength(value: string[]): number {
-        return Arrays.has(value) ? value.length: 0;
+    public static getLength(src: any[]): number {
+        return Arrays.has(src) ? src.length: 0;
     }
 
     /**
-     *
-     * @param src
-     * @param value
+     * Removes value by the given index from the given array
+     * @param src {any[]}
+     * @param index {number}
      * @return {any[]}
      */
-    public static cleanValueFromArray(src: any[], value: any) {
+    public static remove(src: any[], index: number): any[] {
+        if(!has(src)) return src;
+        src.splice(index, 1);
+        return src;
+    }
+
+    /**
+     * Removes value from the given array
+     * @param src {any[]}
+     * @param value {any}
+     * @return {any[]}
+     */
+    public static removeValue(src: any[], value: any) {
         for (let i = 0; i < src.length; i++) {
             if (src[i] == value) {
                 src.splice(i, 1);

@@ -6,11 +6,30 @@ import { has } from "../util/Functions";
  * @class Strings
  */
 export default class Strings {
-    static has(value: string): boolean {
-        return has(value) && value.trim() !== ""
-    }
+
     /**
-     *
+     * Checks the given array is exist or not or index is exist or not.
+     * @param src {string}
+     * @param index? { number }
+     * @return {boolean}
+     */
+    static has(src: string, index?: number): boolean {
+        if(!has(src)) return false;
+        src = src.trim();
+        return ((has(index) && src.length > index) || src.length > 0);
+    }
+
+    /**
+     * Gets length of the given value {string}.
+     * @param value
+     * @returns {number}
+     */
+    public static getLength(value: string): number {
+        return Strings.has(value) ? value.length: 0;
+    }
+
+    /**
+     * Returns toString of the given value {string}
      * @param value
      * @return {any}
      */
@@ -20,7 +39,8 @@ export default class Strings {
     }
 
     /**
-     * The startsWith() method determines whether a string begins with the characters of another string, returning true or false as appropriate.
+     * Returns toString of the given value {string}
+     * Determines whether a string begins with the characters of another string, returning true or false as appropriate.
      * @param value
      * @param searchString
      * @param position
@@ -35,7 +55,7 @@ export default class Strings {
     }
 
     /**
-     * The endsWith() method determines whether a string ends with the characters of another string, returning true or false as appropriate.
+     * Determines whether a string ends with the characters of another string, returning true or false as appropriate.
      * @param value
      * @param searchString
      * @param position
@@ -50,70 +70,74 @@ export default class Strings {
     }
 
     /**
-     * trimming space from both side of the string
+     * Trims space from both side of the given value {string}
      * @param value
      * @return {string}
      */
     static trim (value: string) {
+        if(!value) return "";
         return value.replace(/^\s+|\s+$/g,"");
     }
 
     /**
-     * trimming space from left side of the string
+     * Trims space from left side of the given value {string}
      * @param value
      * @return {string}
      */
     static lTrim (value: string) {
+        if(!has(value)) return "";
         return value.replace(/^\s+/,"");
     }
 
     /**
-     * trimming space from right side of the string
+     * Trims space from right side of the given value {string}
      * @param value
      * @return {string}
      */
     static rTrim (value: string) {
+        if(!has(value)) return "";
         return value.replace(/\s+$/,"");
     }
     /**
-     *
-     * @param value
+     * Changes first character as uppercase character of the given value {string}
+     * @param value {string}
      * @return {string}
      */
-    public static capitalizeFirstLetter(value) {
+    public static capitalizeFirstLetter(value: string): string {
+        if(!has(value)) return "";
         return value.charAt(0).toUpperCase() + value.slice(1);
     }
 
     /**
-     *
-     * @param value
-     * @param padString
-     * @param length
+     * Puts the given pad {string} by (the given value minus the given length) from left side of the given value {string}
+     * @param value {string}
+     * @param pad {string}
+     * @param length {number}
      * @return {string}
      */
-    static lPad (value: string, padString, length) {
+    static lPad (value: string, pad, length) {
         if (!Strings.has(value)) value = "";
         while (value.length < length)
-            value = padString + value;
+            value = pad + value;
         return value;
     }
 
     /**
-     *
-     * @param value
-     * @param padString
-     * @param length
+     * Puts the given pad {string} by (the given value minus the given length) from right side of the given value {string}
+     * @param value {string}
+     * @param pad {string}
+     * @param length {number}
      * @return {string}
      */
-    static rPad (value: string, padString, length) {
+    static rPad (value: string, pad, length) {
         if (!Strings.has(value)) value = "";
         while (value.length < length)
-            value = value + padString;
+            value = value + pad;
         return value;
     }
 
     /**
-     *
+     * Splits the given value {string} by the given length as equals parts.
      * @param value
      * @param length
      * @return {any}

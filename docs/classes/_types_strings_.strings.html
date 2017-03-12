@@ -100,6 +100,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_types_strings_.strings.html#capitalizefirstletter" class="tsd-kind-icon">capitalize<wbr>First<wbr>Letter</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_types_strings_.strings.html#endswith" class="tsd-kind-icon">ends<wbr>With</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_types_strings_.strings.html#getlength" class="tsd-kind-icon">get<wbr>Length</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_types_strings_.strings.html#has" class="tsd-kind-icon">has</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_types_strings_.strings.html#lpad" class="tsd-kind-icon">l<wbr>Pad</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_types_strings_.strings.html#ltrim" class="tsd-kind-icon">l<wbr>Trim</a></li>
@@ -120,24 +121,27 @@
 					<a name="capitalizefirstletter" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> capitalize<wbr>First<wbr>Letter</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">capitalize<wbr>First<wbr>Letter<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">capitalize<wbr>First<wbr>Letter<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in types/Strings.ts:83</li>
+									<li>Defined in <a href="https://github.com/kbukum/wasabi-common/blob/0bdb94f/src/types/Strings.ts#L106">types/Strings.ts:106</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Changes first character as uppercase character of the given value {string}</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<h5>value: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -151,12 +155,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in types/Strings.ts:44</li>
+									<li>Defined in <a href="https://github.com/kbukum/wasabi-common/blob/0bdb94f/src/types/Strings.ts#L64">types/Strings.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The endsWith() method determines whether a string ends with the characters of another string, returning true or false as appropriate.</p>
+									<p>Determines whether a string ends with the characters of another string, returning true or false as appropriate.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -176,22 +180,58 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="has" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> has</h3>
+					<a name="getlength" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Length</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">has<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Length<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in types/Strings.ts:9</li>
+									<li>Defined in <a href="https://github.com/kbukum/wasabi-common/blob/0bdb94f/src/types/Strings.ts#L27">types/Strings.ts:27</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets length of the given value {string}.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="has" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> has</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">has<span class="tsd-signature-symbol">(</span>src<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, index<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/kbukum/wasabi-common/blob/0bdb94f/src/types/Strings.ts#L16">types/Strings.ts:16</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks the given array is exist or not or index is exist or not.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>src: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> index: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -202,16 +242,19 @@
 					<a name="lpad" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> l<wbr>Pad</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">l<wbr>Pad<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, padString<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, length<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">l<wbr>Pad<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, pad<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, length<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in types/Strings.ts:94</li>
+									<li>Defined in <a href="https://github.com/kbukum/wasabi-common/blob/0bdb94f/src/types/Strings.ts#L118">types/Strings.ts:118</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Puts the given pad {string} by (the given value minus the given length) from left side of the given value {string}</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -219,7 +262,7 @@
 									<h5>value: <span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
-									<h5>padString: <span class="tsd-signature-type">any</span></h5>
+									<h5>pad: <span class="tsd-signature-type">any</span></h5>
 								</li>
 								<li>
 									<h5>length: <span class="tsd-signature-type">any</span></h5>
@@ -239,12 +282,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in types/Strings.ts:66</li>
+									<li>Defined in <a href="https://github.com/kbukum/wasabi-common/blob/0bdb94f/src/types/Strings.ts#L87">types/Strings.ts:87</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>trimming space from left side of the string</p>
+									<p>Trims space from left side of the given value {string}</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -267,10 +310,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in types/Strings.ts:121</li>
+									<li>Defined in <a href="https://github.com/kbukum/wasabi-common/blob/0bdb94f/src/types/Strings.ts#L145">types/Strings.ts:145</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Splits the given value {string} by the given length as equals parts.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -289,16 +335,19 @@
 					<a name="rpad" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> r<wbr>Pad</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">r<wbr>Pad<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, padString<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, length<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">r<wbr>Pad<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, pad<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, length<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in types/Strings.ts:108</li>
+									<li>Defined in <a href="https://github.com/kbukum/wasabi-common/blob/0bdb94f/src/types/Strings.ts#L132">types/Strings.ts:132</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Puts the given pad {string} by (the given value minus the given length) from right side of the given value {string}</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -306,7 +355,7 @@
 									<h5>value: <span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
-									<h5>padString: <span class="tsd-signature-type">any</span></h5>
+									<h5>pad: <span class="tsd-signature-type">any</span></h5>
 								</li>
 								<li>
 									<h5>length: <span class="tsd-signature-type">any</span></h5>
@@ -326,12 +375,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in types/Strings.ts:75</li>
+									<li>Defined in <a href="https://github.com/kbukum/wasabi-common/blob/0bdb94f/src/types/Strings.ts#L97">types/Strings.ts:97</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>trimming space from right side of the string</p>
+									<p>Trims space from right side of the given value {string}</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -354,12 +403,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in types/Strings.ts:29</li>
+									<li>Defined in <a href="https://github.com/kbukum/wasabi-common/blob/0bdb94f/src/types/Strings.ts#L49">types/Strings.ts:49</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The startsWith() method determines whether a string begins with the characters of another string, returning true or false as appropriate.</p>
+									<p>Returns toString of the given value {string}
+									Determines whether a string begins with the characters of another string, returning true or false as appropriate.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -388,10 +438,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in types/Strings.ts:17</li>
+									<li>Defined in <a href="https://github.com/kbukum/wasabi-common/blob/0bdb94f/src/types/Strings.ts#L36">types/Strings.ts:36</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns toString of the given value {string}</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -413,12 +466,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in types/Strings.ts:57</li>
+									<li>Defined in <a href="https://github.com/kbukum/wasabi-common/blob/0bdb94f/src/types/Strings.ts#L77">types/Strings.ts:77</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>trimming space from both side of the string</p>
+									<p>Trims space from both side of the given value {string}</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -498,6 +551,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="_types_strings_.strings.html#endswith" class="tsd-kind-icon">ends<wbr>With</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_types_strings_.strings.html#getlength" class="tsd-kind-icon">get<wbr>Length</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="_types_strings_.strings.html#has" class="tsd-kind-icon">has</a>

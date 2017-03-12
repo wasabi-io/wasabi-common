@@ -6,13 +6,46 @@ describe("util/Objects", () => {
     it("has", () => {
         expect(Objects.has({})).to.be.false;
         expect(Objects.has({ a: "5"})).to.be.true;
+        expect(Objects.has({ a: "5"}, "a")).to.be.true;
+        expect(Objects.has({ a: "5"}, "b")).to.be.false;
         expect(Objects.has(null)).to.be.false;
         expect(Objects.has(null)).to.be.false;
     });
 
-    it("hasProperty", () => {
-        expect(Objects.hasProperty({}, "a")).to.be.false;
-        expect(Objects.hasProperty({ a: "5"}, "a")).to.be.true;
+    it("getLength", () => {
+        let object = {
+            a: "4",
+            b: 5,
+            c: [6, 7]
+        };
+        expect(Objects.getLength(object)).to.deep.eq(3);
+    });
+
+    it("remove", () => {
+        let actual = {
+            a: "example",
+            b: "example2"
+        };
+        let expected = {
+            b: "example2"
+        };
+        expect(Objects.remove(actual, "a")).to.be.deep.eq(expected);
+        Objects.remove(actual, "a");
+        expect(Objects.remove(actual, "a")).to.be.deep.eq(expected);
+
+    });
+
+    it("removeValue", () => {
+        let actual = {
+            a: "example",
+            b: "example2"
+        };
+        let expected = {
+            b: "example2"
+        };
+        expect(Objects.removeValue(actual, "example")).to.be.deep.eq(expected);
+        Objects.removeValue(actual, "example");
+        expect(Objects.removeValue(actual, "example")).to.be.deep.eq(expected);
     });
 
     it("map", () => {
@@ -40,15 +73,6 @@ describe("util/Objects", () => {
             array.push(Types.getName(item));
         });
         expect(array).to.deep.eq(expectedArray);
-    });
-
-    it("getLength", () => {
-        let object = {
-            a: "4",
-            b: 5,
-            c: [6, 7]
-        };
-        expect(Objects.getLength(object)).to.deep.eq(3);
     });
 
     it("getKeys", () => {

@@ -4,15 +4,28 @@
  * @class Strings
  */
 export default class Strings {
-    static has(value: string): boolean;
     /**
-     *
+     * Checks the given array is exist or not or index is exist or not.
+     * @param src {string}
+     * @param index? { number }
+     * @return {boolean}
+     */
+    static has(src: string, index?: number): boolean;
+    /**
+     * Gets length of the given value {string}.
+     * @param value
+     * @returns {number}
+     */
+    static getLength(value: string): number;
+    /**
+     * Returns toString of the given value {string}
      * @param value
      * @return {any}
      */
     static toString(value: string): string;
     /**
-     * The startsWith() method determines whether a string begins with the characters of another string, returning true or false as appropriate.
+     * Returns toString of the given value {string}
+     * Determines whether a string begins with the characters of another string, returning true or false as appropriate.
      * @param value
      * @param searchString
      * @param position
@@ -20,7 +33,7 @@ export default class Strings {
      */
     static startsWith(value: string, searchString: string, position?: number): boolean;
     /**
-     * The endsWith() method determines whether a string ends with the characters of another string, returning true or false as appropriate.
+     * Determines whether a string ends with the characters of another string, returning true or false as appropriate.
      * @param value
      * @param searchString
      * @param position
@@ -28,47 +41,47 @@ export default class Strings {
      */
     static endsWith(value: string, searchString: string, position?: number): boolean;
     /**
-     * trimming space from both side of the string
+     * Trims space from both side of the given value {string}
      * @param value
      * @return {string}
      */
     static trim(value: string): string;
     /**
-     * trimming space from left side of the string
+     * Trims space from left side of the given value {string}
      * @param value
      * @return {string}
      */
     static lTrim(value: string): string;
     /**
-     * trimming space from right side of the string
+     * Trims space from right side of the given value {string}
      * @param value
      * @return {string}
      */
     static rTrim(value: string): string;
     /**
-     *
-     * @param value
+     * Changes first character as uppercase character of the given value {string}
+     * @param value {string}
      * @return {string}
      */
-    static capitalizeFirstLetter(value: any): any;
+    static capitalizeFirstLetter(value: string): string;
     /**
-     *
-     * @param value
-     * @param padString
-     * @param length
+     * Puts the given pad {string} by (the given value minus the given length) from left side of the given value {string}
+     * @param value {string}
+     * @param pad {string}
+     * @param length {number}
      * @return {string}
      */
-    static lPad(value: string, padString: any, length: any): string;
+    static lPad(value: string, pad: any, length: any): string;
     /**
-     *
-     * @param value
-     * @param padString
-     * @param length
+     * Puts the given pad {string} by (the given value minus the given length) from right side of the given value {string}
+     * @param value {string}
+     * @param pad {string}
+     * @param length {number}
      * @return {string}
      */
-    static rPad(value: string, padString: any, length: any): string;
+    static rPad(value: string, pad: any, length: any): string;
     /**
-     *
+     * Splits the given value {string} by the given length as equals parts.
      * @param value
      * @param length
      * @return {any}

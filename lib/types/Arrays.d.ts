@@ -4,18 +4,31 @@
  * @class Arrays
  */
 export default class Arrays {
-    static has(value: string[]): boolean;
     /**
-     * gets length of the keys which are defined in the given object.
-     * @param obj
+     * Checks the given array is exist or not or index is exist or not.
+     * @param src {any[]}
+     * @param index? { number }
+     * @return {boolean}
+     */
+    static has(src: any[], index?: number): boolean;
+    /**
+     * Gets length of the given array.
+     * @param src {any[]}
      * @returns {number}
      */
-    static getLength(value: string[]): number;
+    static getLength(src: any[]): number;
     /**
-     *
-     * @param src
-     * @param value
+     * Removes value by the given index from the given array
+     * @param src {any[]}
+     * @param index {number}
      * @return {any[]}
      */
-    static cleanValueFromArray(src: any[], value: any): any[];
+    static remove(src: any[], index: number): any[];
+    /**
+     * Removes value from the given array
+     * @param src {any[]}
+     * @param value {any}
+     * @return {any[]}
+     */
+    static removeValue(src: any[], value: any): any[];
 }
