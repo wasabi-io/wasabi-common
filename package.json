@@ -1,0 +1,25 @@
+{
+  "name": "wasabi-common",
+  "version": "1.0.0",
+  "description": "lib/index.js",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha --opts mocha.opts",
+    "build": "rimraf ./lib && tsc",
+    "docs": "rimraf ./docs && typedoc --module commonjs --target ES5 --name Wasabi-Common --readme ./README.md  --exclude **/*.spec.ts --out ./docs ./src && node node_modules/shx/lib/cli.js touch ./docs/.nojekyll"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chai": "^3.4.35",
+    "@types/mocha": "^2.2.40",
+    "@types/node": "^7.0.8",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "rimraf": "^2.6.1",
+    "shx": "^0.2.2",
+    "ts-node": "^2.1.0",
+    "typedoc": "^0.5.7",
+    "typescript": "^2.2.1"
+  }
+}

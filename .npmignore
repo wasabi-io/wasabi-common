@@ -1,0 +1,12 @@
+/__test__
+/assets
+/config
+/coverage
+/node_modules
+/src
+/tools
+/wasabi-core
+/wasabi-ui
+/wasabi-view
+/wasabi-view-api
+/jest.json

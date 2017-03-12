@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "baseUrl": "../",
+    "target": "es5",
+    "paths": {
+      "*": [
+        "./src/*"
+      ]
+    },
+    "module": "commonjs",
+    "declaration": false,
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "preserveConstEnums": true,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "jsx": "react",
+    "outDir": "./lib"
+  },
+  "exclude": [
+    "./node_modules/**/*"
+  ]
+}
