@@ -8,7 +8,7 @@
     },
     "target": "es5",
     "module": "commonjs",
-    "declaration": false,
+    "declaration": true,
     "noImplicitAny": false,
     "preserveConstEnums": true,
     "sourceMap": true,
@@ -16,6 +16,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,
+    "declarationDir": "./lib",
     "outDir": "./lib"
   },
   "exclude": [
