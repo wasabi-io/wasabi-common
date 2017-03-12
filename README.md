@@ -7,21 +7,21 @@ Provides some common operations.
 #### Common Classes
 
 * lang
-    - [Class](./modules/_lang_class_.html) : Provides to bind all methods of the instance when construct. 
-    - [PropClass](./modules/_lang_propclass_.html) : Provides to merge props and defaultProps when construct.
-    - [Type](./modules/_lang_type_.html): Provides define new Type by some default methods.
+    - [Class](https://kbukum.github.io/wasabi-common/modules/_lang_class_.html) : Provides to bind all methods of the instance when construct. 
+    - [PropClass](https://kbukum.github.io/wasabi-common/modules/_lang_propclass_.html) : Provides to merge props and defaultProps when construct.
+    - [Type](https://kbukum.github.io/wasabi-common/modules/_lang_type_.html): Provides define new Type by some default methods.
     It is useful when cloning or merging. (isEmpty, isPrimitive, isJsonType, isNativeType, getClone, getName, getSize, equals)
       
 * types
-    - [Arrays](./modules/_types_arrays_.html): Provides some operation on Array type
-    - [Objects](./modules/_types_objects_.html): Provides some operation on Object type
-    - [Strings](./modules/_types_strings_.html): : Provides some operation on String type
+    - [Arrays](https://kbukum.github.io/wasabi-common/modules/_types_arrays_.html): Provides some operation on Array type
+    - [Objects](https://kbukum.github.io/wasabi-common/modules/_types_objects_.html): Provides some operation on Object type
+    - [Strings](https://kbukum.github.io/wasabi-common/modules/_types_strings_.html): : Provides some operation on String type
 
 * util
-    - [Assertions](./modules/_util_assertions_.html): It used for validation
-    - [Functions](./modules/_util_functions_.html): Provides some useful methods (getType, has, requireEs6)
-    - [Resolver](./modules/_util_resolver_.html): Provides add module paths to the resolver.
-    - [Types](./modules/_util_types_.html): Provides some operations on any types.
+    - [Assertions](https://kbukum.github.io/wasabi-common/modules/_util_assertions_.html): It used for validation
+    - [Functions](https://kbukum.github.io/wasabi-common/modules/_util_functions_.html): Provides some useful methods (getType, has, requireEs6)
+    - [Resolver](https://kbukum.github.io/wasabi-common/modules/_util_resolver_.html): Provides add module paths to the resolver.
+    - [Types](https://kbukum.github.io/wasabi-common/modules/_util_types_.html): Provides some operations on any types.
     and defined some standard types in it. (Number, Boolean, Array, String, Date, RegExp: , Null, Function, Undefined, Object)
 
 #### Usage
@@ -30,7 +30,7 @@ Provides some common operations.
 npm install wasabi-common --save
 ```
 
-* Usage [Class](./modules/_lang_class_.html)
+* Usage [Class](https://kbukum.github.io/wasabi-common/modules/_lang_class_.html)
 
 ```typescript
 import { Class } from "wasabi-common"
@@ -48,7 +48,7 @@ export default class MyClass extends Class {
 
 ```
 
-* Usage [PropClass](./modules/_lang_propclass_.html)
+* Usage [PropClass](https://kbukum.github.io/wasabi-common/modules/_lang_propclass_.html)
 
 ```typescript
 import { PropClass } from "wasabi-common"
@@ -82,7 +82,7 @@ console.log(myClass.props);
 
 ```
 
-* Usage [Type](./modules/_lang_type_.html)
+* Usage [Type](https://kbukum.github.io/wasabi-common/modules/_lang_type_.html)
 
 ```typescript
 import { Type } from "wasabi-common";
@@ -110,21 +110,21 @@ functionType.equals(f1, f1);
 ```
 
 
-* Usage [Arrays](./modules/_types_arrays_.html)
+* Usage [Arrays](https://kbukum.github.io/wasabi-common/modules/_types_arrays_.html)
 
 ```typescript
 import { Arrays } from "wasabi-common";
 Arrays.has([]);
 ```
 
-* Usage [Objects](./modules/_types_objects_.html)
+* Usage [Objects](https://kbukum.github.io/wasabi-common/modules/_types_objects_.html)
 
 ```typescript
 import { Objects } from "wasabi-common";
 Objects.has({}); // false
 ```
 
-* Usage [Strings](./modules/_types_strings_.html)
+* Usage [Strings](https://kbukum.github.io/wasabi-common/modules/_types_strings_.html)
 
 ```typescript
 import { Strings } from "wasabi-common";
@@ -141,7 +141,7 @@ Strings.toString(null); // ""
 Strings.trim(" Example "); // "Example"
 ```
   
-* Usage [Assertions](./modules/_util_assertions_.html)
+* Usage [Assertions](https://kbukum.github.io/wasabi-common/modules/_util_assertions_.html)
 
 ```typescript
 import { Assertions } from "wasabi-common";
@@ -165,7 +165,7 @@ Assertions.isUndefined(value1); // false
 Assertions.isString(value1); // true
 ```
 
-* Usage [Functions](./modules/_util_functions_.html)
+* Usage [Functions](https://kbukum.github.io/wasabi-common/modules/_util_functions_.html)
 
 ```typescript
 import { has, requireEs6, getType } from "wasabi-common";
@@ -178,7 +178,7 @@ getType(""); // String
 getType(true); // Boolean
 ```
 
-* Usage [Resolver](./modules/_util_resolver_.html)
+* Usage [Resolver](https://kbukum.github.io/wasabi-common/modules/_util_resolver_.html)
 
 ```typescript
 import { addModule } from "wasabi-common";
@@ -187,7 +187,7 @@ addModule("src");
 const Arrays = requireEs6("types/Arrays") // absolute call
 ```
 
-* Usage [Types](./modules/_util_types_.html)
+* Usage [Types](https://kbukum.github.io/wasabi-common/modules/_util_types_.html)
 
 ```typescript
 import { Types } from "wasabi-common";
