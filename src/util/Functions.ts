@@ -1,32 +1,49 @@
 const startIndex: number = "[object ".length;
+
+/**
+ * get Type of instance as string like "String", "Number"...
+ * @param value
+ * @return {string}
+ */
 const getType = (value): string => {
     let type = Object.prototype.toString.call(value);
     return type.substring(startIndex, type.length - 1);
 };
 
+/**
+ * Checks value is (null, undefined) or not
+ * @param value
+ * @return {boolean}
+ */
 const has = (value): boolean => {
     return value !== null && typeof value !== "undefined";
 };
 
-const requireEs6 = (id: string) => {
+/**
+ * require Es6 modules by some rules.
+ * if module defined in default then return default module.
+ * @param id
+ * @param name
+ * @return {any}
+ */
+const requireEs6 = (id: string, name?: string) => {
     let module = require(id);
     if(module.__esModule) {
-        if(module.default) {
+        if(has(name)) {
+            return module[name];
+        } else if(module.default) {
             return module.default;
         }
+        // Checks one module is exist or not.
         let count = 0;
         let moduleKey;
         for(let key in module) {
-            if(module.hasOwnProperty(key)) {
-                if(count === 1) {
-                    count = -1;
-                    break;
-                }
+            if(module.hasOwnProperty(key) && key !== "__esModule") {
                 count++;
                 moduleKey = key;
             }
         }
-        if(count !== -1) {
+        if(count === 1) {
             return module[moduleKey];
         }
     }

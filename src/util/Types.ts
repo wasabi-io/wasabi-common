@@ -2,6 +2,21 @@ import Type, { IType } from "../lang/Type";
 
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 
+/**
+ * It will use if Type is not in {
+ * Number,
+ * Boolean,
+ * Array,
+ * String,
+ * Date,
+ * RegExp,
+ * Null,
+ * Function,
+ * Undefined,
+ * Object
+ * } types.
+ * @type {Type<Object>}
+ */
 const UnknownType = new Type<Object>({
     hasNot: (o: Object) => Type.hasNot(o),
     isPrimitive: () => false,
@@ -22,14 +37,23 @@ const UnknownType = new Type<Object>({
     }
 });
 
+
 export interface TypesMapProps {
     [key: string]: IType<any>
 }
+
 /**
  * Provides most used operations on types
  */
 export default class Types {
+    /**
+     * Holds Types
+     * @type {TypesMapProps}
+     */
     public static Map: TypesMapProps = {};
+    /**
+     * Holds standard types.
+     */
     public static readonly ToString = {
         Number: "[object Number]",
         Boolean: "[object Boolean]",
@@ -42,8 +66,9 @@ export default class Types {
         Undefined: "[object Undefined]",
         Object: "[object Object]",
     };
+
     /**
-     * finds @see Type by given object
+     * Finds @see Type by given object
      * @param {any} o
      * @return {IType<any>} provides most used operation on type
      * @public
@@ -52,24 +77,27 @@ export default class Types {
         let type = Types.Map[Type.getRawName(o)];
         return type ? type :  UnknownType;
     }
+
     /**
-     * gets type name of the given value.
+     * Gets type name of the given value.
      * @param o
      * @return {string}
      */
     public static getRawName = (o: any): string => {
         return Type.getRawName(o);
     };
+
     /**
-     * gets type name of the given value.
+     * Gets type name of the given value.
      * @param o
      * @return {string}
      */
     public static getName = (o: any): string => {
         return Type.getName(o);
     };
+
     /**
-    * finds @see Type by given name of object
+     * Finds @see Type by given name of object
      * @param {string} name
      * @return {IType<any>}
      * @public
@@ -103,7 +131,7 @@ export default class Types {
     }
 
     /**
-     *
+     * Checks the given src is equals the given dest or not.
      * @param src
      * @param dest
      * @return {boolean}
@@ -113,7 +141,7 @@ export default class Types {
     }
 
     /**
-     * check value is empty or not by type
+     * Checks value is empty or not by type.
      * @param o
      * @return {boolean}
      */
@@ -121,6 +149,11 @@ export default class Types {
         return Types.getType(o).hasNot(o);
     }
 
+    /**
+     * add new types which implements { @see IType<any> }
+     * @param obj
+     * @param type
+     */
     public static addType<T>(obj: string | T, type: IType<T>) {
         if(!type) {
             throw new Error("Given type ( "+ type +" ) is empty or null !");
@@ -134,9 +167,14 @@ export default class Types {
     }
 }
 
+/**
+ * Null or Undefined Type
+ * @type {Type<any>}
+ */
 const nullOrUndefined = new Type<any>({
     hasNot: () => true
 });
+
 // Null Type
 Types.Map[Types.ToString.Null] = nullOrUndefined;
 

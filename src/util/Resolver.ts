@@ -1,9 +1,31 @@
 import {resolve} from "path";
 import Strings from "../types/Strings";
+
+/**
+ * get native module instance.
+ * @type {Function}
+ */
 let ModuleClass: any = module.constructor;
+
+/**
+ * hold original resolver.
+ */
 let originalResolver = ModuleClass._resolveFilename;
+/**
+ * Holds module paths.
+ * @type {Array}
+ */
 let rootDirs = [];
+/**
+ * Holds finders to resolving classes.
+ * @type {Array}
+ */
 let finders = [];
+
+/**
+ * Holds aliases to resolve path
+ * @type {{length: number}}
+ */
 let aliases: {
     [key: string]: any
 } = {
@@ -11,10 +33,18 @@ let aliases: {
 };
 
 let baseUrl = null;
+/**
+ * change base url.
+ * @param path
+ */
 const addBaseUrl = (path: string) => {
     baseUrl = path;
 };
 
+/**
+ * add module root path to resolve files under it.
+ * @param path
+ */
 const addModule = (path: string) => {
     if(!path) return;
     if(rootDirs.indexOf(path) === -1) {
@@ -22,6 +52,10 @@ const addModule = (path: string) => {
     }
 };
 
+/**
+ * add module root paths  to resolve files under their.
+ * @param paths
+ */
 const addModules = (paths: string[]) => {
     if(!paths || paths.length === 0) return;
    for(let i = 0 ; i < paths.length; i++) {
@@ -29,13 +63,22 @@ const addModules = (paths: string[]) => {
    }
 };
 
+/**
+ * add alias to resolve files.
+ * @param alias
+ * @param pattern
+ */
 const addAlias = (alias, pattern) => {
     if(alias === "length") {
         throw new Error("length is a reserved word ! ");
     }
     aliases[alias] = pattern;
 };
-
+/**
+ * add new resolver to resolve files.
+ * @param finder
+ * @return {boolean}
+ */
 const addResolver = (finder: (request, parent, isMain) => any): boolean => {
     if(finder) {
         let finderIndex = finders.indexOf(finder);
@@ -58,6 +101,13 @@ const addResolver = (finder: (request, parent, isMain) => any): boolean => {
 };
 
 
+/**
+ * Use resolver to wrap origin resolver because of resolve files in different rules.
+ * @param request
+ * @param parent
+ * @param isMain
+ * @return {any}
+ */
 
 const resolver = (request, parent, isMain) => {
     try {
@@ -75,6 +125,11 @@ const resolver = (request, parent, isMain) => {
     }
 };
 
+/**
+ * change resolver
+ * @type resolver
+ * @private
+ */
 ModuleClass._resolveFilename = resolver;
 
 export {
@@ -82,4 +137,6 @@ export {
     addModule,
     addModules
 };
+
+
 

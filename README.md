@@ -18,7 +18,8 @@ Provides some common operations.
     - [Strings](https://kbukum.github.io/wasabi-common/modules/_types_strings_.html): : Provides some operation on String type
 
 * util
-    - [Assertions](https://kbukum.github.io/wasabi-common/modules/_util_assertions_.html): It used for validation
+    - [Validations](https://kbukum.github.io/wasabi-common/modules/_util_validations_): It used for validations.
+    - [Assertions](https://kbukum.github.io/wasabi-common/modules/_util_assertions_.html): It used for assertions.
     - [Functions](https://kbukum.github.io/wasabi-common/modules/_util_functions_.html): Provides some useful methods (getType, has, requireEs6)
     - [Resolver](https://kbukum.github.io/wasabi-common/modules/_util_resolver_.html): Provides add module paths to the resolver.
     - [Types](https://kbukum.github.io/wasabi-common/modules/_util_types_.html): Provides some operations on any types.

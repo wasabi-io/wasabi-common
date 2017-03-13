@@ -131,7 +131,7 @@ export default class Type<T> implements IType<T> {
      * @param o
      * @returns {any}
      */
-    public static getRawName = (o: any): string => {
+    public static getRawName (o: any): string {
         return toString.call(o);
     };
 
@@ -140,7 +140,7 @@ export default class Type<T> implements IType<T> {
      * @param o
      * @return {string}
      */
-    public static getName = (o: any): string => {
+    public static getName (o: any): string {
         let typeObjectString = toString.call(o);
         let startIndex = TYPE_PREFIX.length;
         let length = typeObjectString.length - startIndex -1;
@@ -152,42 +152,56 @@ export default class Type<T> implements IType<T> {
      * @param o
      * @return {boolean}
      */
-    public static hasNot(o: any){
+    public static hasNot(o: any) {
         return o === null || o === undefined
     }
     /**
      * Checks the given value is Json Type or not.
      * @return {boolean}
      */
-    public static isJsonType = () => true;
+    public static isJsonType () {
+        return true;
+    }
     /**
      * Checks the given value is primitive or not. Primitive mean you can use `=` (equality) sign on primitive types
      * @return {boolean}
      */
-    public static isPrimitive = () => true;
+    public static isPrimitive () {
+        return true;
+    }
     /**
      * Checks the given value is Native Type or not. Native types is used in core javascript library.
      * @return {boolean}
      */
-    public static isNativeType = () => true;
+    public static isNativeType () {
+        return true;
+    }
     /**
      * gets clone of the given value.
      * @param o
      * @return {any}
      */
-    public static getClone = <E> (o: E): E => {
+    public static getClone <E> (o: E): E {
         return o;
     };
+
     /**
      * gets size of the given value
      * @param o
      * @return {number}
      */
-    public static  getSize = (o: any): number =>  {
+    public static  getSize (o: any): number  {
         return 0;
-    };
+    }
 
-    public static equals = <E> (src: E, dest: E): boolean => {
+    /**
+     *
+     * Checks src is equals destination or not.
+     * @param src {E}
+     * @param dest {E}
+     * @return {boolean}
+     */
+    public static equals <E> (src: E, dest: E): boolean {
         return src === dest;
     }
 }
