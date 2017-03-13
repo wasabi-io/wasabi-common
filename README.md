@@ -1,5 +1,9 @@
 ## wasabi-common
 
+[![npm package](https://badge.fury.io/gh/kbukum%2Fwasabi-common.svg)](https://badge.fury.io/gh/kbukum%2Fwasabi-common.svg)
+[![Build Status](https://travis-ci.org/kbukum/wasabi-common.svg?branch=master)](https://travis-ci.org/kbukum/wasabi-common)
+[![codecov](https://codecov.io/gh/kbukum/wasabi-common/branch/master/graph/badge.svg)](https://codecov.io/gh/kbukum/wasabi-common)
+
 #### Motivation
 
 Provides some common operations.
