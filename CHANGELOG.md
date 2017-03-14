@@ -1,6 +1,10 @@
 ## CHANGE LOG
 
-#### v1.0.3 Developing ...
+#### v1.0.4 Developing ...
+
+#### v1.0.3
+* removed **util/Resolver** from index
+* fixed **util/Resolver** example in **README.md**
 
 #### v1.0.2
 * Changed method names and added comments to the **types/Objects** class

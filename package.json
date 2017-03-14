@@ -9,7 +9,7 @@
     "build": "rimraf ./lib && tsc",
     "docs": "rimraf ./docs && typedoc --module commonjs --target ES5 --name Wasabi-Common --readme ./README.md  --exclude **/*.spec.ts --out ./docs ./src && node node_modules/shx/lib/cli.js touch ./docs/.nojekyll"
   },
-  "author": "",
+  "author": "kamilbukum@gmail.com",
   "license": "MIT",
   "devDependencies": {
     "@types/chai": "^3.4.35",
@@ -24,6 +24,10 @@
     "ts-node": "^2.1.0",
     "typedoc": "^0.5.7",
     "typescript": "^2.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kbukum/wasabi-common.git"
   },
   "nyc": {
     "reporter": [

@@ -262,10 +262,11 @@ getType(true); // Boolean
 * Usage [Resolver](https://kbukum.github.io/wasabi-common/modules/_util_resolver_.html)
 
 ```typescript
-import { addModule } from "wasabi-common";
+import { requireEs6 } from "wasabi-common";
+import { addModule } from "wasabi-common/lib/util/Resolver";
 
 addModule("src");
-const Arrays = requireEs6("types/Arrays") // absolute call
+const Arrays = requireEs6("types/Arrays"); // absolute call
 ```
 
 * Usage <a name="Types"></a>[Types](https://kbukum.github.io/wasabi-common/modules/_util_types_.html)
