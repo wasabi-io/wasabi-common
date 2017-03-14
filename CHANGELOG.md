@@ -1,6 +1,9 @@
 ## CHANGE LOG
+#### v1.0.4  Developing ...
 
-#### v1.0.3  Developing ...
+#### v1.0.3
+* added typings.
+* added **types/Strings**, **types/Arrays**, **types/Objects** to index.
 
 #### v1.0.2
 * Changed method names and added comments to the **types/Objects** class
