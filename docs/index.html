@@ -310,10 +310,11 @@ getType(<span class="hljs-literal">true</span>); <span class="hljs-comment">// B
 				<ul>
 					<li>Usage <a href="https://kbukum.github.io/wasabi-common/modules/_util_resolver_.html">Resolver</a></li>
 				</ul>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { addModule } <span class="hljs-keyword">from</span> <span class="hljs-string">"wasabi-common"</span>;
+				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { requireEs6 } <span class="hljs-keyword">from</span> <span class="hljs-string">"wasabi-common"</span>;
+<span class="hljs-keyword">import</span> { addModule } <span class="hljs-keyword">from</span> <span class="hljs-string">"wasabi-common/lib/util/Resolver"</span>;
 
 addModule(<span class="hljs-string">"src"</span>);
-<span class="hljs-keyword">const</span> Arrays = requireEs6(<span class="hljs-string">"types/Arrays"</span>) <span class="hljs-comment">// absolute call</span>
+<span class="hljs-keyword">const</span> Arrays = requireEs6(<span class="hljs-string">"types/Arrays"</span>); <span class="hljs-comment">// absolute call</span>
 </code></pre>
 				<ul>
 					<li>Usage <a name="Types"></a><a href="https://kbukum.github.io/wasabi-common/modules/_util_types_.html">Types</a></li>
