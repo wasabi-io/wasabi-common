@@ -32,21 +32,26 @@ export interface MapCallback {
 /**
  * A class which provides some operations on Object {@see ObjectProps}
  * @export
+ * @static
  * @class Objects
  */
 export default class Objects {
     /**
      *
      * Checks the given Object (is exist or not) or (the given key is exist or not}
+     * @public
+     * @static
      * @param src {T}
      * @param key? {string}
      * @return {boolean}
      */
-    static has<T extends ObjectProps>(src: T, key?: string): boolean {
+    public static has<T extends ObjectProps>(src: T, key?: string): boolean {
         return has(src) && ( has(key) ? src.hasOwnProperty(key): Objects.getLength(src) > 0);
     }
     /**
      * Gets length of the given object keys
+     * @public
+     * @static
      * @param src
      * @returns {number}
      */
@@ -61,6 +66,8 @@ export default class Objects {
 
     /**
      * Removes value by the given key from the given object
+     * @public
+     * @static
      * @param src {T}
      * @param key {any}
      * @return {T}
@@ -73,6 +80,8 @@ export default class Objects {
 
     /**
      * Removes value from the given object
+     * @public
+     * @static
      * @param src {T}
      * @param value {any}
      * @return {T}
@@ -91,6 +100,8 @@ export default class Objects {
     /**
      * Provdes to navigate in the given Object and create an array from the result of the callback function.
      * if the result of the callback is empty then ignores it.
+     * @public
+     * @static
      * @param obj
      * @param callback
      * @returns {Array<T>}
@@ -111,6 +122,8 @@ export default class Objects {
 
     /**
      * Provides to navigate in the given Object and can broken if return false from callback function.
+     * @public
+     * @static
      * @param obj { T }
      * @param callback
      * @returns {boolean}
@@ -129,6 +142,8 @@ export default class Objects {
     }
     /**
      * Gets keys of the given object as string[].
+     * @public
+     * @static
      * @param src {T}
      * @returns {string[]}
      */
@@ -143,6 +158,8 @@ export default class Objects {
 
     /**
      * Adds value by key or keys to the given source Object
+     * @public
+     * @static
      * @param src {T}
      * @param key {string}
      * @param value {any}
@@ -165,6 +182,8 @@ export default class Objects {
 
     /**
      * Gets value by the given key or keys from the given source object
+     * @public
+     * @static
      * @param src {T}
      * @param key {string}
      * @param keys? {string[]}
@@ -183,6 +202,8 @@ export default class Objects {
 
     /**
      * Clones the given source object
+     * @public
+     * @static
      * @param src {T}
      * @param ignoreList? {string[]}
      * @return {T}
@@ -193,6 +214,8 @@ export default class Objects {
 
     /**
      * Merges the given source object and destination object by ignoreList.
+     * @public
+     * @static
      * @param src {S}
      * @param dest {D}
      * @param ignoreList? {string[]} specifies get clone of the element by type or not clones just return its.
@@ -217,7 +240,9 @@ export default class Objects {
 
     /**
      * Merges the given default props and the given props
-     * @param defaults {S}
+     * @public
+     * @static
+     * @param defaults {D}
      * @param props {P}
      * @return {any}
      */

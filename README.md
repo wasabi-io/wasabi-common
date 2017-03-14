@@ -153,14 +153,14 @@ const f1 = function Example() {
 
 - After you define type you can use below methods to check or get something from the type.
 ```typescript
-functionType.isEmpty(f1);
-functionType.isPrimitive(f1);
-functionType.isJsonType(f1);
-functionType.isNativeType(f1);
-functionType.getClone(f1);
-functionType.getName(f1);
-functionType.getSize(f1);
-functionType.equals(f1, f1);
+functionType.isEmpty(f1); // false
+functionType.isPrimitive(f1); // false
+functionType.isJsonType(f1); // false
+functionType.isNativeType(f1); // true
+functionType.getClone(f1); // same instance f1
+functionType.getName(f1); // Function
+functionType.getSize(f1); // 59 charachter * 2 = 118
+functionType.equals(f1, f1); // true
 ```
 
 ##### Usage [Arrays](https://kbukum.github.io/wasabi-common/modules/_types_arrays_.html): 
@@ -168,20 +168,41 @@ Provides some operation on Array type
 
 ```typescript
 import { Arrays } from "wasabi-common";
-let src = ["4"];
+let src = ["4", "5"];
 let index = 1;
-Arrays.has(src); // checks array has more then zero value or not -> true
-Arrays.has(src, index); // checks array more then index or not -> false
-Arrays.getLength(src: any[]): // get length of array 
-Arrays.remove(src: any[], index: number) // remove value by index from the src.
-Arrays.removeValue(src: any[], value: any) // remove value from the src recursively.
+let value = "4";
+Arrays.has(src); // true
+Arrays.has(src, index); // true
+Arrays.getLength(src); // 2
+Arrays.remove(src, index); // ["4"]
+Arrays.removeValue(src, value); // []
 ```
 
 * Usage [Objects](https://kbukum.github.io/wasabi-common/modules/_types_objects_.html)
 
 ```typescript
 import { Objects } from "wasabi-common";
-Objects.has({}); // false
+let src = {
+    key1: "3",
+    key2: "3",
+    key3: "6"
+};
+Objects.has(src); // true;
+Objects.has({}); // false;
+Objects.has(src, "key1"); // true;
+Objects.Objects.getLength(src); // 3
+Objects.remove(src, "key1"); // { key2: "3", key3: "6" }
+Objects.removeValue(src, "3"); // {key3: "6"}
+Objects.map(src, (value, key) => { return key + "->" value; }); // ["key3->6"]
+Objects.forEach(src, (value, key) => { console.log(key) });
+Objects.getKeys(src); // ["key3"]
+Objects.addValue(src, "key4", "5"); // { key3: "6", key4: "5" }
+Objects.addValue(src, "nestedObject", "5", ["key5"]); // { key3: "6", key4: "5", nestedObject: { key5: "5"} }
+Objects.getValue(src, "key4"); // "6"
+Objects.getValue(src, "nestedObject", ["key5"]); // "5"
+Objects.clone(src); // { key3: "6", key4: "5", nestedObject: { key5: "5"} }
+Objects.merge(src, { key5: "6", nestedObject: { key5: "7"}}); // { key3: "6", key4: "5", key5: "6", nestedObject: { key5: "5"} }
+Objects.mergeDefaults(src, { key5: "6", nestedObject: { key5: "7"}}); // { key3: "6", key4: "5", key5: "6", nestedObject: { key5: "7"} }
 ```
 
 * Usage [Strings](https://kbukum.github.io/wasabi-common/modules/_types_strings_.html)

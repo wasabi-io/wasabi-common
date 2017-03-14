@@ -1,6 +1,6 @@
 {
   "name": "wasabi-common",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "lib/index.js",
   "main": "lib/index.js",
   "scripts": {

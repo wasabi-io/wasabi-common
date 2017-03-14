@@ -1,19 +1,23 @@
 ## CHANGE LOG
 
-#### v1.0.3 Developing...
+#### v1.0.3 Developing ...
+
+#### v1.0.2
 * Changed method names and added comments to the **types/Objects** class
 * Changed method names and added comments to the **types/Arrays** class
 * Changed method names and added comments to the **types/Strings** class
-* Changed method names and added comments to the **types/Assertions** class
-* Changed method names and added comments to the **types/Functions** class
-* Changed method names and added comments to the **types/Resolver** class
-* Changed method names and added comments to the **types/Types** class
-* Added **types/Validations** class.
+* Changed method names and added comments to the **util/Assertions** class
+* Changed method names and added comments to the **util/Functions** class
+* Changed method names and added comments to the **util/Resolver** class
+* Changed method names and added comments to the **util/Types** class
+* Added **util/Validations** class.
 * Changed method names and added comments to the **types/Strings** class
 * Changed method names and added comments to the **types/Strings** class
-
-#### v1.0.2
 * fixed document link problems.
+* added **util/Assertions.spec.ts** tests.
+* added @public @static comment to the **types/Objects**
+* generated typedocs.
+* upgrade version. 
 
 #### v1.0.1
 * export typescript declarations
