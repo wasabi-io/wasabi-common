@@ -1,43 +1,43 @@
 ## wasabi-common 
 
-[![npm package](https://badge.fury.io/gh/kbukum%2Fwasabi-common.svg)](https://badge.fury.io/gh/kbukum%2Fwasabi-common.svg)
-[![Build Status](https://travis-ci.org/kbukum/wasabi-common.svg?branch=master)](https://travis-ci.org/kbukum/wasabi-common)
-[![codecov](https://codecov.io/gh/kbukum/wasabi-common/branch/master/graph/badge.svg)](https://codecov.io/gh/kbukum/wasabi-common)
+[![npm package](https://badge.fury.io/gh/wasabi-io%2Fwasabi-common.svg)](https://badge.fury.io/gh/wasabi-io%2Fwasabi-common.svg)
+[![Build Status](https://travis-ci.org/wasabi-io/wasabi-common.svg?branch=master)](https://travis-ci.org/wasabi-io/wasabi-common)
+[![codecov](https://codecov.io/gh/wasabi-io/wasabi-common/branch/master/graph/badge.svg)](https://codecov.io/gh/wasabi-io/wasabi-common)
 
 #### Motivation
 
 Provides some common operations.
 
-#### [Type Docs](https://kbukum.github.io/wasabi-common)
+#### [Type Docs](https://wasabi-io.github.io/wasabi-common)
 
 #### Common Classes
 
 * lang
-    - [Class](https://kbukum.github.io/wasabi-common/modules/_lang_class_.html) : 
+    - [Class](https://wasabi-io.github.io/wasabi-common/modules/_lang_class_.html) : 
     Provides to bind all methods of the instance when construct. 
-    - [PropClass](https://kbukum.github.io/wasabi-common/modules/_lang_propclass_.html) : 
+    - [PropClass](https://wasabi-io.github.io/wasabi-common/modules/_lang_propclass_.html) : 
     Provides to merge props and defaultProps when construct.
-    - [Type](https://kbukum.github.io/wasabi-common/modules/_lang_type_.html): 
+    - [Type](https://wasabi-io.github.io/wasabi-common/modules/_lang_type_.html): 
     Provides define new Type by some default methods. It is useful when cloning or merging. (isEmpty, isPrimitive, isJsonType, isNativeType, getClone, getName, getSize, equals)
       
 * types
-    - [Arrays](https://kbukum.github.io/wasabi-common/modules/_types_arrays_.html): 
+    - [Arrays](https://wasabi-io.github.io/wasabi-common/modules/_types_arrays_.html): 
     Provides some operation on Array type
-    - [Objects](https://kbukum.github.io/wasabi-common/modules/_types_objects_.html): 
+    - [Objects](https://wasabi-io.github.io/wasabi-common/modules/_types_objects_.html): 
     Provides some operation on Object type
-    - [Strings](https://kbukum.github.io/wasabi-common/modules/_types_strings_.html):
+    - [Strings](https://wasabi-io.github.io/wasabi-common/modules/_types_strings_.html):
     Provides some operation on String type
 
 * util
-    - [Validations](https://kbukum.github.io/wasabi-common/modules/_util_validations_): 
+    - [Validations](https://wasabi-io.github.io/wasabi-common/modules/_util_validations_): 
     It used for validations.
-    - [Assertions](https://kbukum.github.io/wasabi-common/modules/_util_assertions_.html): 
+    - [Assertions](https://wasabi-io.github.io/wasabi-common/modules/_util_assertions_.html): 
     It used for assertions.
-    - [Functions](https://kbukum.github.io/wasabi-common/modules/_util_functions_.html): 
+    - [Functions](https://wasabi-io.github.io/wasabi-common/modules/_util_functions_.html): 
     Provides some useful methods (getType, has, requireEs6)
-    - [Resolver](https://kbukum.github.io/wasabi-common/modules/_util_resolver_.html): 
+    - [Resolver](https://wasabi-io.github.io/wasabi-common/modules/_util_resolver_.html): 
     Provides add module paths to the resolver.
-    - [Types](https://kbukum.github.io/wasabi-common/modules/_util_types_.html): 
+    - [Types](https://wasabi-io.github.io/wasabi-common/modules/_util_types_.html): 
     Provides some operations on any types and defined some standard types in it. (Number, Boolean, Array, String, Date, RegExp: , Null, Function, Undefined, Object)
 
 
@@ -47,7 +47,7 @@ Provides some common operations.
 npm install wasabi-common --save
 ```
 
-##### Usage [Class](https://kbukum.github.io/wasabi-common/modules/_lang_class_.html) : 
+##### Usage [Class](https://wasabi-io.github.io/wasabi-common/modules/_lang_class_.html) : 
 Provides to bind all methods of the instance when construct.  
     
 * extend example **extends Class**
@@ -89,7 +89,7 @@ export default class MyClass extends Class {
  }
   ```
     
-##### Usage [PropClass](https://kbukum.github.io/wasabi-common/modules/_lang_propclass_.html) : 
+##### Usage [PropClass](https://wasabi-io.github.io/wasabi-common/modules/_lang_propclass_.html) : 
 Provides to merge props and defaultProps when construct.
 
 * define static defaultProps example **static defaultProps**
@@ -126,7 +126,7 @@ export default class MyClass extends PropClass {
 }
 ```
 
-##### Usage [Type](https://kbukum.github.io/wasabi-common/modules/_lang_type_.html): 
+##### Usage [Type](https://wasabi-io.github.io/wasabi-common/modules/_lang_type_.html): 
 Provides define new Type by some default methods. 
 It is useful when cloning or merging. 
 (isEmpty, isPrimitive, isJsonType, isNativeType, getClone, getName, getSize, equals)
@@ -163,7 +163,7 @@ functionType.getSize(f1); // 59 charachter * 2 = 118
 functionType.equals(f1, f1); // true
 ```
 
-##### Usage [Arrays](https://kbukum.github.io/wasabi-common/modules/_types_arrays_.html): 
+##### Usage [Arrays](https://wasabi-io.github.io/wasabi-common/modules/_types_arrays_.html): 
 Provides some operation on Array type
 
 ```typescript
@@ -178,7 +178,7 @@ Arrays.remove(src, index); // ["4"]
 Arrays.removeValue(src, value); // []
 ```
 
-* Usage [Objects](https://kbukum.github.io/wasabi-common/modules/_types_objects_.html)
+* Usage [Objects](https://wasabi-io.github.io/wasabi-common/modules/_types_objects_.html)
 
 ```typescript
 import { Objects } from "wasabi-common";
@@ -205,7 +205,7 @@ Objects.merge(src, { key5: "6", nestedObject: { key5: "7"}}); // { key3: "6", ke
 Objects.mergeDefaults(src, { key5: "6", nestedObject: { key5: "7"}}); // { key3: "6", key4: "5", key5: "6", nestedObject: { key5: "7"} }
 ```
 
-* Usage [Strings](https://kbukum.github.io/wasabi-common/modules/_types_strings_.html)
+* Usage [Strings](https://wasabi-io.github.io/wasabi-common/modules/_types_strings_.html)
 
 ```typescript
 import { Strings } from "wasabi-common";
@@ -222,7 +222,7 @@ Strings.toString(null); // ""
 Strings.trim(" Example "); // "Example"
 ```
   
-* Usage [Assertions](https://kbukum.github.io/wasabi-common/modules/_util_assertions_.html)
+* Usage [Assertions](https://wasabi-io.github.io/wasabi-common/modules/_util_assertions_.html)
 
 ```typescript
 import { Assertions } from "wasabi-common";
@@ -246,7 +246,7 @@ Assertions.isUndefined(value1); // false
 Assertions.isString(value1); // true
 ```
 
-* Usage [Functions](https://kbukum.github.io/wasabi-common/modules/_util_functions_.html)
+* Usage [Functions](https://wasabi-io.github.io/wasabi-common/modules/_util_functions_.html)
 
 ```typescript
 import { has, requireEs6, getType } from "wasabi-common";
@@ -259,7 +259,7 @@ getType(""); // String
 getType(true); // Boolean
 ```
 
-* Usage [Resolver](https://kbukum.github.io/wasabi-common/modules/_util_resolver_.html)
+* Usage [Resolver](https://wasabi-io.github.io/wasabi-common/modules/_util_resolver_.html)
 
 ```typescript
 import { requireEs6 } from "wasabi-common";
@@ -269,7 +269,7 @@ addModule("src");
 const Arrays = requireEs6("types/Arrays"); // absolute call
 ```
 
-* Usage <a name="Types"></a>[Types](https://kbukum.github.io/wasabi-common/modules/_util_types_.html)
+* Usage <a name="Types"></a>[Types](https://wasabi-io.github.io/wasabi-common/modules/_util_types_.html)
 
 ```typescript
 import { Types } from "wasabi-common";
@@ -282,5 +282,5 @@ Types.getName(value1); // String
 Types.getRawName(value1); // [object String]
 Types.getSize(value1); // 1    
 Types.getTypeByName(value1); // String
-
 )```
+
