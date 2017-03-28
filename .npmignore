@@ -12,3 +12,6 @@
 /jest.json
 /.coveralls.yml
 /yarn.lock
+/.nyc_output
+/docs
+/.idea

@@ -1,6 +1,9 @@
 ## CHANGE LOG
 
-#### v1.0.5  Developing ...
+#### v1.0.6 Developing ...
+
+#### v1.0.5
+* removed unused folders from the target ( published library to the npm)
 
 #### v1.0.4
 * moved wasabi-common under wasabi-io organization.
