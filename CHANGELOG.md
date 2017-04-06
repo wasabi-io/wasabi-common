@@ -1,6 +1,16 @@
 ## CHANGE LOG
 
-#### v1.0.6 Developing ...
+#### v1.0.8 Developing...
+
+#### v1.0.7
+* added some methods to **types/Arrays**, **types/Strings**
+* added some classes for common operations.
+    - **types/Chars**
+    - **types/Functions**
+    - **types/Maps**
+    - **util/Generator**
+    - **util/Properties**
+
 #### v1.0.6
 * removed unused folders from the target ( published library to the npm)
 

@@ -73,7 +73,7 @@
 				<h4 id="-type-docs-https-wasabi-io-github-io-wasabi-common-"><a href="https://wasabi-io.github.io/wasabi-common">Type Docs</a></h4>
 				<h4 id="common-classes">Common Classes</h4>
 				<ul>
-					<li><p>lang</p>
+					<li><p>lang <a href="./usage/lang.md">..more</a> </p>
 						<ul>
 							<li><a href="https://wasabi-io.github.io/wasabi-common/modules/_lang_class_.html">Class</a> :
 							Provides to bind all methods of the instance when construct. </li>
@@ -83,22 +83,32 @@
 							Provides define new Type by some default methods. It is useful when cloning or merging. (isEmpty, isPrimitive, isJsonType, isNativeType, getClone, getName, getSize, equals)</li>
 						</ul>
 					</li>
-					<li><p>types</p>
+					<li><p>types <a href="./usage/types.md">..more</a> </p>
 						<ul>
 							<li><a href="https://wasabi-io.github.io/wasabi-common/modules/_types_arrays_.html">Arrays</a>:
 							Provides some operation on Array type</li>
+							<li><a href="https://wasabi-io.github.io/wasabi-common/modules/_types_chars_.html">Chars</a>:
+							Provides some operation for chars.</li>
+							<li><a href="https://wasabi-io.github.io/wasabi-common/modules/_types_functions_.html">Functions</a>:
+							Provides some operation on Function type.</li>
+							<li><a href="https://wasabi-io.github.io/wasabi-common/modules/_types_maps_.html">Maps</a>:
+							Provides some operation on Map type.</li>
 							<li><a href="https://wasabi-io.github.io/wasabi-common/modules/_types_objects_.html">Objects</a>:
 							Provides some operation on Object type</li>
 							<li><a href="https://wasabi-io.github.io/wasabi-common/modules/_types_strings_.html">Strings</a>:
 							Provides some operation on String type</li>
 						</ul>
 					</li>
-					<li><p>util</p>
+					<li><p>util <a href="./usage/util.md">..more</a> </p>
 						<ul>
 							<li><a href="https://wasabi-io.github.io/wasabi-common/modules/_util_validations_">Validations</a>:
 							It used for validations.</li>
 							<li><a href="https://wasabi-io.github.io/wasabi-common/modules/_util_assertions_.html">Assertions</a>:
 							It used for assertions.</li>
+							<li><a href="https://wasabi-io.github.io/wasabi-common/modules/_util_generator_.html">Generator</a>:
+							Provides to generate some used values like <strong>guid</strong>.</li>
+							<li><a href="https://wasabi-io.github.io/wasabi-common/modules/_util_properties_.html">Properties</a>:
+							Provides to hold properties (key and value or keys and value) and provides some operation on property like add, get, merge.</li>
 							<li><a href="https://wasabi-io.github.io/wasabi-common/modules/_util_functions_.html">Functions</a>:
 							Provides some useful methods (getType, has, requireEs6)</li>
 							<li><a href="https://wasabi-io.github.io/wasabi-common/modules/_util_resolver_.html">Resolver</a>:
@@ -110,226 +120,6 @@
 				</ul>
 				<h4 id="usage">Usage</h4>
 				<pre><code class="lang-ssh">npm install wasabi-common --save
-</code></pre>
-				<h5 id="usage-class-https-wasabi-io-github-io-wasabi-common-modules-_lang_class_-html-">Usage <a href="https://wasabi-io.github.io/wasabi-common/modules/_lang_class_.html">Class</a> :</h5>
-				<p>Provides to bind all methods of the instance when construct.  </p>
-				<ul>
-					<li>extend example <strong>extends Class</strong></li>
-				</ul>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Class } <span class="hljs-keyword">from</span> <span class="hljs-string">"wasabi-common"</span>
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">class</span> MyClass <span class="hljs-keyword">extends</span> Class {
-    <span class="hljs-keyword">private</span> props;
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">constructor</span>(<span class="hljs-params">props</span>) {
-      <span class="hljs-keyword">super</span>();
-      <span class="hljs-keyword">this</span>.props = props;
-    }
-
-    <span class="hljs-comment">// exampleMethod will bind when MyClass construct</span>
-    exampleMethod(){
-
-    }
-}
-</code></pre>
-				<ul>
-					<li>static call example <strong>Class.bindAll(instance)</strong></li>
-				</ul>
-				<pre><code class="lang-typescript"> <span class="hljs-keyword">import</span> { Class } <span class="hljs-keyword">from</span> <span class="hljs-string">"wasabi-common"</span>
-
- <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">class</span> MyClass {
-     <span class="hljs-keyword">private</span> props;
-     <span class="hljs-keyword">public</span> <span class="hljs-keyword">constructor</span>(<span class="hljs-params">props</span>) {
-         Class.bindAll(<span class="hljs-keyword">this</span>);  
-         <span class="hljs-keyword">this</span>.props = props;
-     }
-
-     <span class="hljs-comment">// exampleMethod will bind when MyClass construct</span>
-     exampleMethod(){
-
-     }
- }
-</code></pre>
-				<h5 id="usage-propclass-https-wasabi-io-github-io-wasabi-common-modules-_lang_propclass_-html-">Usage <a href="https://wasabi-io.github.io/wasabi-common/modules/_lang_propclass_.html">PropClass</a> :</h5>
-				<p>Provides to merge props and defaultProps when construct.</p>
-				<ul>
-					<li>define static defaultProps example <strong>static defaultProps</strong>
-						```typescript
-					import { PropClass } from &quot;wasabi-common&quot;</li>
-				</ul>
-				<p>export default class MyClass extends PropClass {
-					static defaultProps = {
-					example: {
-					y: 5
-					}
-					}
-					props;
-					constructor(props) {
-					super(props);
-					}
-				}</p>
-				<pre><code>
-* use custom <span class="hljs-keyword">default</span> props example **customDefaults**
-```typescript
-<span class="hljs-keyword">import</span> { <span class="hljs-type">PropClass</span> } from <span class="hljs-string">"wasabi-common"</span>
-
-const customDefaults = {
-    example: {
-        y: <span class="hljs-number">5</span>
-    }
-};
-export <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">PropClass</span> </span>{
-    props;
-    constructor(props) {
-        <span class="hljs-keyword">super</span>(props, customDefaults);
-    }
-}
-</code></pre><h5 id="usage-type-https-wasabi-io-github-io-wasabi-common-modules-_lang_type_-html-">Usage <a href="https://wasabi-io.github.io/wasabi-common/modules/_lang_type_.html">Type</a>:</h5>
-				<p>Provides define new Type by some default methods.
-					It is useful when cloning or merging.
-				(isEmpty, isPrimitive, isJsonType, isNativeType, getClone, getName, getSize, equals)</p>
-				<ul>
-					<li>What&#39;is benefit of use Type class: Before check <a href="#Types">Types</a> class. As you can see you can add Type instance to Types.
-					After that if you clone, getSize ex. methods. Types recursively find types and call their methods. </li>
-					<li>Some Type already defined. (Number, Boolean, Array, String, Date, RegExp: , Null, Function, Undefined, Object)</li>
-				</ul>
-				<p>-- Define example type. (This is Function Type)</p>
-				<pre><code class="lang-typescript">import { Type } from "wasabi-common";
-let functionType = new Type&lt;Function&gt;({
-    isPrimitive: (): boolean =&gt; false,
-    isJsonType: (): boolean =&gt; false,
-    getSize: (o: Function): number =&gt; {
-        return (o as any).toString().length * 2;
-    }
-}
-
-const f1 = function Example() {
-    console.log("Example function");
-}
-</code></pre>
-				<ul>
-					<li>After you define type you can use below methods to check or get something from the type.<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-title">Type</span>.<span class="hljs-title">isEmpty</span>(<span class="hljs-params">f1</span>)</span>; <span class="hljs-comment">// false</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-title">Type</span>.<span class="hljs-title">isPrimitive</span>(<span class="hljs-params">f1</span>)</span>; <span class="hljs-comment">// false</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-title">Type</span>.<span class="hljs-title">isJsonType</span>(<span class="hljs-params">f1</span>)</span>; <span class="hljs-comment">// false</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-title">Type</span>.<span class="hljs-title">isNativeType</span>(<span class="hljs-params">f1</span>)</span>; <span class="hljs-comment">// true</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-title">Type</span>.<span class="hljs-title">getClone</span>(<span class="hljs-params">f1</span>)</span>; <span class="hljs-comment">// same instance f1</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-title">Type</span>.<span class="hljs-title">getName</span>(<span class="hljs-params">f1</span>)</span>; <span class="hljs-comment">// Function</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-title">Type</span>.<span class="hljs-title">getSize</span>(<span class="hljs-params">f1</span>)</span>; <span class="hljs-comment">// 59 charachter * 2 = 118</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-title">Type</span>.<span class="hljs-title">equals</span>(<span class="hljs-params">f1, f1</span>)</span>; <span class="hljs-comment">// true</span>
-</code></pre>
-					</li>
-				</ul>
-				<h5 id="usage-arrays-https-wasabi-io-github-io-wasabi-common-modules-_types_arrays_-html-">Usage <a href="https://wasabi-io.github.io/wasabi-common/modules/_types_arrays_.html">Arrays</a>:</h5>
-				<p>Provides some operation on Array type</p>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Arrays } <span class="hljs-keyword">from</span> <span class="hljs-string">"wasabi-common"</span>;
-<span class="hljs-keyword">let</span> src = [<span class="hljs-string">"4"</span>, <span class="hljs-string">"5"</span>];
-<span class="hljs-keyword">let</span> index = <span class="hljs-number">1</span>;
-<span class="hljs-keyword">let</span> value = <span class="hljs-string">"4"</span>;
-Arrays.has(src); <span class="hljs-comment">// true</span>
-Arrays.has(src, index); <span class="hljs-comment">// true</span>
-Arrays.getLength(src); <span class="hljs-comment">// 2</span>
-Arrays.remove(src, index); <span class="hljs-comment">// ["4"]</span>
-Arrays.removeValue(src, value); <span class="hljs-comment">// []</span>
-</code></pre>
-				<ul>
-					<li>Usage <a href="https://wasabi-io.github.io/wasabi-common/modules/_types_objects_.html">Objects</a></li>
-				</ul>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Objects } <span class="hljs-keyword">from</span> <span class="hljs-string">"wasabi-common"</span>;
-<span class="hljs-keyword">let</span> src = {
-    key1: <span class="hljs-string">"3"</span>,
-    key2: <span class="hljs-string">"3"</span>,
-    key3: <span class="hljs-string">"6"</span>
-};
-Objects.has(src); <span class="hljs-comment">// true;</span>
-Objects.has({}); <span class="hljs-comment">// false;</span>
-Objects.has(src, <span class="hljs-string">"key1"</span>); <span class="hljs-comment">// true;</span>
-Objects.Objects.getLength(src); <span class="hljs-comment">// 3</span>
-Objects.remove(src, <span class="hljs-string">"key1"</span>); <span class="hljs-comment">// { key2: "3", key3: "6" }</span>
-Objects.removeValue(src, <span class="hljs-string">"3"</span>); <span class="hljs-comment">// {key3: "6"}</span>
-Objects.map(src, <span class="hljs-function">(<span class="hljs-params">value, key</span>) =&gt;</span> { <span class="hljs-keyword">return</span> key + <span class="hljs-string">"-&gt;"</span> value; }); <span class="hljs-comment">// ["key3-&gt;6"]</span>
-Objects.forEach(src, <span class="hljs-function">(<span class="hljs-params">value, key</span>) =&gt;</span> { <span class="hljs-built_in">console</span>.log(key) });
-Objects.getKeys(src); <span class="hljs-comment">// ["key3"]</span>
-Objects.addValue(src, <span class="hljs-string">"key4"</span>, <span class="hljs-string">"5"</span>); <span class="hljs-comment">// { key3: "6", key4: "5" }</span>
-Objects.addValue(src, <span class="hljs-string">"nestedObject"</span>, <span class="hljs-string">"5"</span>, [<span class="hljs-string">"key5"</span>]); <span class="hljs-comment">// { key3: "6", key4: "5", nestedObject: { key5: "5"} }</span>
-Objects.getValue(src, <span class="hljs-string">"key4"</span>); <span class="hljs-comment">// "6"</span>
-Objects.getValue(src, <span class="hljs-string">"nestedObject"</span>, [<span class="hljs-string">"key5"</span>]); <span class="hljs-comment">// "5"</span>
-Objects.clone(src); <span class="hljs-comment">// { key3: "6", key4: "5", nestedObject: { key5: "5"} }</span>
-Objects.merge(src, { key5: <span class="hljs-string">"6"</span>, nestedObject: { key5: <span class="hljs-string">"7"</span>}}); <span class="hljs-comment">// { key3: "6", key4: "5", key5: "6", nestedObject: { key5: "5"} }</span>
-Objects.mergeDefaults(src, { key5: <span class="hljs-string">"6"</span>, nestedObject: { key5: <span class="hljs-string">"7"</span>}}); <span class="hljs-comment">// { key3: "6", key4: "5", key5: "6", nestedObject: { key5: "7"} }</span>
-</code></pre>
-				<ul>
-					<li>Usage <a href="https://wasabi-io.github.io/wasabi-common/modules/_types_strings_.html">Strings</a></li>
-				</ul>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Strings } <span class="hljs-keyword">from</span> <span class="hljs-string">"wasabi-common"</span>;
-Strings.capitalizeFirstLetter(<span class="hljs-string">"example"</span>); <span class="hljs-comment">// "Example"</span>
-Strings.endsWith(<span class="hljs-string">"Example"</span>, <span class="hljs-string">"ex"</span>); <span class="hljs-comment">// false</span>
-Strings.has(<span class="hljs-string">""</span>); <span class="hljs-comment">// false</span>
-Strings.lPad(<span class="hljs-string">"example"</span>, <span class="hljs-string">"0"</span>, <span class="hljs-number">10</span>); <span class="hljs-comment">// "000example"</span>
-Strings.lTrim(<span class="hljs-string">" example "</span>); <span class="hljs-comment">// "example "</span>
-Strings.partsByNumber(<span class="hljs-string">"example"</span>, <span class="hljs-number">2</span>); <span class="hljs-comment">// ["ex", "am", "pl", "e"]</span>
-Strings.rPad(<span class="hljs-string">"example"</span>, <span class="hljs-string">"0"</span>, <span class="hljs-number">10</span>); <span class="hljs-comment">// "example000"</span>
-Strings.rTrim(<span class="hljs-string">" example "</span>); <span class="hljs-comment">// " example"</span>
-Strings.startsWith(<span class="hljs-string">"Example"</span>, <span class="hljs-string">"ex"</span>); <span class="hljs-comment">// false</span>
-Strings.toString(<span class="hljs-literal">null</span>); <span class="hljs-comment">// ""</span>
-Strings.trim(<span class="hljs-string">" Example "</span>); <span class="hljs-comment">// "Example"</span>
-</code></pre>
-				<ul>
-					<li>Usage <a href="https://wasabi-io.github.io/wasabi-common/modules/_util_assertions_.html">Assertions</a></li>
-				</ul>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Assertions } <span class="hljs-keyword">from</span> <span class="hljs-string">"wasabi-common"</span>;
-<span class="hljs-keyword">let</span> value1 = <span class="hljs-string">"5"</span>;
-<span class="hljs-keyword">let</span> value2 = <span class="hljs-string">"example"</span>;
-Assertions.equals(value1, value2); <span class="hljs-comment">// false</span>
-Assertions.hasNot(value1); <span class="hljs-comment">// false</span>
-Assertions.has(value1); <span class="hljs-comment">// true</span>
-Assertions.isArray(value1); <span class="hljs-comment">// false</span>
-Assertions.isBoolean(value1); <span class="hljs-comment">// false</span>
-Assertions.isDate(value1); <span class="hljs-comment">// false</span>
-Assertions.isFunction(value1); <span class="hljs-comment">// false</span>
-Assertions.isJsonType(value1); <span class="hljs-comment">// true</span>
-Assertions.isNativeType(value1); <span class="hljs-comment">// true</span>
-Assertions.isPrimitive(value1); <span class="hljs-comment">// true</span>
-Assertions.isNull(value1); <span class="hljs-comment">// false</span>
-Assertions.isObject(value1); <span class="hljs-comment">// false</span>
-Assertions.isNumber(value1); <span class="hljs-comment">// false</span>
-Assertions.isRegExp(value1); <span class="hljs-comment">// false</span>
-Assertions.isUndefined(value1); <span class="hljs-comment">// false</span>
-Assertions.isString(value1); <span class="hljs-comment">// true</span>
-</code></pre>
-				<ul>
-					<li>Usage <a href="https://wasabi-io.github.io/wasabi-common/modules/_util_functions_.html">Functions</a></li>
-				</ul>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { has, requireEs6, getType } <span class="hljs-keyword">from</span> <span class="hljs-string">"wasabi-common"</span>;
-has(<span class="hljs-literal">null</span>); <span class="hljs-comment">// false</span>
-has(<span class="hljs-literal">undefined</span>); <span class="hljs-comment">// false</span>
-has(<span class="hljs-string">""</span>); <span class="hljs-comment">// true</span>
-has({}); <span class="hljs-comment">// true</span>
-requireEs6(<span class="hljs-string">"./wasabi-common/lib/types/Arrays"</span>) <span class="hljs-comment">// Arrays</span>
-getType(<span class="hljs-string">""</span>); <span class="hljs-comment">// String</span>
-getType(<span class="hljs-literal">true</span>); <span class="hljs-comment">// Boolean</span>
-</code></pre>
-				<ul>
-					<li>Usage <a href="https://wasabi-io.github.io/wasabi-common/modules/_util_resolver_.html">Resolver</a></li>
-				</ul>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { requireEs6 } <span class="hljs-keyword">from</span> <span class="hljs-string">"wasabi-common"</span>;
-<span class="hljs-keyword">import</span> { addModule } <span class="hljs-keyword">from</span> <span class="hljs-string">"wasabi-common/lib/util/Resolver"</span>;
-
-addModule(<span class="hljs-string">"src"</span>);
-<span class="hljs-keyword">const</span> Arrays = requireEs6(<span class="hljs-string">"types/Arrays"</span>); <span class="hljs-comment">// absolute call</span>
-</code></pre>
-				<ul>
-					<li>Usage <a name="Types"></a><a href="https://wasabi-io.github.io/wasabi-common/modules/_util_types_.html">Types</a></li>
-				</ul>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Types } <span class="hljs-keyword">from</span> <span class="hljs-string">"wasabi-common"</span>;
-<span class="hljs-keyword">let</span> value1 = <span class="hljs-string">"5"</span>;
-<span class="hljs-keyword">let</span> value2 = <span class="hljs-string">"example"</span>;
-Types.equals(value1, value2); <span class="hljs-comment">// false</span>
-Types.getType(value1); <span class="hljs-comment">// String Type Instance</span>
-Types.getClone(value1); <span class="hljs-comment">// "5"</span>
-Types.getName(value1); <span class="hljs-comment">// String</span>
-Types.getRawName(value1); <span class="hljs-comment">// [object String]</span>
-Types.getSize(value1); <span class="hljs-comment">// 1    </span>
-Types.getTypeByName(value1); <span class="hljs-comment">// String</span>
-)
 </code></pre>
 			</div>
 		</div>
@@ -361,6 +151,15 @@ Types.getTypeByName(value1); <span class="hljs-comment">// String</span>
 						<a href="modules/_types_arrays_.html">"types/<wbr>Arrays"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_chars_.html">"types/<wbr>Chars"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_functions_.html">"types/<wbr>Functions"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_maps_.html">"types/<wbr>Maps"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="modules/_types_objects_.html">"types/<wbr>Objects"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -374,6 +173,12 @@ Types.getTypeByName(value1); <span class="hljs-comment">// String</span>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_util_functions_.html">"util/<wbr>Functions"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_util_generator_.html">"util/<wbr>Generator"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_util_properties_.html">"util/<wbr>Properties"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_util_resolver_.html">"util/<wbr>Resolver"</a>

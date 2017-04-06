@@ -1,5 +1,5 @@
 import { has } from "../util/Functions";
-
+import Types from "../util/Types";
 /**
  * A class which provides some operations on Array
  * @export
@@ -24,6 +24,28 @@ export default class Arrays {
      */
     public static getLength(src: any[]): number {
         return Arrays.has(src) ? src.length: 0;
+    }
+
+    /**
+     * Provides to add the given item to the given array by index.
+     * @param src
+     * @param value
+     * @param index
+     * @return {boolean}
+     */
+    public static add(src:any[], value:any, index: number): boolean {
+        if(!src) return false;
+        if(index > 0) {
+            if(index < src.length) {
+                src.splice(index, 0, value);
+                return true;
+            } else if(index === src.length) {
+                src[index] = value;
+                return true;
+            }
+            return false;
+        }
+        return false;
     }
 
     /**
@@ -52,5 +74,107 @@ export default class Arrays {
             }
         }
         return src;
+    }
+
+    /**
+     * Provides to push the given src array to the destination array.
+     * @param {any[]} src
+     * @param {any[]} destination
+     * @return {any[]}
+     */
+    public static pushAll(src: any[], destination: any[]) {
+        if(!Arrays.has(src)) return destination;
+        if(!destination) destination = [];
+        for(let i = 0; i < src.length; i++) {
+            destination.push(src[i]);
+        }
+        return destination;
+    }
+
+    /**
+     * Provides to removes the given source array to the given destination array.
+     * @param src
+     * @param dest
+     * @return {any}
+     */
+    public static removeAll<T>(src: T[], dest: T[]): T[] {
+        if(!dest) return [];
+        if(!src || src.length === 0) return dest.slice(0);
+        let newArray = [];
+        for(let i = 0 ; i < dest.length; i++) {
+            let value = dest[i];
+            if(src.indexOf(value) === -1) {
+                newArray.push(dest[i]);
+            }
+        }
+        return newArray;
+    }
+
+    /**
+     * Provides to navigate in the given Object and create an array from the result of the callback function.
+     * if the result of the callback is empty then ignores it.
+     * @param {any[]} array
+     * @param {(item: any, index?: number, obj?: Object) => T} callback
+     * @returns {Array<T>}
+     */
+    public static map<T>(array: any[], callback: (item: any, index?: number, obj?: Object) => T): T[] {
+        let result = [];
+        for(let i = 0 ; i < array.length; i++) {
+            let callbackResult = callback(array[i], i, array);
+            if(has(callbackResult)) {
+                result[result.length] = callbackResult;
+            }
+        }
+        return result;
+    }
+
+
+    /**
+     * Provides to navigate in the given Object and can broken if return false from callback function.
+     * @param {any[]} array
+     * @param {(item: any, index?: number, obj?: Object) => boolean | void} callback
+     * @returns {boolean}
+     */
+    public static forEach(array: any[], callback: (item: any, index?: number, obj?: Object) => boolean | void): boolean {
+        for(let i = 0 ; i < array.length; i++) {
+            let callbackResult = callback(array[i], i, array);
+            if(callbackResult === false) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     *
+     * Merges the given arrays.
+     * @param {Array<T>[]} arrays
+     * @return {T[]}
+     */
+    public static merge(...arrays: any[][]): any[] {
+        let resultArray: any[] = [];
+        for(let i = 0; i < arrays.length; i++) {
+            let array = arrays[i];
+            if(!array) continue;
+            for(let i = 0 ; i < array.length; i++) {
+                let element = array[i];
+                labelSwitch: switch (Types.getRawName(element)) {
+                    case Types.ToString.Array:
+                    case Types.ToString.Object:
+                        for(let i = 0 ; i < resultArray.length; i++) {
+                            if(Types.equals(resultArray[i], element)) {
+                                break labelSwitch;
+                            }
+                        }
+                        resultArray.push(element);
+                        break;
+                    default:
+                        if(resultArray.indexOf(element) === -1) {
+                            resultArray.push(element);
+                        }
+                }
+            }
+        }
+        return resultArray;
     }
 }

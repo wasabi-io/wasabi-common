@@ -28,5 +28,4 @@ describe("util/Functions", () => {
         };
         expect(requireEs6("util/Functions")).to.be.deep.eq(expected);
     });
-
 });

@@ -153,4 +153,42 @@ export default class Strings {
         }
         return values;
     }
+
+    /**
+     *
+     * @param value
+     * @param search
+     * @param replacement
+     * @return {string}
+     */
+    public static replaceAll(value: string, search: string, replacement: string) {
+        if(!has(value)) {
+            return value;
+        }
+        return value.split(search).join(replacement);
+    }
+
+    /**
+     * reverse string
+     * @param value
+     * @return {string}
+     */
+    public static reverse(value: string): string {
+        return value ? value.split("").reverse().join(""): value;
+    }
+
+    /**
+     * Provides to navigate in the given Object and can broken if return false from callback function.
+     * @param value
+     * @param callback
+     * @return {boolean}
+     */
+    public static forEach(value: string, callback: (c: string, index?: number) => boolean | void): boolean {
+        for(let i = 0 ; i < value.length; i++) {
+            if(callback(value.charAt(i), i) === false ) {
+                break;
+            }
+        }
+        return true;
+    }
 }

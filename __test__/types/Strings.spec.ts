@@ -89,4 +89,12 @@ describe("util/Strings", () => {
         expect(Strings.partsByNumber(null, 2)).to.be.deep.eq([]);
         expect(Strings.partsByNumber(undefined, 2)).to.be.deep.eq([]);
     });
+
+    it("replaceAll", () => {
+        expect(Strings.replaceAll("Kiaimil", "i", "c")).to.be.eq("Kcacmcl");
+    });
+
+    it("reverse", () => {
+        expect(Strings.reverse("Kamil")).to.be.eq("limaK");
+    });
 });
