@@ -1,4 +1,5 @@
-import {resolve} from "path";
+import "../prototype";
+import { resolve } from "path";
 import Strings from "../types/Strings";
 
 /**

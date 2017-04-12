@@ -1,3 +1,4 @@
+import "../prototype";
 const startIndex: number = "[object ".length;
 
 /**

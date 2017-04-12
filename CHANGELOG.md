@@ -1,6 +1,9 @@
 ## CHANGE LOG
 
-#### v1.0.8 Developing...
+#### v1.0.9 Developing...
+
+#### v1.0.8
+* added function.name to the **prototype**
 
 #### v1.0.7
 * added some methods to **types/Arrays**, **types/Strings**
