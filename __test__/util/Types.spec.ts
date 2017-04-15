@@ -72,7 +72,7 @@ describe("util/Types", () => {
          expect(Types.getClone({ a1: "example", a2: ["example"]})).to.deep.eq({ a1: "example", a2: ["example"]});
          expect(Types.getClone({ a1: "example", a2: ["example"]}, ["Array"])).to.deep.eq({ a1: "example", a2: ["example"]});
          let date = new Date();
-         expect(Types.getClone(new Date())).to.deep.eq(date);
+         expect(Types.getClone(date)).to.deep.eq(date);
     });
 
     it("getSize", () => {

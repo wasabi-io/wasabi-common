@@ -25,7 +25,8 @@ if (typeof Object.assign!= "function") {
 }
 
 // Fix Function#name on browsers that do not support it (IE):
-if (!(function f() {}).name) {
+let emptyFn: any = (function f() {});
+if (!emptyFn.name) {
     Object.defineProperty(Function.prototype, "name", {
         get: function() {
             let name = (this.toString().match(/^function\s*([^\s(]+)/) || [])[1];

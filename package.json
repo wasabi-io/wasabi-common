@@ -1,11 +1,11 @@
 {
   "name": "wasabi-common",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "lib/index.js",
   "main": "lib/index.js",
   "typings": "lib/index",
   "scripts": {
-    "test": "nyc --reporter=html --reporter=text --reporter=lcov mocha --opts mocha.opts",
+    "test": "rimraf ./coverage && nyc --reporter=html --reporter=text --reporter=lcov mocha --opts mocha.opts",
     "coverage": "nyc report --reporter=lcov --reporter=text-lcov | coveralls",
     "build": "rimraf ./lib && tsc",
     "docs": "rimraf ./docs && typedoc --module commonjs --target ES5 --name Wasabi-Common --readme ./README.md  --exclude **/*.spec.ts --out ./docs ./src && node node_modules/shx/lib/cli.js touch ./docs/.nojekyll"

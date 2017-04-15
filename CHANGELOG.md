@@ -1,6 +1,11 @@
 ## CHANGE LOG
 
-#### v1.0.9 Developing...
+#### v1.0.10 Developing...
+
+#### v1.0.9
+
+* fixed **types/Object.mergeDefaults** boolean problem.
+* fixed fn hasn't name problem for typescript.
 
 #### v1.0.8
 * added function.name to the **prototype**

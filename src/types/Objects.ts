@@ -252,7 +252,7 @@ export default class Objects {
         if(Validations.isObject(defaults)) {
             for (let key in defaults) {
                 if (defaults.hasOwnProperty(key)) {
-                    if(props[key]) {
+                    if(has(props[key])) {
                         if(Validations.isObject(defaults[key]) && Validations.isObject(props[key])) {
                             props[key] = Objects.mergeDefaults(defaults[key], props[key]);
                         }
