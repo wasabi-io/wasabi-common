@@ -1,6 +1,10 @@
 ## CHANGE LOG
 
-#### v1.0.10 Developing...
+#### v1.0.11 Developing...
+
+#### v1.0.10
+
+* changed **lang/PropClass** from *abstract class* to *class*.
 
 #### v1.0.9
 

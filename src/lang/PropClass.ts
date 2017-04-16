@@ -11,7 +11,7 @@ export interface IPropClass {
  * @export
  * @class PropsClass
  */
-abstract class PropsClass extends Class implements IPropClass {
+export default class PropsClass extends Class implements IPropClass {
     props: any;
 
     /**
@@ -27,4 +27,3 @@ abstract class PropsClass extends Class implements IPropClass {
     }
 }
 
-export default PropsClass;
