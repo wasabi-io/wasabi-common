@@ -1,4 +1,4 @@
-import { getType, has, requireEs6 } from "util/Functions"
+import { asEs6Module, getType, has, requireEs6 } from "util/Functions"
 import { expect } from "chai";
 describe("util/Functions", () => {
     it("getType", () => {
@@ -22,6 +22,7 @@ describe("util/Functions", () => {
 
     it("requireEs6", () => {
         let expected = {
+            asEs6Module,
             getType,
             has,
             requireEs6

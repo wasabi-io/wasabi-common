@@ -53,7 +53,7 @@ Provides some common operations.
 
 #### Usage
 
-```ssh
+```bash
 npm install wasabi-common --save
 ```
    

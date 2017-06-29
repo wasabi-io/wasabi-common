@@ -110,7 +110,7 @@ export default class Type<T> implements IType<T> {
      * @param o
      * @return {number}
      */
-    readonly equals: <E> (src: E, dest: E) => boolean;
+    readonly equals: (src: any, dest: any) => boolean;
     /**
      * sets initial properties to type from the given properties which implements IType<T> interfaces.
      * Check the given property if property not exist then apply standart properties which are defined as static members.
@@ -201,7 +201,7 @@ export default class Type<T> implements IType<T> {
      * @param dest {E}
      * @return {boolean}
      */
-    public static equals <E> (src: E, dest: E): boolean {
+    public static equals (src: any, dest: any): boolean {
         return src === dest;
     }
 }
