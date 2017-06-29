@@ -1,6 +1,9 @@
 ## CHANGE LOG
 
+#### v1.0.13 Developing...
+
 #### v1.0.12
+** Fixed wrong exporting version.
 
 #### v1.0.11
 ** add asEs6Module function to convert required files as ES6 module.
