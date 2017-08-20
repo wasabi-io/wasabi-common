@@ -1,4 +1,4 @@
-import Types from "wasabi-common/lib/util/Types";
+import Types from "../util/Types";
 
 export default class Set<E = any> {
     private _length: number = 0;

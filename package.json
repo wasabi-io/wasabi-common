@@ -1,13 +1,13 @@
 {
   "name": "wasabi-common",
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0-alpha.2",
   "description": "lib/index.js",
   "main": "lib/index.js",
   "typings": "index",
   "scripts": {
     "testd": "electron-mocha --renderer --interactive --opts ./tools/test/mocha.opts",
     "test": "electron-mocha --renderer --opts ./tools/test/mocha.opts",
-    "build": "rimraf ./lib && tsc -p ./tools/tsconfig.build.json",
+    "build": "rimraf ./lib && tsc -p ./tsconfig.build.json",
     "docs": "rimraf ./docs && typedoc --name Wasabi-Common --readme ./README.md --exclude **/__test__/**/* --out ./docs/ ./src/  && node node_modules/shx/lib/cli.js touch ./docs/.nojekyll"
   },
   "author": "kamilbukum@gmail.com",
