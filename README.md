@@ -12,14 +12,24 @@ Provides some common operations.
 
 #### Common Classes
 
+* collection [..more](./usage/collection.md)
+  - [Collection](https://wasabi-io.github.io/wasabi-common/modules/_collection_collection_.html) :
+     Provides forEach, map utility methods for Object and Array.
+  - [Iterator](https://wasabi-io.github.io/wasabi-common/modules/_collection_iterator_.html):
+     Provides iterate on array.
+  - [Set](https://wasabi-io.github.io/wasabi-common/modules/_collection_set_.html):
+     Provides set list.
+  - [Map](https://wasabi-io.github.io/wasabi-common/modules/_collection_map_.html):
+     Provides map entry list.
+
+
 * lang [..more](./usage/lang.md) 
-    - [Class](https://wasabi-io.github.io/wasabi-common/modules/_lang_class_.html) : 
-    Provides to bind all methods of the instance when construct. 
-    - [PropClass](https://wasabi-io.github.io/wasabi-common/modules/_lang_propclass_.html) : 
-    Provides to merge props and defaultProps when construct.
-    - [Type](https://wasabi-io.github.io/wasabi-common/modules/_lang_type_.html): 
-    Provides define new Type by some default methods. It is useful when cloning or merging. (isEmpty, isPrimitive, isJsonType, isNativeType, getClone, getName, getSize, equals)
-      
+  - [Binder](https://wasabi-io.github.io/wasabi-common/modules/_lang_binder_.html) :
+     Provides to bind all methods of the instance when construct.
+  - [Type](https://wasabi-io.github.io/wasabi-common/modules/_lang_type_.html):
+     Provides define new Type by some default methods. It is useful when cloning or merging. (isEmpty, isPrimitive, isJsonType, isNativeType, getClone, getName, getSize, equals)
+
+
 * types [..more](./usage/types.md) 
     - [Arrays](https://wasabi-io.github.io/wasabi-common/modules/_types_arrays_.html): 
     Provides some operation on Array type

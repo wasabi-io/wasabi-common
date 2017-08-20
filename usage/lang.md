@@ -3,7 +3,7 @@
   - [Binder](https://wasabi-io.github.io/wasabi-common/modules/_lang_binder_.html) :
      Provides to bind all methods of the instance when construct. 
   - [Type](https://wasabi-io.github.io/wasabi-common/modules/_lang_type_.html):
-  Provides define new Type by some default methods. It is useful when cloning or merging. (isEmpty, isPrimitive, isJsonType, isNativeType, getClone, getName, getSize, equals)
+     Provides define new Type by some default methods. It is useful when cloning or merging. (isEmpty, isPrimitive, isJsonType, isNativeType, getClone, getName, getSize, equals)
 
 ##### Usage [Class](https://wasabi-io.github.io/wasabi-common/modules/_lang_class_.html) : 
 Provides to bind all methods of the instance when construct.  
