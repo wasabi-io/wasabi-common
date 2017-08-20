@@ -1,9 +1,9 @@
 {
   "name": "wasabi-common",
-  "version": "2.0.0-alpha.2",
+  "version": "2.0.0-alpha.3",
   "description": "lib/index.js",
   "main": "lib/index.js",
-  "typings": "index",
+  "typings": "lib/index",
   "scripts": {
     "testd": "electron-mocha --renderer --interactive --opts ./tools/test/mocha.opts",
     "test": "electron-mocha --renderer --opts ./tools/test/mocha.opts",
