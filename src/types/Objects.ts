@@ -1,15 +1,11 @@
 import { has } from "../util/Functions";
-import Type from "../lang/Type";
 import Types from "../util/Types";
 import Validations from "../util/Validations";
+import Collection, {MapItems} from "../collection/Collection";
 
-/**
- * Object interface
- */
-export interface ObjectProps {
+export interface Props {
     [key: string]: any
 }
-
 /**
  * Defines to return boolean or void in the callback
  * @export
@@ -17,7 +13,7 @@ export interface ObjectProps {
  * ForEach Callback interface
  */
 export interface ForEachCallback {
-    (item: any, key?: string, obj?: ObjectProps): boolean | void
+    (item: any, key?: string, obj?: Props): boolean | void
 }
 
 /**
@@ -45,7 +41,7 @@ export default class Objects {
      * @param key? {string}
      * @return {boolean}
      */
-    public static has<T extends ObjectProps>(src: T, key?: string): boolean {
+    public static has<T extends Props>(src: T, key?: string): boolean {
         return has(src) && ( has(key) ? src.hasOwnProperty(key): Objects.getLength(src) > 0);
     }
     /**
@@ -55,12 +51,9 @@ export default class Objects {
      * @param src
      * @returns {number}
      */
-    public static getLength<T extends ObjectProps>(src: T): number {
+    public static getLength<T extends Props>(src: T): number {
         let i = 0;
-        if(!has(src)) return i;
-        for(let key in  src) {
-            if(src.hasOwnProperty(key)) i++;
-        }
+        Collection.forEachObject(src, () =>  i++);
         return i;
     }
 
@@ -72,7 +65,7 @@ export default class Objects {
      * @param key {any}
      * @return {T}
      */
-    public static remove<T extends ObjectProps>(src: T, key: any): T {
+    public static remove<R extends Props, T extends R>(src: T, key: any): T {
         if(!has(src)) return src;
         delete src[key];
         return src;
@@ -86,7 +79,7 @@ export default class Objects {
      * @param value {any}
      * @return {T}
      */
-    public static removeValue<T extends ObjectProps>(src: T, value: any): T {
+    public static removeValue<T extends Props>(src: T, value: any): T {
         if(!has(src)) return src;
         for(let key in  src) {
             if(src.hasOwnProperty(key)) {
@@ -97,48 +90,30 @@ export default class Objects {
         }
         return src;
     }
+
     /**
      * Provdes to navigate in the given Object and create an array from the result of the callback function.
      * if the result of the callback is empty then ignores it.
      * @public
      * @static
-     * @param obj
-     * @param callback
-     * @returns {Array<T>}
+     * @param {MapItems<T>} map
+     * @param {(value: T, key: K) => U} callback
+     * @returns {Array<U>}
      */
-    public static map<T extends ObjectProps, M extends ObjectProps>(obj: Object, callback: MapCallback ): any[] {
-        let result = [];
-        if(!obj) return result;
-        for(let key in  obj) {
-            if(obj.hasOwnProperty(key)) {
-                let callbackResult = callback(obj[key], key, obj);
-                if(!Type.hasNot(callbackResult)) {
-                    result[result.length] = callbackResult;
-                }
-            }
-        }
-        return result;
+    public static map<T, U, K>(map: MapItems<T>, callback: (value: T, key: K) => U ): Array<U> {
+        return Collection.mapObject(map, callback);
     }
 
     /**
      * Provides to navigate in the given Object and can broken if return false from callback function.
      * @public
      * @static
-     * @param obj { T }
-     * @param callback
+     * @param {MapItems<T>} map
+     * @param {(value: T, key: K) => (void | boolean)} callback
      * @returns {boolean}
      */
-    public static forEach<T extends ObjectProps>(obj: T, callback: ForEachCallback): boolean {
-        if(!has(obj)) return true;
-        for(let key in  obj) {
-            if(obj.hasOwnProperty(key)) {
-                let callbackResult = callback(obj[key], key, obj);
-                if(callbackResult === false) {
-                    return false;
-                }
-            }
-        }
-        return true;
+    public static forEach<T, U, K>(map: MapItems<T>, callback: (value: T, key: K) => void | boolean ): boolean {
+        return Collection.forEachObject(map, callback);
     }
     /**
      * Gets keys of the given object as string[].
@@ -147,7 +122,7 @@ export default class Objects {
      * @param src {T}
      * @returns {string[]}
      */
-    public static getKeys<T extends ObjectProps>(src: T): string[] {
+    public static getKeys<T extends Props>(src: T): string[] {
         let keys: string[] = [];
         if(!has(src)) return keys;
         for(let key in src) {
@@ -166,7 +141,7 @@ export default class Objects {
      * @param keys? {string[]}
      * @return {T}
      */
-    public static addValue<T extends ObjectProps>(src: T, key: string, value: any, keys?: string[]): T {
+    public static addValue<T extends Props>(src: T, key: string, value: any, keys?: string[]): T {
         if(keys && keys.length > 0) {
             let prop = src[key];
             if(!Validations.isObject(prop)) prop = src[key] = {};
@@ -189,7 +164,7 @@ export default class Objects {
      * @param keys? {string[]}
      * @returns {T}
      */
-    public static getValue<T extends ObjectProps>(src: T, key: string, keys?: string[]): T  {
+    public static getValue<T extends Props, U>(src: T, key: string, keys?: string[]): U {
         let prop = src[key];
         if(prop && keys && keys.length > 0) {
             for(let i = 0 ; i < keys.length; i++) {
@@ -208,7 +183,7 @@ export default class Objects {
      * @param ignoreList? {string[]}
      * @return {T}
      */
-    public static clone<T extends ObjectProps>(src: T, ignoreList?: string[]): T {
+    public static clone<T extends Props>(src: T, ignoreList?: string[]): T {
         return Types.getClone(src, ignoreList);
     }
 
@@ -221,9 +196,9 @@ export default class Objects {
      * @param ignoreList? {string[]} specifies get clone of the element by type or not clones just return its.
      * @returns {any}
      */
-    public static merge<S extends ObjectProps, D extends ObjectProps>(src: S, dest: D, ignoreList?: string[]): S | D {
-        if (src == null) return dest;
-        if (dest == null) return Objects.clone(src,ignoreList);
+    public static merge<S extends Props, D extends Props, R extends S & D>(src: S, dest: D, ignoreList?: string[]): R {
+        if (src == null) return dest as R;
+        if (dest == null) return Objects.clone(src,ignoreList) as R;
         if(Validations.isObject(src)) {
             for (let key in src) {
                 if (src.hasOwnProperty(key)) {
@@ -235,7 +210,7 @@ export default class Objects {
                 }
             }
         }
-        return dest;
+        return dest as R;
     }
 
     /**
@@ -246,22 +221,25 @@ export default class Objects {
      * @param props {P}
      * @return {any}
      */
-    public static mergeDefaults<D extends ObjectProps, P extends ObjectProps>(defaults: D, props: P): D | P {
-        if (defaults == null) return props;
-        if (props == null) return Objects.clone(defaults,[]);
+    public static mergeDefaults<D extends Props, P extends Props, R extends D & P>(defaults: D, props: P): R {
+        if (defaults == null) return props as R;
+        if (props == null) return Objects.clone(defaults,[]) as R;
         if(Validations.isObject(defaults)) {
+            Collection.forEachObject(defaults,(item, key: any) => {
+                if(has(props[key])) {
+                    if(Validations.isObject(item) && Validations.isObject(props[key])) {
+                        props[key] = Objects.mergeDefaults(item, props[key]);
+                    }
+                } else {
+                    props[key] = item;
+                }
+            });
             for (let key in defaults) {
                 if (defaults.hasOwnProperty(key)) {
-                    if(has(props[key])) {
-                        if(Validations.isObject(defaults[key]) && Validations.isObject(props[key])) {
-                            props[key] = Objects.mergeDefaults(defaults[key], props[key]);
-                        }
-                    } else {
-                        props[key] = defaults[key];
-                    }
+
                 }
             }
         }
-        return props;
+        return props as R;
     }
 }

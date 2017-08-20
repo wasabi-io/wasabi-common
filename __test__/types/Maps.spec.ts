@@ -1,5 +1,5 @@
-import Maps from "types/Maps";
-import Types from "util/Types";
+import Maps from "wasabi-common/lib/types/Maps";
+import Types from "wasabi-common/lib/util/Types";
 import { expect } from "chai";
 
 describe("util/Maps", () => {

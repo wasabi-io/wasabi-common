@@ -1,4 +1,4 @@
-import Validations from "util/Validations"
+import Validations from "wasabi-common/lib/util/Validations"
 import { expect } from "chai";
 
 describe("util/Validations", () => {

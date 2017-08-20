@@ -1,3 +1,2 @@
-export { default as Class } from "./Class";
+export { default as Binder } from "./Binder";
 export { default as Type } from "./Type";
-export { default as PropClass } from "./PropClass";

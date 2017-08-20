@@ -1,6 +1,6 @@
-import Types from "util/Types";
-import Arrays from "types/Arrays";
-import Strings from "types/Strings";
+import Types from "wasabi-common/lib/util/Types";
+import Arrays from "wasabi-common/lib/types/Arrays";
+import Strings from "wasabi-common/lib/types/Strings";
 import { expect } from "chai";
 
 describe("util/Arrays", () => {

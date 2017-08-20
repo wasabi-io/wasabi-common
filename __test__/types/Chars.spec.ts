@@ -1,4 +1,4 @@
-import Chars from "types/Chars"
+import Chars from "wasabi-common/lib/types/Chars"
 import { expect } from "chai";
 
 describe("util/Chars", () => {

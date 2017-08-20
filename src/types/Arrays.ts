@@ -1,5 +1,6 @@
 import { has } from "../util/Functions";
 import Types from "../util/Types";
+import Collection from "../collection/Collection";
 /**
  * A class which provides some operations on Array
  * @export
@@ -13,7 +14,7 @@ export default class Arrays {
      * @param index? { number }
      * @return {boolean}
      */
-    static has(src: any[], index?: number): boolean {
+    public static has(src: any[], index?: number): boolean {
         if(!has(src)) return false;
         return has(index)? src.length > index : src.length > 0
     }
@@ -85,9 +86,7 @@ export default class Arrays {
     public static pushAll(src: any[], destination: any[]) {
         if(!Arrays.has(src)) return destination;
         if(!destination) destination = [];
-        for(let i = 0; i < src.length; i++) {
-            destination.push(src[i]);
-        }
+        Collection.forEachArray(src, (item: any) => { destination.push(item) });
         return destination;
     }
 

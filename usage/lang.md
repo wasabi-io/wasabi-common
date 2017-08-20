@@ -1,21 +1,19 @@
 ## lang
 
-  - [Class](https://wasabi-io.github.io/wasabi-common/modules/_lang_class_.html) : 
+  - [Binder](https://wasabi-io.github.io/wasabi-common/modules/_lang_binder_.html) :
      Provides to bind all methods of the instance when construct. 
-  - [PropClass](https://wasabi-io.github.io/wasabi-common/modules/_lang_propclass_.html) : 
-  Provides to merge props and defaultProps when construct.
-  - [Type](https://wasabi-io.github.io/wasabi-common/modules/_lang_type_.html): 
+  - [Type](https://wasabi-io.github.io/wasabi-common/modules/_lang_type_.html):
   Provides define new Type by some default methods. It is useful when cloning or merging. (isEmpty, isPrimitive, isJsonType, isNativeType, getClone, getName, getSize, equals)
 
 ##### Usage [Class](https://wasabi-io.github.io/wasabi-common/modules/_lang_class_.html) : 
 Provides to bind all methods of the instance when construct.  
     
-* extend example **extends Class**
+* extend **Binder**
 
 ```typescript
-import { Class } from "wasabi-common"
+import { Binder } from "wasabi-common"
 
-export default class MyClass extends Class {
+export default class MyClass extends Binder {
     private props;
     public constructor(props) {
       super();
@@ -30,15 +28,15 @@ export default class MyClass extends Class {
 ```
 
 
-* static call example **Class.bindAll(instance)**
+* static call example **Binder.bindAll(instance)**
 
 ```typescript
- import { Class } from "wasabi-common"
+ import { Binder } from "wasabi-common"
  
  export default class MyClass {
      private props;
      public constructor(props) {
-         Class.bindAll(this);  
+         Binder.bindAll(this);
          this.props = props;
      }
      
@@ -48,45 +46,6 @@ export default class MyClass extends Class {
      }
  }
   ```
-  
-##### Usage [PropClass](https://wasabi-io.github.io/wasabi-common/modules/_lang_propclass_.html) : 
-Provides to merge props and defaultProps when construct.
-
-* define static defaultProps example **static defaultProps**
-```typescript
-import { PropClass } from "wasabi-common"
-
-export default class MyClass extends PropClass {
-    static defaultProps = {
-        example: {
-            y: 5
-        }
-    }
-    props;
-    constructor(props) {
-        super(props);
-    }
-}
-```
-
-* use custom default props example **customDefaults**
-```typescript
-import { PropClass } from "wasabi-common"
-
-const customDefaults = {
-    example: {
-        y: 5
-    }
-};
-export default class MyClass extends PropClass {
-    props;
-    constructor(props) {
-        super(props, customDefaults);
-    }
-}
-```
-  
-  
   
 ##### Usage [Type](https://wasabi-io.github.io/wasabi-common/modules/_lang_type_.html): 
 Provides define new Type by some default methods. 

@@ -279,8 +279,8 @@ Types.Map[Types.ToString.Object] = new Type<Object>({
         return true;
     },
     isPrimitive: () => false,
-    getClone: (o: Object, ignoreList?: string[]): Object => {
-        let cloneObject = {};
+    getClone: (o: any, ignoreList?: string[]): any => {
+        let cloneObject: any = {};
         for(let key in o) {
             if(hasOwnProperty.call(o, key)) {
                 cloneObject[key] = Types.getClone(o[key], ignoreList);
@@ -288,7 +288,7 @@ Types.Map[Types.ToString.Object] = new Type<Object>({
         }
         return cloneObject;
     },
-    getSize: (o: Object): number => {
+    getSize: (o: any): number => {
         let size = 0;
         for(let key in o) {
             if(hasOwnProperty.call(o, key)) {
@@ -298,7 +298,7 @@ Types.Map[Types.ToString.Object] = new Type<Object>({
         }
         return size;
     },
-    equals: (src: Object, dest: Object): boolean => {
+    equals: (src: any, dest: any): boolean => {
         if(!src || !dest) return src === dest;
         let isEqual = Types.getType(src) === Types.getType(dest);
         if(!isEqual) return false;

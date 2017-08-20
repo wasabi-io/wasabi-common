@@ -1,4 +1,4 @@
-import { asEs6Module, getType, has, requireEs6 } from "util/Functions"
+import { asEs6Module, getType, has, requireEs6 } from "wasabi-common/lib/util/Functions"
 import { expect } from "chai";
 describe("util/Functions", () => {
     it("getType", () => {

@@ -1,4 +1,4 @@
-import Generator from "util/Generator";
+import Generator from "wasabi-common/lib/util/Generator";
 import { expect, assert } from "chai";
 
 describe("util/Generator", () => {

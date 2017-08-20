@@ -4,8 +4,10 @@ import Objects from "../types/Objects";
 export interface PropertiesProps {
     [key: string]: any
 }
+
 export default class Properties {
     private props: PropertiesProps;
+
     public constructor(props?: PropertiesProps) {
         this.props = props || {};
     }

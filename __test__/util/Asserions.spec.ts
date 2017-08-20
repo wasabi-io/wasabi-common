@@ -1,4 +1,4 @@
-import Assertions from "util/Assertions"
+import Assertions from "wasabi-common/lib/util/Assertions"
 import { expect, assert } from "chai";
 
 const tryBlock = (success: () => void, error: () => void) => {

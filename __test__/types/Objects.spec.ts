@@ -1,5 +1,5 @@
-import Objects from "types/Objects";
-import Types from "util/Types";
+import Objects from "wasabi-common/lib/types/Objects";
+import Types from "wasabi-common/lib/util/Types";
 import { expect } from "chai";
 
 describe("util/Objects", () => {

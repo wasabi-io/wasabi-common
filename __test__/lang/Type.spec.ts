@@ -1,4 +1,4 @@
-import Type from "lang/Type";
+import Type from "wasabi-common/lib/lang/Type";
 import { expect } from "chai";
 
 describe("lang/Type", () => {

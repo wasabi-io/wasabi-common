@@ -6,7 +6,7 @@ const startIndex: number = "[object ".length;
  * @param value
  * @return {string}
  */
-const getType = (value): string => {
+const getType = (value: any): string => {
     let type = Object.prototype.toString.call(value);
     return type.substring(startIndex, type.length - 1);
 };
@@ -16,7 +16,7 @@ const getType = (value): string => {
  * @param value
  * @return {boolean}
  */
-const has = (value): boolean => {
+const has = (value: any): boolean => {
     return value !== null && typeof value !== "undefined";
 };
 

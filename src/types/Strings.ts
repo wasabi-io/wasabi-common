@@ -13,7 +13,7 @@ export default class Strings {
      * @param index? { number }
      * @return {boolean}
      */
-    static has(src: string, index?: number): boolean {
+    public static has(src: string, index?: number): boolean {
         if(!has(src)) return false;
         src = src.trim();
         return ((has(index) && src.length > index) || src.length > 0);
@@ -74,7 +74,7 @@ export default class Strings {
      * @param value
      * @return {string}
      */
-    static trim (value: string) {
+    public static trim (value: string) {
         if(!value) return "";
         return value.replace(/^\s+|\s+$/g,"");
     }
@@ -84,7 +84,7 @@ export default class Strings {
      * @param value
      * @return {string}
      */
-    static lTrim (value: string) {
+    public static lTrim (value: string) {
         if(!has(value)) return "";
         return value.replace(/^\s+/,"");
     }
@@ -94,7 +94,7 @@ export default class Strings {
      * @param value
      * @return {string}
      */
-    static rTrim (value: string) {
+    public static rTrim (value: string) {
         if(!has(value)) return "";
         return value.replace(/\s+$/,"");
     }
@@ -115,7 +115,7 @@ export default class Strings {
      * @param length {number}
      * @return {string}
      */
-    static lPad (value: string, pad, length) {
+    public static lPad (value: string, pad: string, length: number) {
         if (!Strings.has(value)) value = "";
         while (value.length < length)
             value = pad + value;
@@ -129,7 +129,7 @@ export default class Strings {
      * @param length {number}
      * @return {string}
      */
-    static rPad (value: string, pad, length) {
+    public static rPad (value: string, pad: string, length: number) {
         if (!Strings.has(value)) value = "";
         while (value.length < length)
             value = value + pad;
@@ -142,7 +142,7 @@ export default class Strings {
      * @param length
      * @return {any}
      */
-    static partsByNumber(value: string, length: number): string[] {
+    public static partsByNumber(value: string, length: number): string[] {
         if(!Strings.has(value)) return [];
         if(value.length < length) return [value];
         let values = [];

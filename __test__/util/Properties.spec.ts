@@ -1,4 +1,4 @@
-import Properties from "util/Properties";
+import Properties from "wasabi-common/lib/util/Properties";
 import { expect, assert } from "chai";
 
 describe("util/Properties", () => {

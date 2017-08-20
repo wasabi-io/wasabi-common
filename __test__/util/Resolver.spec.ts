@@ -1,5 +1,0 @@
-describe("util/Resolver", () => {
-    it("", () => {
-
-    });
-});
