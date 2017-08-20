@@ -191,4 +191,15 @@ export default class Strings {
         }
         return true;
     }
+
+    public static template(msg: string, params: {[key: string]: any}){
+        return msg.replace(/\${(.*?)}/g, function(_, code) {
+            let scoped = code.replace(/(["'\.\w\$]+)/g, function(match: any) {
+                return /["']/.test(match[0]) ? match : 'scope.' + match;
+            });
+            try {
+                return new Function('scope', 'return '+ scoped)(params);
+            } catch (e) { return ''; }
+        });
+    }
 }

@@ -97,4 +97,21 @@ describe("util/Strings", () => {
     it("reverse", () => {
         expect(Strings.reverse("Kamil")).to.be.eq("limaK");
     });
+
+    it("template", () => {
+        let data = {
+            name1: 'Silento',
+            name2: 'Miley',
+            nested: { greeting: 'Dude', useName1: true },
+            verb: function() {
+                return this.nested.useName1 ? 'nae nae' : 'twerk';
+            }
+        };
+        let result = Strings.template('Hello, ${nested["greeting"]}!', data);
+        expect(result).to.be.eq(`Hello, ${data.nested["greeting"]}!`);
+        result = Strings.template('${nested.useName1 ? name1 : name2}', data);
+        expect(result).to.be.eq(`${data.nested.useName1 ? data.name1 : data.name2}`);
+        result = Strings.template('${name1} likes to ${verb()}', data);
+        expect(result).to.be.eq(`${data.name1} likes to ${data.verb()}`);
+    })
 });

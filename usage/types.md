@@ -57,7 +57,7 @@ Objects.mergeDefaults(src, { key5: "6", nestedObject: { key5: "7"}}); // { key3:
 ```
 
 * Usage [Strings](https://wasabi-io.github.io/wasabi-common/modules/_types_strings_.html)
-
+<a name="#strings"></a>
 ```typescript
 import { Strings } from "wasabi-common";
 Strings.capitalizeFirstLetter("example"); // "Example"
@@ -71,5 +71,19 @@ Strings.rTrim(" example "); // " example"
 Strings.startsWith("Example", "ex"); // false
 Strings.toString(null); // ""
 Strings.trim(" Example "); // "Example"
+let data = {
+    name1: 'Silento',
+    name2: 'Miley',
+    nested: { greeting: 'Dude', useName1: true },
+    verb: function() {
+        return this.nested.useName1 ? 'nae nae' : 'twerk';
+    }
+};
+let result = Strings.template('Hello, ${nested["greeting"]}!', data);
+console.log(result);
+result = Strings.template('${nested.useName1 ? name1 : name2}', data);
+console.log(result);
+result = Strings.template('${name1} likes to ${verb()}', data);
+console.log(result);
 ```
   

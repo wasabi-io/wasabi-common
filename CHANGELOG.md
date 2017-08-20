@@ -1,5 +1,8 @@
 ## CHANGE LOG
 
+#### v2.0.0-beta.1
+* added dynamic string template. [Strings.template](./usage/types.md#strings)
+
 #### v1.0.13 Developing...
 
 #### v1.0.12
