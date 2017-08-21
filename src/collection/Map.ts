@@ -1,6 +1,6 @@
 import Collection from "./Collection";
 import Iterator from "./Iterator";
-import {has} from "wasabi-common/lib/util";
+import {has} from "../util/Functions";
 
 export class Entry<K = string | number, V = any> {
     private _key: K;
