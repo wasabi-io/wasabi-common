@@ -1,5 +1,8 @@
 ## CHANGE LOG
 
+#### v2.0.0.-beta.2
+* Fixed Strings.template when hasn't message or hasn't params.
+
 #### v2.0.0-beta.1
 * added collections (Set, Map, Iterator)
 * changed resolver structure.

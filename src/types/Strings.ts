@@ -1,4 +1,5 @@
-import { has } from "../util/Functions";
+import {has} from "../util/Functions";
+import {Props} from "../types/Objects";
 
 /**
  * A class which provides some operations on String
@@ -14,7 +15,7 @@ export default class Strings {
      * @return {boolean}
      */
     public static has(src: string, index?: number): boolean {
-        if(!has(src)) return false;
+        if (!has(src)) return false;
         src = src.trim();
         return ((has(index) && src.length > index) || src.length > 0);
     }
@@ -25,7 +26,7 @@ export default class Strings {
      * @returns {number}
      */
     public static getLength(value: string): number {
-        return Strings.has(value) ? value.length: 0;
+        return Strings.has(value) ? value.length : 0;
     }
 
     /**
@@ -34,7 +35,7 @@ export default class Strings {
      * @return {any}
      */
     public static toString(value: string): string {
-        if(value === null || value === undefined) return "";
+        if (value === null || value === undefined) return "";
         return value.toString();
     }
 
@@ -74,9 +75,9 @@ export default class Strings {
      * @param value
      * @return {string}
      */
-    public static trim (value: string) {
-        if(!value) return "";
-        return value.replace(/^\s+|\s+$/g,"");
+    public static trim(value: string) {
+        if (!value) return "";
+        return value.replace(/^\s+|\s+$/g, "");
     }
 
     /**
@@ -84,9 +85,9 @@ export default class Strings {
      * @param value
      * @return {string}
      */
-    public static lTrim (value: string) {
-        if(!has(value)) return "";
-        return value.replace(/^\s+/,"");
+    public static lTrim(value: string) {
+        if (!has(value)) return "";
+        return value.replace(/^\s+/, "");
     }
 
     /**
@@ -94,17 +95,18 @@ export default class Strings {
      * @param value
      * @return {string}
      */
-    public static rTrim (value: string) {
-        if(!has(value)) return "";
-        return value.replace(/\s+$/,"");
+    public static rTrim(value: string) {
+        if (!has(value)) return "";
+        return value.replace(/\s+$/, "");
     }
+
     /**
      * Changes first character as uppercase character of the given value {string}
      * @param value {string}
      * @return {string}
      */
     public static capitalizeFirstLetter(value: string): string {
-        if(!has(value)) return "";
+        if (!has(value)) return "";
         return value.charAt(0).toUpperCase() + value.slice(1);
     }
 
@@ -115,7 +117,7 @@ export default class Strings {
      * @param length {number}
      * @return {string}
      */
-    public static lPad (value: string, pad: string, length: number) {
+    public static lPad(value: string, pad: string, length: number) {
         if (!Strings.has(value)) value = "";
         while (value.length < length)
             value = pad + value;
@@ -129,7 +131,7 @@ export default class Strings {
      * @param length {number}
      * @return {string}
      */
-    public static rPad (value: string, pad: string, length: number) {
+    public static rPad(value: string, pad: string, length: number) {
         if (!Strings.has(value)) value = "";
         while (value.length < length)
             value = value + pad;
@@ -143,12 +145,12 @@ export default class Strings {
      * @return {any}
      */
     public static partsByNumber(value: string, length: number): string[] {
-        if(!Strings.has(value)) return [];
-        if(value.length < length) return [value];
+        if (!Strings.has(value)) return [];
+        if (value.length < length) return [value];
         let values = [];
         let start = 0;
         while (start < value.length) {
-            values.push(value.substring(start, start + length))
+            values.push(value.substring(start, start + length));
             start = start + length;
         }
         return values;
@@ -162,7 +164,7 @@ export default class Strings {
      * @return {string}
      */
     public static replaceAll(value: string, search: string, replacement: string) {
-        if(!has(value)) {
+        if (!has(value)) {
             return value;
         }
         return value.split(search).join(replacement);
@@ -174,7 +176,7 @@ export default class Strings {
      * @return {string}
      */
     public static reverse(value: string): string {
-        return value ? value.split("").reverse().join(""): value;
+        return value ? value.split("").reverse().join("") : value;
     }
 
     /**
@@ -184,22 +186,38 @@ export default class Strings {
      * @return {boolean}
      */
     public static forEach(value: string, callback: (c: string, index?: number) => boolean | void): boolean {
-        for(let i = 0 ; i < value.length; i++) {
-            if(callback(value.charAt(i), i) === false ) {
+        for (let i = 0; i < value.length; i++) {
+            if (callback(value.charAt(i), i) === false) {
                 break;
             }
         }
         return true;
     }
 
-    public static template(msg: string, params: {[key: string]: any}){
-        return msg.replace(/\${(.*?)}/g, function(_, code) {
-            let scoped = code.replace(/(["'\.\w\$]+)/g, function(match: any) {
+    /**
+     *
+     * @param {string} msg
+     * @param {Props} params
+     * @returns {any}
+     */
+    public static template<P extends Props>(msg: string, params: P) {
+        if (!Strings.has(msg)) {
+            return "";
+        }
+
+        if (!has(params)) {
+            return msg;
+        }
+
+        return msg.replace(/\${(.*?)}/g, function (_, code) {
+            let scoped = code.replace(/(["'\.\w\$]+)/g, function (match: any) {
                 return /["']/.test(match[0]) ? match : 'scope.' + match;
             });
             try {
-                return new Function('scope', 'return '+ scoped)(params);
-            } catch (e) { return ''; }
+                return new Function('scope', 'return ' + scoped)(params);
+            } catch (e) {
+                return '';
+            }
         });
     }
 }

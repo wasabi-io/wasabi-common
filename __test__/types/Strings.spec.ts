@@ -113,5 +113,15 @@ describe("util/Strings", () => {
         expect(result).to.be.eq(`${data.nested.useName1 ? data.name1 : data.name2}`);
         result = Strings.template('${name1} likes to ${verb()}', data);
         expect(result).to.be.eq(`${data.name1} likes to ${data.verb()}`);
+        result = Strings.template(undefined, data);
+        expect(result).to.be.eq("");
+        result = Strings.template(null, data);
+        expect(result).to.be.eq("");
+        result = Strings.template("", data);
+        expect(result).to.be.eq("");
+        result = Strings.template("test message ${verb()}", undefined);
+        expect(result).to.be.eq("test message ${verb()}");
+        result = Strings.template("test message ${verb()}", null);
+        expect(result).to.be.eq("test message ${verb()}");
     })
 });
