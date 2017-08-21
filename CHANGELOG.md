@@ -1,5 +1,8 @@
 ## CHANGE LOG
 
+#### v2.0.0.-beta.3
+* Provides to set MapItems, Array to putAll Map.
+
 #### v2.0.0.-beta.2
 * Fixed Strings.template when hasn't message or hasn't params.
 

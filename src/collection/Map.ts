@@ -1,5 +1,6 @@
 import Collection from "./Collection";
 import Iterator from "./Iterator";
+import {has} from "wasabi-common/lib/util";
 
 export class Entry<K = string | number, V = any> {
     private _key: K;
@@ -32,8 +33,9 @@ export default class Map<K extends string | number, V> {
     /**
      *
      */
-    public constructor() {
+    public constructor(map?: Map<K, V> | MapItems<V> | Array<V>) {
         this._length = 0;
+        this.putAll(map);
     }
 
     /**
@@ -123,12 +125,18 @@ export default class Map<K extends string | number, V> {
 
     /**
      *
-     * @param {Map<V>} map
+     * @param {Map<K, V> | MapItems<V> | Array<V>} map
      */
-    public putAll(map: Map<K, V>): Array<V> {
-        return Collection.mapObject(
-            map._items, (entry: Entry<K, V>, key: K) => this.put(key as any, entry.value)
-        );
+    public putAll(map: Map<K, V> | MapItems<V> | Array<V>): Array<V> {
+        if(!has(map)) return [];
+        if(map instanceof Map) {
+            return Collection.mapObject(
+                map._items, (entry: Entry<K, V>, key: K) => this.put(key as any, entry.value)
+            );
+        } else if(map instanceof Array) {
+            return Collection.mapArray(map, (value: V, key: number) => this.put(key as any, value));
+        }
+        return Collection.mapObject(map, (value: V, key: string) => this.put(key as any, value));
     }
 
     /**
