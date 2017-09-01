@@ -1,5 +1,8 @@
 ## CHANGE LOG
 
+#### v2.0.0.-beta.4
+* added default Generic Type to { Props } in Objects and Map.
+
 #### v2.0.0.-beta.3
 * Provides to set MapItems, Array to putAll Map.
 

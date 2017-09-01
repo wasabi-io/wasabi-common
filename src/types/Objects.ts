@@ -3,8 +3,8 @@ import Types from "../util/Types";
 import Validations from "../util/Validations";
 import Collection, {MapItems} from "../collection/Collection";
 
-export interface Props {
-    [key: string]: any
+export interface Props<V = any> {
+    [key: string]: V
 }
 /**
  * Defines to return boolean or void in the callback

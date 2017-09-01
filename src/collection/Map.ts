@@ -26,7 +26,7 @@ export interface MapItems<V> {
     [key: number]: V
 }
 
-export default class Map<K extends string | number, V> {
+export default class Map<K extends string | number, V = any> {
     private _length = 0;
     private _items: MapItems<Entry<K, V>> = {};
 
