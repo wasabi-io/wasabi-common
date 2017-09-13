@@ -1,17 +1,20 @@
-import {default as Objects, Props} from "../types/Objects";
+import {default as Objects} from "../types/Objects";
 import Validations from "../util/Validations";
 import {has} from "../util";
 
-export default class Tree {
-    private map: Props;
+export interface TreeProps<V> {
+    [key: string]: V | TreeProps<V>
+}
 
-    public constructor(map?: Props | Tree) {
+export default class Tree<V = any> {
+    private map: TreeProps<V>;
+
+    public constructor(map?: TreeProps<V> | Tree<V>) {
         this.map = Tree.getMap(map) || {};
     }
 
     public static allKeys(...keys: string[]) {
         let allKeys: string[] = [];
-        let firstKey: string;
         for (let i = 0; i < keys.length; i++) {
             let key = keys[i];
             if (!key) continue;
@@ -25,11 +28,11 @@ export default class Tree {
         return allKeys;
     }
 
-    public static getMap(map?: Props | Tree): Props {
+    public static getMap<V>(map?: TreeProps<V> | Tree<V>): TreeProps<V> {
         return map instanceof Tree ? map.map : map;
     }
 
-    public put(key: string, value: any): any {
+    public put(key: string, value: V): any {
         let keys = key.split("\.");
         let lastKey = keys.splice(-1, 1)[0];
         let parent = this.map;
@@ -38,41 +41,41 @@ export default class Tree {
             if (!Validations.isObject(parent[firstKey])) {
                 parent[firstKey] = {};
             }
-            parent = parent[firstKey];
+            parent = parent[firstKey] as TreeProps<V>;
         }
         parent[lastKey] = value;
         return value;
     }
 
-    public putAll(map?: Props | Tree) {
+    public putAll(map?: TreeProps<V> | Tree<V>) {
         let childMap = Tree.getMap(map);
         this.map = Objects.merge(childMap, this.map);
     }
 
-    public get<T>(...keys: string[]): T {
+    public get(...keys: string[]): V | TreeProps<V> {
         let allKeys = Tree.allKeys.apply(Tree, keys);
         let parent = this.map;
         let firstKey: string;
         while (firstKey = allKeys.shift()) {
-            parent = parent[firstKey];
+            parent = parent[firstKey] as TreeProps<V>;
             if (!parent) {
-                return parent as T;
+                return parent;
             }
         }
-        return parent as T;
+        return parent as V | TreeProps<V>;
     }
 
-    public tree(...keys: string[]): Tree {
+    public tree(...keys: string[]): Tree<V> {
         return new Tree(this.get.apply(this, keys));
     }
 
-    public remove<T>(...keys: string[]): boolean {
+    public remove(...keys: string[]): boolean {
         let allKeys = Tree.allKeys.apply(Tree, keys);
         let lastKey = allKeys.splice(-1, 1)[0];
         let firstKey: string;
         let parent = this.map;
         while (firstKey = allKeys.shift()) {
-            parent = parent[firstKey];
+            parent = parent[firstKey] as TreeProps<V>;
             if (!parent) {
                 return false;
             }
@@ -93,15 +96,7 @@ export default class Tree {
         return Objects.getLength(this.map);
     }
 
-    protected getValue<T>(keys: string[]): T {
-        let parent = this.map;
-        let firstKey: string;
-        while (firstKey = keys.shift()) {
-            parent = parent[firstKey];
-            if (!parent) {
-                return parent as T;
-            }
-        }
-        return parent as T;
+    public value(...keys: string[]): V {
+        return this.get.apply(this, keys);
     }
 }

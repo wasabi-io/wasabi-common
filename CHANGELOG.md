@@ -1,5 +1,8 @@
 ## CHANGE LOG
 
+#### v2.0.1
+* added generic type to **collection/Tree**.
+
 #### v2.0.0
 * added **collection/Tree** component.
 

@@ -109,7 +109,7 @@ describe("collection/Tree", () => {
     })
 
     it("clear", () => {
-        let map = new Tree();
+        let map = new Tree<string>();
         let obj = {
             key1: {
                 key2: {
@@ -121,6 +121,7 @@ describe("collection/Tree", () => {
         expect(map.tree("key1")).to.be.deep.eq(new Tree(obj.key1));
         map.clear();
         expect(map.get()).to.be.deep.eq({})
+
 
     })
 });
