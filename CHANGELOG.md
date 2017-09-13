@@ -1,5 +1,8 @@
 ## CHANGE LOG
 
+#### v2.0.2
+* fixed trim problem in **Strings.template** .
+
 #### v2.0.1
 * added generic type to **collection/Tree**.
 

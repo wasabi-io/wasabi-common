@@ -16,7 +16,7 @@ export default class Strings {
      */
     public static has(src: string, index?: number): boolean {
         if (!has(src)) return false;
-        src = src.trim();
+        src = Strings.trim(src);
         return ((has(index) && src.length > index) || src.length > 0);
     }
 

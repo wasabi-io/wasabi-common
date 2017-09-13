@@ -28,11 +28,11 @@ export default class Tree<V = any> {
         return allKeys;
     }
 
-    public static getMap<V>(map?: TreeProps<V> | Tree<V>): TreeProps<V> {
+    public static getMap(map?: TreeProps<any> | Tree<any>): TreeProps<any> {
         return map instanceof Tree ? map.map : map;
     }
 
-    public put(key: string, value: V): any {
+    public put<S extends V>(key: string, value: V): any {
         let keys = key.split("\.");
         let lastKey = keys.splice(-1, 1)[0];
         let parent = this.map;
@@ -47,25 +47,25 @@ export default class Tree<V = any> {
         return value;
     }
 
-    public putAll(map?: TreeProps<V> | Tree<V>) {
+    public putAll<S extends V>(map?: TreeProps<V> | Tree<V>) {
         let childMap = Tree.getMap(map);
         this.map = Objects.merge(childMap, this.map);
     }
 
-    public get(...keys: string[]): V | TreeProps<V> {
+    public get<S extends V>(...keys: string[]): S | TreeProps<S> {
         let allKeys = Tree.allKeys.apply(Tree, keys);
-        let parent = this.map;
+        let parent: any = this.map;
         let firstKey: string;
         while (firstKey = allKeys.shift()) {
-            parent = parent[firstKey] as TreeProps<V>;
+            parent = parent[firstKey];
             if (!parent) {
                 return parent;
             }
         }
-        return parent as V | TreeProps<V>;
+        return parent as S | TreeProps<S>;
     }
 
-    public tree(...keys: string[]): Tree<V> {
+    public tree<V>(...keys: string[]): Tree<V> {
         return new Tree(this.get.apply(this, keys));
     }
 
