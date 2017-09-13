@@ -1,13 +1,13 @@
 import Objects from "wasabi-common/lib/types/Objects";
 import Types from "wasabi-common/lib/util/Types";
-import { expect } from "chai";
+import {expect} from "chai";
 
 describe("util/Objects", () => {
     it("has", () => {
         expect(Objects.has({})).to.be.false;
-        expect(Objects.has({ a: "5"})).to.be.true;
-        expect(Objects.has({ a: "5"}, "a")).to.be.true;
-        expect(Objects.has({ a: "5"}, "b")).to.be.false;
+        expect(Objects.has({a: "5"})).to.be.true;
+        expect(Objects.has({a: "5"}, "a")).to.be.true;
+        expect(Objects.has({a: "5"}, "b")).to.be.false;
         expect(Objects.has(null)).to.be.false;
         expect(Objects.has(null)).to.be.false;
     });
@@ -137,7 +137,7 @@ describe("util/Objects", () => {
 
     it("merge", () => {
         let obj = {
-            a:5,
+            a: 5,
             c: {
                 d: "4"
             },
@@ -154,10 +154,10 @@ describe("util/Objects", () => {
         let mergedObject = Objects.merge(obj, obj2);
 
         let expectedObj = {
-            a:5,
+            a: 5,
             c: {
-              d: "4",
-              e: ["Example", "Ex"]
+                d: "4",
+                e: ["Example", "Ex"]
             },
             b: "Deneme",
             d: "Deneme"
@@ -167,7 +167,7 @@ describe("util/Objects", () => {
 
     it("mergeDefaults", () => {
         let defaults = {
-            a:5,
+            a: 5,
             c: {
                 d: "4",
                 e: ["Default"]
@@ -185,7 +185,7 @@ describe("util/Objects", () => {
         let mergedObject = Objects.mergeDefaults(defaults, obj2);
 
         let expectedObj = {
-            a:5,
+            a: 5,
             c: {
                 d: "4",
                 e: ["Example", "Ex"]

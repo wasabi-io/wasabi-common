@@ -1,5 +1,5 @@
 import Functions from "wasabi-common/lib/types/Functions"
-import { expect } from "chai";
+import {expect} from "chai";
 
 describe("types/Functions", () => {
     it("is", () => {

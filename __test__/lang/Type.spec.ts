@@ -1,5 +1,5 @@
 import Type from "wasabi-common/lib/lang/Type";
-import { expect } from "chai";
+import {expect} from "chai";
 
 describe("lang/Type", () => {
     it("hasNot", () => {
@@ -46,13 +46,13 @@ describe("lang/Type", () => {
 
 
     it("getClone", () => {
-        let value = { ex: "ExampleObject" };
+        let value = {ex: "ExampleObject"};
         let cloneValue: any = Type.getClone(value);
         let isEqual = cloneValue === value;
         expect(isEqual).to.be.true;
         let newStringType = new Type<Object>({
             getClone(o: Object) {
-                return { ex: "ExampleObject" };
+                return {ex: "ExampleObject"};
             }
         });
         cloneValue = newStringType.getClone(value);

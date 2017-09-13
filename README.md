@@ -21,7 +21,8 @@ Provides some common operations.
      Provides set list.
   - [Map](https://wasabi-io.github.io/wasabi-common/modules/_collection_map_.html):
      Provides map entry list.
-
+  - [Tree]  - (https://wasabi-io.github.io/wasabi-common/modules/_collection_tree_.html):
+  Provides tree list.
 
 * lang [..more](./usage/lang.md) 
   - [Binder](https://wasabi-io.github.io/wasabi-common/modules/_lang_binder_.html) :

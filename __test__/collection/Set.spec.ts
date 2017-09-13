@@ -65,7 +65,7 @@ describe("collection/Map", () => {
         set.remove("element");
         expect(set.length).to.be.eq(0);
     });
-    it("addArray", ()=> {
+    it("addArray", () => {
         let set = new Set([]);
         expect(set.get(0)).to.be.undefined;
         Set.addArray(["element"], set);
@@ -74,7 +74,7 @@ describe("collection/Map", () => {
         expect(set.get(1)).to.be.be.eq("test");
     });
 
-    it("addSet", ()=> {
+    it("addSet", () => {
         let set = new Set(["element"]);
         expect(set.get(0)).to.be.be.eq("element");
         Set.addSet(set, set);

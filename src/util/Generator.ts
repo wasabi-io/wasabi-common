@@ -10,12 +10,13 @@ export default class Generator {
             .toString(16)
             .substring(1);
     };
+
     /**
      * A universally unique identifier (UUID) is a 128-bit number used to identify information in computer systems.
      * Microsoft uses the term globally unique identifier (GUID), either as a synonym for UUID or to refer to a particular UUID variant.
      * @return {string}
      */
-    public static guid (): string {
+    public static guid(): string {
         let s = Generator.s4;
         return `${s()}${s()}-${s()}-${s()}-${s()}-${s()}${s()}${s()}`;
     }

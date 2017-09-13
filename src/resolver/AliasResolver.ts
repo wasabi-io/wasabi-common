@@ -9,6 +9,10 @@ export interface AliasEntry {
 export class AliasResolver {
     private aliases: AliasEntry[] = [];
 
+    public static escapeRegExp(str: string) {
+        return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+    }
+
     public has(): boolean {
         return this.aliases.length > 0;
     }
@@ -47,10 +51,6 @@ export class AliasResolver {
             }
         }
         return undefined;
-    }
-
-    public static escapeRegExp(str: string) {
-        return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
     }
 }
 

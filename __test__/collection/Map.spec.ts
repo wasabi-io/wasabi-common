@@ -104,7 +104,7 @@ describe("collection/Map", () => {
     });
     it("putAll", () => {
         let map = new Map<string, string>();
-        let anotherMap =  new Map<string, string>();
+        let anotherMap = new Map<string, string>();
         expect(map.length).to.be.eq(0);
         anotherMap.put("test", "TestValue");
         anotherMap.put("test2", "TestValue");
@@ -224,7 +224,7 @@ describe("collection/Map", () => {
         map2.put(0, "TestValue");
         map2.put(1, "TestValue");
         let elements2 = map2.map((value: string, key: number) => {
-           return key;
+            return key;
         });
         expect(elements2).to.be.deep.eq([0, 1]);
     });

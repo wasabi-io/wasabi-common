@@ -7,6 +7,7 @@ export default class Chars {
     static isNumber(c: number): boolean {
         return c > 47 && c < 58;
     }
+
     /**
      *  check charcode is number or not.
      * @param c
@@ -15,6 +16,7 @@ export default class Chars {
     static isDot(c: number): boolean {
         return c === 46;
     }
+
     /**
      *  check charcode is number or not.
      * @param c

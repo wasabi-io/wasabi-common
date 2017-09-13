@@ -28,7 +28,7 @@ export default class Validations {
      */
     public static isJsonType(o: any): boolean {
         let element = Types.getType(o);
-        return element ? element.isJsonType(): false;
+        return element ? element.isJsonType() : false;
     }
 
     /**
@@ -38,7 +38,7 @@ export default class Validations {
      */
     public static isNativeType(o: any): boolean {
         let element = Types.getType(o);
-        return element ? element.isNativeType(): false;
+        return element ? element.isNativeType() : false;
     }
 
     /**

@@ -1,5 +1,5 @@
 import Generator from "wasabi-common/lib/util/Generator";
-import { expect, assert } from "chai";
+import {expect} from "chai";
 
 describe("util/Generator", () => {
     it("is", () => {

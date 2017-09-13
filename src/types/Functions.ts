@@ -10,6 +10,7 @@ export default class Functions {
     static has(fn: any): boolean {
         return has(fn);
     }
+
     /**
      * Checks the given value is a function or not
      * @param fn

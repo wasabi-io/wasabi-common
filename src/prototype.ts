@@ -2,7 +2,7 @@ interface Object {
     assign(target: any, ...varArgs: any[]): Object;
 }
 
-if (typeof Object.assign!= "function") {
+if (typeof Object.assign != "function") {
     Object.assign = function (target: any, ...varArgs: any[]): Object {
         // .length of function is 2
         if (target == null) { // TypeError if undefined or null
@@ -25,15 +25,16 @@ if (typeof Object.assign!= "function") {
 }
 
 // Fix Function#name on browsers that do not support it (IE):
-let emptyFn: any = (function f() {});
+let emptyFn: any = (function f() {
+});
 if (!emptyFn.name) {
     Object.defineProperty(Function.prototype, "name", {
-        get: function() {
+        get: function () {
             let name = (this.toString().match(/^function\s*([^\s(]+)/) || [])[1];
             name = name || "";
             // For better performance only parse once, and then cache the
             // result through a new accessor for repeated access.
-            Object.defineProperty(this, "name", { value: name });
+            Object.defineProperty(this, "name", {value: name});
             return name;
         }
     });

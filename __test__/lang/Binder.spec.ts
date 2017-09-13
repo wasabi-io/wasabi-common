@@ -4,13 +4,14 @@ import {ExampleSubClass} from "./BinderSample";
 
 describe("lang/Binder", () => {
     it("constructor", () => {
-       class Sample extends Binder{
-            public test(){
+        class Sample extends Binder {
+            public test() {
                 return this;
             }
-       }
-       let sample = new Sample();
-       expect(sample.test()).to.be.eq(sample);
+        }
+
+        let sample = new Sample();
+        expect(sample.test()).to.be.eq(sample);
 
     });
 
@@ -19,7 +20,7 @@ describe("lang/Binder", () => {
         Binder.bind(example, "test1");
         expect(example.test1()).to.be.undefined;
 
-        function fn(){
+        function fn() {
             return this;
         }
 

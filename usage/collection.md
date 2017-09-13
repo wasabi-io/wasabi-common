@@ -77,7 +77,7 @@ Set.addSet(anotherSet, set);
   - [Map](https://wasabi-io.github.io/wasabi-common/modules/_collection_map_.html):
      Provides map entry list.
 
-```typescript`
+```typescript
 let map = new Map<string, Array<string>>();
 console.log(map.isEmpty());
 console.log(map.contains("key1"));
@@ -97,4 +97,37 @@ map.map(() => ...) // return an array
 map.length; // get size of map as number.
 map.filter((entry) => true); // apply filter and return new Map
 map.iterator(); // return new Iterator
-``
+```
+
+  - [Tree](https://wasabi-io.github.io/wasabi-common/modules/_collection_tree_.html):
+     Provides tree list.
+
+```typescript
+
+import Tree from "wasabi-common/lib/collection/Tree";
+
+let map = new Tree(); // create new tree list.
+map = new Tree({}); // create new map with default value.
+
+map.put("key1.key2.key3", "test"); // provides to put value
+
+map.put("key1.key2.key3", { // provides to merge map with current map.
+    key1: "test"
+});
+
+map.get(); // provides to get tree list
+map.get('key1') // provides to get child of the given key's tree list
+map.get('key1.key2') // provides to get child of the given key's tree list
+map.get('key1', 'key2') // is same map.get('key1.key2')
+
+map.remove('key1.key2') // provides to remove child from the given key's tree list
+map.remove('key1', 'key2') // is same map.remove('key1.key2')
+
+map.clear(); // clear map.
+
+map.tree("key1"); // provides to get map as Tree.
+map.tree("key1.key2"); // provides to get map as Tree.
+map.tree("key1", "key2"); // provides to get map as Tree.
+
+});
+```

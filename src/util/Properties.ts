@@ -15,9 +15,11 @@ export default class Properties {
     public add(key: string, value: any, keys?: string[]) {
         Objects.addValue(this.props, key, value, keys);
     }
-    public get<U extends PropertiesProps | any>(key: string, keys?: string[]): PropertiesProps | any  {
+
+    public get<U extends PropertiesProps | any>(key: string, keys?: string[]): PropertiesProps | any {
         return Objects.getValue(this.props, key, keys);
     }
+
     public merge(props: PropertiesProps) {
         Objects.merge(props, this.props);
     }

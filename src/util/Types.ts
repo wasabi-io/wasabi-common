@@ -1,4 +1,4 @@
-import Type, { IType } from "../lang/Type";
+import Type, {IType} from "../lang/Type";
 
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 
@@ -24,8 +24,8 @@ const UnknownType = new Type<Object>({
     isNativeType: () => false,
     getSize: (o: any): number => {
         let size = 0;
-        for(let key in o) {
-            if(hasOwnProperty.call(o, key)) {
+        for (let key in o) {
+            if (hasOwnProperty.call(o, key)) {
                 size += 2 * key.length;
                 size += Types.getSize(o[key]);
             }
@@ -66,18 +66,6 @@ export default class Types {
         Undefined: "[object Undefined]",
         Object: "[object Object]",
     };
-
-    /**
-     * Finds @see Type by given object
-     * @param {any} o
-     * @return {IType<any>} provides most used operation on type
-     * @public
-     */
-    public static getType(o: any): IType<any> {
-        let type = Types.Map[Type.getRawName(o)];
-        return type ? type :  UnknownType;
-    }
-
     /**
      * Gets type name of the given value.
      * @param o
@@ -86,7 +74,6 @@ export default class Types {
     public static getRawName = (o: any): string => {
         return Type.getRawName(o);
     };
-
     /**
      * Gets type name of the given value.
      * @param o
@@ -97,13 +84,24 @@ export default class Types {
     };
 
     /**
+     * Finds @see Type by given object
+     * @param {any} o
+     * @return {IType<any>} provides most used operation on type
+     * @public
+     */
+    public static getType(o: any): IType<any> {
+        let type = Types.Map[Type.getRawName(o)];
+        return type ? type : UnknownType;
+    }
+
+    /**
      * Finds @see Type by given name of object
      * @param {string} name
      * @return {IType<any>}
      * @public
      */
     public static getTypeByName(name: string): IType<any> {
-        let type = Types.Map["[object "+ name + "]"];
+        let type = Types.Map["[object " + name + "]"];
         return type ? type : UnknownType;
     }
 
@@ -115,7 +113,7 @@ export default class Types {
      */
     public static getClone<T>(o: T, ignoreList?: string[]): T {
         let type = Types.getType(o);
-        if(ignoreList && ignoreList.indexOf(type.getName(o))) {
+        if (ignoreList && ignoreList.indexOf(type.getName(o))) {
             return o;
         }
         return type.getClone(o);
@@ -145,7 +143,7 @@ export default class Types {
      * @param o
      * @return {boolean}
      */
-    public static hasNot(o: any){
+    public static hasNot(o: any) {
         return Types.getType(o).hasNot(o);
     }
 
@@ -155,12 +153,12 @@ export default class Types {
      * @param type
      */
     public static addType<T>(obj: string | T, type: IType<T>) {
-        if(!type) {
-            throw new Error("Given type ( "+ type +" ) is empty or null !");
+        if (!type) {
+            throw new Error("Given type ( " + type + " ) is empty or null !");
         }
-        let key = typeof obj === "string" ? "[object " + obj +"]": Type.getRawName(obj);
+        let key = typeof obj === "string" ? "[object " + obj + "]" : Type.getRawName(obj);
         let newType = Types.Map[key];
-        if(newType) {
+        if (newType) {
             throw new Error("You cannot add some types. That's used by core code.")
         }
         Types.Map[key] = type;
@@ -239,29 +237,29 @@ Types.Map[Types.ToString.Array] = new Type<any[]>({
     isPrimitive: () => false,
     getClone: (o: any[], ignoreList?: string[]): any[] => {
         let cloneArray = [];
-        for(let i = 0; i < o.length; i++) {
+        for (let i = 0; i < o.length; i++) {
             cloneArray[i] = Types.getClone(o[i], ignoreList);
         }
         return cloneArray;
     },
     getSize: (o: any[]): number => {
         let size = 0;
-        for(let i = 0; i < o.length; i++) {
+        for (let i = 0; i < o.length; i++) {
             let itemSize = Types.getSize(o[i]);
-            if(!Type.hasNot(itemSize)) {
-                size+= itemSize;
+            if (!Type.hasNot(itemSize)) {
+                size += itemSize;
             }
         }
         return size;
     },
     equals: (src: any[], dest: any[]): boolean => {
-        if(!src || !dest) return src === dest;
+        if (!src || !dest) return src === dest;
         let isEqual = Types.getType(src) === Types.getType(dest);
-        if(!isEqual) return false;
-        if(src.length !== dest.length) return false;
-        for(let i = 0; i < src.length; i++) {
+        if (!isEqual) return false;
+        if (src.length !== dest.length) return false;
+        for (let i = 0; i < src.length; i++) {
             let type1 = Types.getType(src[i]);
-            if(!type1.equals(src[i], dest[i])) {
+            if (!type1.equals(src[i], dest[i])) {
                 return false;
             }
         }
@@ -271,8 +269,8 @@ Types.Map[Types.ToString.Array] = new Type<any[]>({
 
 Types.Map[Types.ToString.Object] = new Type<Object>({
     hasNot: (o: Object): boolean => {
-        for(let key in o) {
-            if(hasOwnProperty.call(o, key)) {
+        for (let key in o) {
+            if (hasOwnProperty.call(o, key)) {
                 return false;
             }
         }
@@ -281,8 +279,8 @@ Types.Map[Types.ToString.Object] = new Type<Object>({
     isPrimitive: () => false,
     getClone: (o: any, ignoreList?: string[]): any => {
         let cloneObject: any = {};
-        for(let key in o) {
-            if(hasOwnProperty.call(o, key)) {
+        for (let key in o) {
+            if (hasOwnProperty.call(o, key)) {
                 cloneObject[key] = Types.getClone(o[key], ignoreList);
             }
         }
@@ -290,8 +288,8 @@ Types.Map[Types.ToString.Object] = new Type<Object>({
     },
     getSize: (o: any): number => {
         let size = 0;
-        for(let key in o) {
-            if(hasOwnProperty.call(o, key)) {
+        for (let key in o) {
+            if (hasOwnProperty.call(o, key)) {
                 size += 2 * key.length;
                 size += Types.getSize(o[key]);
             }
@@ -299,13 +297,13 @@ Types.Map[Types.ToString.Object] = new Type<Object>({
         return size;
     },
     equals: (src: any, dest: any): boolean => {
-        if(!src || !dest) return src === dest;
+        if (!src || !dest) return src === dest;
         let isEqual = Types.getType(src) === Types.getType(dest);
-        if(!isEqual) return false;
-        for(let key in src) {
-            if(hasOwnProperty.call(src, key)) {
+        if (!isEqual) return false;
+        for (let key in src) {
+            if (hasOwnProperty.call(src, key)) {
                 let type1 = Types.getType(src[key]);
-                if(!type1.equals(src[key], dest[key])) {
+                if (!type1.equals(src[key], dest[key])) {
                     return false;
                 }
             }

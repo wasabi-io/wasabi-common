@@ -1,4 +1,5 @@
 import "../prototype";
+
 const startIndex: number = "[object ".length;
 
 /**
@@ -21,22 +22,22 @@ const has = (value: any): boolean => {
 };
 
 const asEs6Module = (module: any, name?: string) => {
-    if(module.__esModule) {
-        if(has(name)) {
+    if (module.__esModule) {
+        if (has(name)) {
             return module[name];
-        } else if(module.default) {
+        } else if (module.default) {
             return module.default;
         }
         // Checks one module is exist or not.
         let count = 0;
         let moduleKey;
-        for(let key in module) {
-            if(module.hasOwnProperty(key) && key !== "__esModule") {
+        for (let key in module) {
+            if (module.hasOwnProperty(key) && key !== "__esModule") {
                 count++;
                 moduleKey = key;
             }
         }
-        if(count === 1) {
+        if (count === 1) {
             return module[moduleKey];
         }
     }

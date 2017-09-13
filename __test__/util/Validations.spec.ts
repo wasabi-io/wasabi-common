@@ -1,5 +1,5 @@
 import Validations from "wasabi-common/lib/util/Validations"
-import { expect } from "chai";
+import {expect} from "chai";
 
 describe("util/Validations", () => {
     it("isPrimitive", () => {
@@ -13,7 +13,8 @@ describe("util/Validations", () => {
         expect(Validations.isPrimitive(new Date())).to.be.false;
         expect(Validations.isPrimitive([])).to.be.false;
         expect(Validations.isPrimitive({})).to.be.false;
-        expect(Validations.isPrimitive(function () {})).to.be.false;
+        expect(Validations.isPrimitive(function () {
+        })).to.be.false;
         expect(Validations.isPrimitive(new RegExp(".*"))).to.be.false;
     });
 
@@ -28,7 +29,8 @@ describe("util/Validations", () => {
         expect(Validations.isJsonType(new Date())).to.be.false;
         expect(Validations.isJsonType([])).to.be.true;
         expect(Validations.isJsonType({})).to.be.true;
-        expect(Validations.isJsonType(function () {})).to.be.false;
+        expect(Validations.isJsonType(function () {
+        })).to.be.false;
         expect(Validations.isJsonType(new RegExp(".*"))).to.be.false;
     });
 
@@ -44,7 +46,8 @@ describe("util/Validations", () => {
         expect(Validations.isNativeType(new RegExp(".*"))).to.be.true;
         expect(Validations.isNativeType([])).to.be.true;
         expect(Validations.isNativeType({})).to.be.true;
-        expect(Validations.isNativeType(function () {})).to.be.true;
+        expect(Validations.isNativeType(function () {
+        })).to.be.true;
         expect(Validations.isNativeType(new RegExp(".*"))).to.be.true;
     });
 

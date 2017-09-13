@@ -1,8 +1,8 @@
 import Assertions from "wasabi-common/lib/util/Assertions"
-import { expect, assert } from "chai";
+import {assert} from "chai";
 
 const tryBlock = (success: () => void, error: () => void) => {
-    if(success) {
+    if (success) {
         try {
             success();
             assert.isOk(true, "All methods success");
@@ -11,11 +11,11 @@ const tryBlock = (success: () => void, error: () => void) => {
         }
     }
 
-    if ( error ) {
+    if (error) {
         try {
             error();
             assert.isNotOk(false, "All methods must be fail ! ");
-        }catch (e) {
+        } catch (e) {
             assert.isOk(true, e);
         }
     }
@@ -38,7 +38,8 @@ describe("util/Assertions", () => {
                 Assertions.isPrimitive(new Date());
                 Assertions.isPrimitive([]);
                 Assertions.isPrimitive({});
-                Assertions.isPrimitive(function () {});
+                Assertions.isPrimitive(function () {
+                });
                 Assertions.isPrimitive(new RegExp(".*"));
             }
         )
@@ -59,7 +60,8 @@ describe("util/Assertions", () => {
             },
             () => {
                 Assertions.isJsonType(new Date());
-                Assertions.isJsonType(function () {});
+                Assertions.isJsonType(function () {
+                });
                 Assertions.isJsonType(new RegExp(".*"));
             }
         )
@@ -80,7 +82,8 @@ describe("util/Assertions", () => {
                 Assertions.isNativeType(new RegExp(".*"));
                 Assertions.isNativeType([]);
                 Assertions.isNativeType({});
-                Assertions.isNativeType(function () {});
+                Assertions.isNativeType(function () {
+                });
                 Assertions.isNativeType(new RegExp(".*"));
             },
             null
@@ -245,7 +248,8 @@ describe("util/Assertions", () => {
     it("isFunction", () => {
         tryBlock(
             () => {
-                Assertions.isFunction(function () {});
+                Assertions.isFunction(function () {
+                });
             },
             () => {
                 Assertions.isFunction("");

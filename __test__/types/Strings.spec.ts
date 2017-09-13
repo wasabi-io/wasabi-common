@@ -1,5 +1,5 @@
 import Strings from "wasabi-common/lib/types/Strings";
-import { expect } from "chai";
+import {expect} from "chai";
 
 describe("util/Strings", () => {
 
@@ -68,17 +68,17 @@ describe("util/Strings", () => {
 
     it("lPad", () => {
         expect(Strings.lPad("example ", "0", 10)).to.be.eq("00example ");
-        expect(Strings.lPad("Example",  "0", 10)).to.be.eq("000Example");
-        expect(Strings.lPad(null,  "0", 10)).to.be.eq("0000000000");
-        expect(Strings.lPad(undefined,  "0", 10)).to.be.eq("0000000000");
+        expect(Strings.lPad("Example", "0", 10)).to.be.eq("000Example");
+        expect(Strings.lPad(null, "0", 10)).to.be.eq("0000000000");
+        expect(Strings.lPad(undefined, "0", 10)).to.be.eq("0000000000");
     });
 
 
     it("rPad", () => {
         expect(Strings.rPad("example ", "0", 10)).to.be.eq("example 00");
-        expect(Strings.rPad("Example",  "0", 10)).to.be.eq("Example000");
-        expect(Strings.rPad(null,  "0", 10)).to.be.eq("0000000000");
-        expect(Strings.rPad(undefined,  "0", 10)).to.be.eq("0000000000");
+        expect(Strings.rPad("Example", "0", 10)).to.be.eq("Example000");
+        expect(Strings.rPad(null, "0", 10)).to.be.eq("0000000000");
+        expect(Strings.rPad(undefined, "0", 10)).to.be.eq("0000000000");
 
     });
 
@@ -102,8 +102,8 @@ describe("util/Strings", () => {
         let data = {
             name1: 'Silento',
             name2: 'Miley',
-            nested: { greeting: 'Dude', useName1: true },
-            verb: function() {
+            nested: {greeting: 'Dude', useName1: true},
+            verb: function () {
                 return this.nested.useName1 ? 'nae nae' : 'twerk';
             }
         };

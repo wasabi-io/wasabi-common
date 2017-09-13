@@ -1,8 +1,8 @@
 import Types from "wasabi-common/lib/util/Types";
-import { expect } from "chai";
+import {expect} from "chai";
 
 describe("util/Types", () => {
-    
+
     it("ToString", () => {
         const toString = Object.prototype.toString;
         expect(Types.ToString.Number).to.deep.eq(toString.call(0));
@@ -12,7 +12,8 @@ describe("util/Types", () => {
         expect(Types.ToString.Date).to.deep.eq(toString.call(new Date()));
         expect(Types.ToString.RegExp).to.deep.eq(toString.call(new RegExp(".*")));
         expect(Types.ToString.Null).to.deep.eq(toString.call(null));
-        expect(Types.ToString.Function).to.deep.eq(toString.call(function () {}));
+        expect(Types.ToString.Function).to.deep.eq(toString.call(function () {
+        }));
         expect(Types.ToString.Undefined).to.deep.eq(toString.call(undefined));
         expect(Types.ToString.Object).to.deep.eq(toString.call({}));
     });
@@ -25,7 +26,8 @@ describe("util/Types", () => {
         expect(Types.getType(new Date()).getName(new Date())).to.deep.eq(Types.getName(new Date()));
         expect(Types.getType(new RegExp(".*")).getName(new RegExp(".*"))).to.deep.eq(Types.getName(new RegExp(".*")));
         expect(Types.getType(null).getName(null)).to.deep.eq(Types.getName(null));
-        let fn = function () {};
+        let fn = function () {
+        };
         expect(Types.getType(fn).getName(fn)).to.deep.eq(Types.getName(fn));
         expect(Types.getType(undefined).getName(undefined)).to.deep.eq(Types.getName(undefined));
     });
@@ -38,7 +40,8 @@ describe("util/Types", () => {
         expect(Types.getRawName(new Date())).to.deep.eq(Types.ToString.Date);
         expect(Types.getRawName(new RegExp(".*"))).to.deep.eq(Types.ToString.RegExp);
         expect(Types.getRawName(null)).to.deep.eq(Types.ToString.Null);
-        let fn = function () {};
+        let fn = function () {
+        };
         expect(Types.getRawName(fn)).to.deep.eq(Types.ToString.Function);
         expect(Types.getRawName(undefined)).to.deep.eq(Types.ToString.Undefined);
     });
@@ -59,20 +62,24 @@ describe("util/Types", () => {
     });
 
     it("getClone", () => {
-         expect(Types.getClone("")).to.deep.eq("");
-         expect(Types.getClone(0)).to.deep.eq(0);
-         expect(Types.getClone(true)).to.deep.eq(true);
-         expect(Types.getClone([])).to.deep.eq([]);
-         expect(Types.getClone(["e1", "e2"])).to.deep.eq(["e1", "e2"]);
-         expect(Types.getClone(new RegExp(".*"))).to.deep.eq(new RegExp(".*"));
-         expect(Types.getClone(null)).to.deep.eq(null);
-         let fn = function () {};
-         expect(Types.getClone(fn)).to.deep.eq(fn);
-         expect(Types.getClone(undefined)).to.deep.eq(undefined);
-         expect(Types.getClone({ a1: "example", a2: ["example"]})).to.deep.eq({ a1: "example", a2: ["example"]});
-         expect(Types.getClone({ a1: "example", a2: ["example"]}, ["Array"])).to.deep.eq({ a1: "example", a2: ["example"]});
-         let date = new Date();
-         expect(Types.getClone(date)).to.deep.eq(date);
+        expect(Types.getClone("")).to.deep.eq("");
+        expect(Types.getClone(0)).to.deep.eq(0);
+        expect(Types.getClone(true)).to.deep.eq(true);
+        expect(Types.getClone([])).to.deep.eq([]);
+        expect(Types.getClone(["e1", "e2"])).to.deep.eq(["e1", "e2"]);
+        expect(Types.getClone(new RegExp(".*"))).to.deep.eq(new RegExp(".*"));
+        expect(Types.getClone(null)).to.deep.eq(null);
+        let fn = function () {
+        };
+        expect(Types.getClone(fn)).to.deep.eq(fn);
+        expect(Types.getClone(undefined)).to.deep.eq(undefined);
+        expect(Types.getClone({a1: "example", a2: ["example"]})).to.deep.eq({a1: "example", a2: ["example"]});
+        expect(Types.getClone({a1: "example", a2: ["example"]}, ["Array"])).to.deep.eq({
+            a1: "example",
+            a2: ["example"]
+        });
+        let date = new Date();
+        expect(Types.getClone(date)).to.deep.eq(date);
     });
 
     it("getSize", () => {
@@ -81,19 +88,22 @@ describe("util/Types", () => {
         expect(Types.getSize([])).to.deep.eq(0);
         expect(Types.getSize(["e1", "e2"])).to.deep.eq(8);
         expect(Types.getSize(null)).to.deep.eq(0);
-        let fn = function () {};
+        let fn = function () {
+        };
         expect(Types.getSize(fn)).to.deep.eq(fn.toString().length * 2);
         expect(Types.getSize(undefined)).to.deep.eq(0);
-        expect(Types.getSize({ a1: "example", a2: ["example"]})).to.deep.eq(36);
+        expect(Types.getSize({a1: "example", a2: ["example"]})).to.deep.eq(36);
     });
 
     it("equals", () => {
         class Example {
             member: string;
+
             constructor(member: string) {
                 this.member = member;
             }
         }
+
         // string equals
         expect(Types.equals("", "")).to.be.true;
         expect(Types.equals("Example", "Example")).to.be.true;
@@ -163,7 +173,7 @@ describe("util/Types", () => {
         expect(Types.hasNot(null)).to.be.true;
         expect(Types.hasNot(undefined)).to.be.true;
         expect(Types.hasNot({})).to.be.true;
-        expect(Types.hasNot({ a: ""})).to.be.false;
+        expect(Types.hasNot({a: ""})).to.be.false;
     });
 
     it("addType", () => {
@@ -188,14 +198,14 @@ describe("util/Types", () => {
         expect(isPrimitive).to.deep.eq(false);
         expect(isNativeType).to.deep.eq(true);
         expect(type.getSize(new Example())).to.deep.eq(3);
-        try{
-            Types.addType("Example",null);
+        try {
+            Types.addType("Example", null);
             expect(false).to.be.true;
-        }catch (e) {
-           expect(true).to.be.true;
+        } catch (e) {
+            expect(true).to.be.true;
         }
 
-        try{
+        try {
             Types.addType("Example", {
                 isPrimitive: () => isPrimitive,
                 isJsonType: () => isJsonType,
@@ -203,7 +213,7 @@ describe("util/Types", () => {
                 getSize: (o: Example) => expectedSize
             });
             expect(false).to.be.true;
-        }catch (e) {
+        } catch (e) {
             expect(true).to.be.true;
         }
     })

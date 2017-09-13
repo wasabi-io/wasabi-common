@@ -1,9 +1,9 @@
 import Maps from "wasabi-common/lib/types/Maps";
 import Types from "wasabi-common/lib/util/Types";
-import { expect } from "chai";
+import {expect} from "chai";
 
 describe("util/Maps", () => {
-    it("equals", ()=> {
+    it("equals", () => {
         let value1 = {
             "sds": "Example",
             "vsd": true,
@@ -24,7 +24,7 @@ describe("util/Maps", () => {
         expect(Maps.equals(value1, value3)).to.be.false;
     });
 
-    it("deepCopy", ()=> {
+    it("deepCopy", () => {
         let value1 = {
             "sds": "Example",
             "vsd": true,
@@ -33,12 +33,12 @@ describe("util/Maps", () => {
         expect(Maps.deepCopy(value1)).to.be.deep.eq(value1);
     });
 
-    it("sizeOf", ()=> {
+    it("sizeOf", () => {
 
         let str = "Example String";
         let strSize = str.length * 2;
 
-        let fn = function() { // 208 charachter
+        let fn = function () { // 208 charachter
             let example = "sddfsd";
             console.log(example);
         };
@@ -53,7 +53,7 @@ describe("util/Maps", () => {
 
         let expectedSize =
             "str".length * 2 + strSize +
-            "exampleInstance".length * 2 + exampleInstanceSize  +
+            "exampleInstance".length * 2 + exampleInstanceSize +
             "fn".length * 2 + fnSize;
         let value = {
             str: str,

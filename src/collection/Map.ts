@@ -3,17 +3,18 @@ import Iterator from "./Iterator";
 import {has} from "../util/Functions";
 
 export class Entry<K = string | number, V = any> {
-    private _key: K;
-    private _value: V;
-
     public constructor(key: K, value: V) {
         this._key = key;
         this._value = value;
     }
 
+    private _key: K;
+
     get key(): K {
         return this._key;
     }
+
+    private _value: V;
 
     get value(): V {
         return this._value;
@@ -27,7 +28,6 @@ export interface MapItems<V> {
 }
 
 export default class Map<K extends string | number, V = any> {
-    private _length = 0;
     private _items: MapItems<Entry<K, V>> = {};
 
     /**
@@ -36,6 +36,16 @@ export default class Map<K extends string | number, V = any> {
     public constructor(map?: Map<K, V> | MapItems<V> | Array<V>) {
         this._length = 0;
         this.putAll(map);
+    }
+
+    private _length = 0;
+
+    /**
+     *  Returns the number of key-value mappings in this map.
+     * @returns {number}map
+     */
+    get length(): number {
+        return this._length;
     }
 
     /**
@@ -54,7 +64,6 @@ export default class Map<K extends string | number, V = any> {
     public containsKey(key: K): boolean {
         return this._items.hasOwnProperty(key as any);
     }
-
 
     /**
      *
@@ -103,12 +112,6 @@ export default class Map<K extends string | number, V = any> {
         return value;
     }
 
-    private add(key: K, entry: Entry<K, V>) {
-        this._length += 1;
-        this._items[key as any] = entry;
-        return entry.value;
-    }
-
     /**
      *
      * @param {K} key
@@ -128,12 +131,12 @@ export default class Map<K extends string | number, V = any> {
      * @param {Map<K, V> | MapItems<V> | Array<V>} map
      */
     public putAll(map: Map<K, V> | MapItems<V> | Array<V>): Array<V> {
-        if(!has(map)) return [];
-        if(map instanceof Map) {
+        if (!has(map)) return [];
+        if (map instanceof Map) {
             return Collection.mapObject(
                 map._items, (entry: Entry<K, V>, key: K) => this.put(key as any, entry.value)
             );
-        } else if(map instanceof Array) {
+        } else if (map instanceof Array) {
             return Collection.mapArray(map, (value: V, key: number) => this.put(key as any, value));
         }
         return Collection.mapObject(map, (value: V, key: string) => this.put(key as any, value));
@@ -200,14 +203,6 @@ export default class Map<K extends string | number, V = any> {
     }
 
     /**
-     *  Returns the number of key-value mappings in this map.
-     * @returns {number}map
-     */
-    get length(): number {
-        return this._length;
-    }
-
-    /**
      *
      * @param {(entry: Entry<K, V>) => boolean} predicate
      * @returns {Map<K extends string | number, V>}
@@ -223,5 +218,11 @@ export default class Map<K extends string | number, V = any> {
 
     public iterator(): Iterator<Entry<K, V>> {
         return new Iterator(this.entrySet());
+    }
+
+    private add(key: K, entry: Entry<K, V>) {
+        this._length += 1;
+        this._items[key as any] = entry;
+        return entry.value;
     }
 }

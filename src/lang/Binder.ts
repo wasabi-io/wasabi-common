@@ -13,7 +13,7 @@ export default class Binder {
      * @param {Function} fn
      */
     public static bind(instance: any, key: string, fn?: Function) {
-        if(!fn) {
+        if (!fn) {
             fn = instance[key];
         }
         instance[key] = fn.bind(instance);
@@ -24,13 +24,13 @@ export default class Binder {
      * @param instance
      * @param {string} keys
      */
-    public static bindAll(instance: any, ...keys: string[]){
-        if(keys.length === 0) {
+    public static bindAll(instance: any, ...keys: string[]) {
+        if (keys.length === 0) {
             keys = Object.getPrototypeOf(instance);
         }
-        for(let key in keys) {
+        for (let key in keys) {
             let member = instance[key];
-            if(key !== "constructor" && typeof member === "function") {
+            if (key !== "constructor" && typeof member === "function") {
                 Binder.bind(instance, key, member);
             }
         }

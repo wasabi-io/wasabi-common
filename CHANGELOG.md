@@ -1,5 +1,8 @@
 ## CHANGE LOG
 
+#### v2.0.0
+* added **collection/Tree** component.
+
 #### v2.0.0.-beta.4
 * added default Generic Type to { Props } in Objects and Map.
 

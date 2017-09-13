@@ -1,19 +1,37 @@
 import Types from "../util/Types";
 
 export default class Set<E = any> {
-    private _length: number = 0;
-    private _array: Array<E> = [];
-
     public constructor(array?: Array<E> | Set<E>) {
         this.addAll(array)
     }
+
+    private _length: number = 0;
 
     public get length(): number {
         return this._length;
     }
 
+    private _array: Array<E> = [];
+
     public get array(): Array<E> {
         return this._array.slice(0);
+    }
+
+    public static addArray<E>(source: Array<E>, destination: Set<E>) {
+        for (let i = 0; i < source.length; i++) {
+            if (!destination.contains(source[i])) {
+                destination.add(source[i]);
+            }
+        }
+    }
+
+    public static addSet<E>(source: Set<E>, destination: Set<E>) {
+        for (let i = 0; i < source.length; i++) {
+            let element = source.get(i);
+            if (!destination.contains(element)) {
+                destination.add(element);
+            }
+        }
     }
 
     public contains(element: E) {
@@ -55,22 +73,5 @@ export default class Set<E = any> {
             return true;
         }
         return false;
-    }
-
-    public static addArray<E>(source: Array<E>, destination: Set<E>) {
-        for (let i = 0; i < source.length; i++) {
-            if (!destination.contains(source[i])) {
-                destination.add(source[i]);
-            }
-        }
-    }
-
-    public static addSet<E>(source: Set<E>, destination: Set<E>) {
-        for (let i = 0; i < source.length; i++) {
-            let element = source.get(i);
-            if (!destination.contains(element)) {
-                destination.add(element);
-            }
-        }
     }
 }

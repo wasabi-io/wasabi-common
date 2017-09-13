@@ -1,5 +1,5 @@
 import Chars from "wasabi-common/lib/types/Chars"
-import { expect } from "chai";
+import {expect} from "chai";
 
 describe("util/Chars", () => {
     it("isNumber", () => {

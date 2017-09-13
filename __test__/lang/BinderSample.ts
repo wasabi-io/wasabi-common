@@ -1,50 +1,50 @@
 export class AbstractExampleClass {
-    public test1(){
+    public test1() {
 
     }
 
-    public test2(){
+    public test2() {
 
     }
 
-    private test3(){
+    protected test4() {
 
     }
 
-    protected test4(){
+    private test3() {
 
     }
 }
 
 export class Example extends AbstractExampleClass {
-    public test1(){
+    public test1() {
 
     }
 
-    public test5(){
+    public test5() {
 
     }
 
-    private test6(){
+    protected test7() {
 
     }
 
-    protected test7(){
+    private test6() {
 
     }
 }
 
 export class ExampleSubClass extends Example {
 
-    public test5(){
+    public test5() {
 
     }
 
-    private test8(){
+    protected test9() {
 
     }
 
-    protected test9(){
+    private test8() {
 
     }
 }

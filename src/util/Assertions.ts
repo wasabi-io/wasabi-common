@@ -1,4 +1,5 @@
 import Validations from "./Validations";
+
 /**
  * Provides some assert operations.
  * Use {@link Validations } for only validations.
@@ -15,7 +16,7 @@ export default class Assertions {
      * @throws new Error(`${o} is not primitive type !`)
      */
     public static isPrimitive(o: any) {
-        if(!Validations.isPrimitive(o)) {
+        if (!Validations.isPrimitive(o)) {
             throw new Error(`${o} is not primitive type !`);
         }
     }
@@ -27,7 +28,7 @@ export default class Assertions {
      * @throws new Error(`${o} is not json type !`)
      */
     public static isJsonType(o: any) {
-        if(!Validations.isJsonType(o)) {
+        if (!Validations.isJsonType(o)) {
             throw new Error(`${o} is not json type !`);
         }
     }
@@ -39,7 +40,7 @@ export default class Assertions {
      * @throws new Error(`${o} is not native type !`)
      */
     public static isNativeType(o: any) {
-        if(!Validations.isNativeType(o)) {
+        if (!Validations.isNativeType(o)) {
             throw new Error(`${o} is not native type !`);
         }
     }
@@ -51,7 +52,7 @@ export default class Assertions {
      * @throws new Error(`${o} type is not Object`)
      */
     public static isObject(o: any) {
-        if(!Validations.isObject(o)) {
+        if (!Validations.isObject(o)) {
             throw new Error(`${o} type is not Object`);
         }
     }
@@ -63,7 +64,7 @@ export default class Assertions {
      * @throws new Error(`${o} type is not Number`)
      */
     public static isNumber(o: any) {
-        if(!Validations.isNumber(o)) {
+        if (!Validations.isNumber(o)) {
             throw new Error(`${o} type is not Number`);
         }
     }
@@ -75,7 +76,7 @@ export default class Assertions {
      * @throws new Error(`${o} type is not Boolean`)
      */
     public static isBoolean(o: any) {
-        if(!Validations.isBoolean(o)) {
+        if (!Validations.isBoolean(o)) {
             throw new Error(`${o} type is not Boolean`);
         }
     }
@@ -87,7 +88,7 @@ export default class Assertions {
      * @throws new Error(`${o} type is not Array`)
      */
     public static isArray(o: any) {
-        if(!Validations.isArray(o)) {
+        if (!Validations.isArray(o)) {
             throw new Error(`${o} type is not Array`);
         }
     }
@@ -99,7 +100,7 @@ export default class Assertions {
      * @throws new Error(`${o} type is not String`)
      */
     public static isString(o: any) {
-        if(!Validations.isString(o)) {
+        if (!Validations.isString(o)) {
             throw new Error(`${o} type is not String`);
         }
     }
@@ -111,7 +112,7 @@ export default class Assertions {
      * @throws new Error(`${o} type is not Date`)
      */
     public static isDate(o: any) {
-        if(!Validations.isDate(o)) {
+        if (!Validations.isDate(o)) {
             throw new Error(`${o} type is not Date`);
         }
     }
@@ -123,7 +124,7 @@ export default class Assertions {
      * @throws new Error(`${o} type is not RegExp`)
      */
     public static isRegExp(o: any) {
-        if(!Validations.isRegExp(o)) {
+        if (!Validations.isRegExp(o)) {
             throw new Error(`${o} type is not RegExp`);
         }
     }
@@ -135,7 +136,7 @@ export default class Assertions {
      * @throws new Error(`${o} type is not Null`)
      */
     public static isNull(o: any) {
-        if(!Validations.isNull(o)) {
+        if (!Validations.isNull(o)) {
             throw new Error(`${o} type is not Null`);
         }
     }
@@ -147,7 +148,7 @@ export default class Assertions {
      * @throws new Error(`${o} type is not Function`)
      */
     public static isFunction(o: any) {
-        if(!Validations.isFunction(o)) {
+        if (!Validations.isFunction(o)) {
             throw new Error(`${o} type is not Function`);
         }
     }
@@ -158,7 +159,7 @@ export default class Assertions {
      * @throws new Error(`${o} type is not undefined`)
      */
     public static isUndefined(o: any) {
-        if(!Validations.isUndefined(o)) {
+        if (!Validations.isUndefined(o)) {
             throw new Error(`${o} type is not undefined`);
         }
     }
@@ -170,7 +171,7 @@ export default class Assertions {
      * @throws new Error(`${o} has not value`)
      */
     public static has(o: any) {
-        if(Validations.hasNot(o)) {
+        if (Validations.hasNot(o)) {
             throw new Error(`${o} has not value`);
         }
     }
@@ -182,7 +183,7 @@ export default class Assertions {
      * @throws new Error(`${o} has value`)
      */
     public static hasNot(o: any) {
-        if(Validations.has(o)) {
+        if (Validations.has(o)) {
             throw new Error(`${o} has value`);
         }
     }
@@ -195,7 +196,7 @@ export default class Assertions {
      * @throws new Error(`${src} is not equals ${dest}`)
      */
     public static equals(src: any, dest: any) {
-        if(!Validations.equals(src, dest)) {
+        if (!Validations.equals(src, dest)) {
             throw new Error(`${src} is not equals ${dest}`);
         }
     }
