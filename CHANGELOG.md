@@ -1,5 +1,12 @@
 ## CHANGE LOG
 
+#### v2.1.0
+
+* removed require from Functions.
+
+#### v2.0.4
+* changed put method to put V or Map<V>.
+
 #### v2.0.3
 * reverted **Tree** back version.
 

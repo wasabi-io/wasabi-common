@@ -43,21 +43,9 @@ const asEs6Module = (module: any, name?: string) => {
     }
     return module;
 };
-/**
- * require Es6 modules by some rules.
- * if module defined in default then return default module.
- * @param id
- * @param name
- * @return {any}
- */
-const requireEs6 = (id: string, name?: string) => {
-    let module = require(id);
-    return asEs6Module(module, name);
-};
 
 export {
     getType,
     has,
-    asEs6Module,
-    requireEs6
+    asEs6Module
 }
