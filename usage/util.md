@@ -47,7 +47,6 @@ has(null); // false
 has(undefined); // false
 has(""); // true
 has({}); // true
-requireEs6("./wasabi-common/lib/types/Arrays") // Arrays
 getType(""); // String
 getType(true); // Boolean
 ```
@@ -55,11 +54,9 @@ getType(true); // Boolean
 * Usage [Resolver](https://wasabi-io.github.io/wasabi-common/modules/_util_resolver_.html)
 
 ```typescript
-import { requireEs6 } from "wasabi-common";
 import { addModule } from "wasabi-common/lib/util/Resolver";
 
 addModule("src");
-const Arrays = requireEs6("types/Arrays"); // absolute call
 ```
 
 * Usage <a name="Types"></a>[Types](https://wasabi-io.github.io/wasabi-common/modules/_util_types_.html)
