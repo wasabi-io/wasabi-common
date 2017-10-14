@@ -32,7 +32,7 @@ export default class Tree<V = any> {
         return map instanceof Tree ? map.map : map;
     }
 
-    public put(key: string, value: V): any {
+    public put(key: string, value: V | TreeProps<V>): any {
         let keys = key.split("\.");
         let lastKey = keys.splice(-1, 1)[0];
         let parent = this.map;

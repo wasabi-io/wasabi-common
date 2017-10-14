@@ -46,7 +46,11 @@ describe("collection/Tree", () => {
         expect(map.get("key2")).to.be.null;
         expect(map.get("key5")).to.be.undefined;
 
+        map.put("key3", {
+            "key4": "example"
+        });
 
+        expect(map.get("key3", "key4")).to.be.eq("example");
     });
 
     it("putAll", () => {
@@ -121,7 +125,5 @@ describe("collection/Tree", () => {
         expect(map.tree("key1")).to.be.deep.eq(new Tree(obj.key1));
         map.clear();
         expect(map.get()).to.be.deep.eq({})
-
-
     })
 });
