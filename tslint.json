@@ -5,6 +5,7 @@
     "max-classes-per-file": [
       false
     ],
+    "variable-name": false,
     "no-arg": false,
     "ban-types": [
       "Function"

@@ -228,10 +228,22 @@ Types.Map[Types.ToString.Function] = new Type<Function>({
     isJsonType: (): boolean => false,
     isPrimitive: (): boolean => false,
 });
+const equals = (src: any, dest: any, stack?: any[]) => {
+    switch (Types.getRawName(src)) {
+        case Types.ToString.Object:
+        case Types.ToString.Array:
+            if (stack.indexOf(src) !== -1) {
+                return src === dest;
+            }
+            stack.push(src, dest);
+    }
+    const type = Types.getType(src);
+    return type.equals(src, dest, stack);
+};
 
 // Array Type
 Types.Map[Types.ToString.Array] = new Type<any[]>({
-    equals: (src: any[], dest: any[]): boolean => {
+    equals: (src: any[], dest: any[], stack?: any[]): boolean => {
         if (!src || !dest) {
             return src === dest;
         }
@@ -243,8 +255,8 @@ Types.Map[Types.ToString.Array] = new Type<any[]>({
             return false;
         }
         for (let i = 0; i < src.length; i++) {
-            const type1 = Types.getType(src[i]);
-            if (!type1.equals(src[i], dest[i])) {
+            stack = stack || [];
+            if (!equals(src[i], dest[i], stack)) {
                 return false;
             }
         }
@@ -272,7 +284,7 @@ Types.Map[Types.ToString.Array] = new Type<any[]>({
 });
 
 Types.Map[Types.ToString.Object] = new Type<any>({
-    equals: (src: any, dest: any): boolean => {
+    equals: (src: any, dest: any, stack?: any[]): boolean => {
         if (!src || !dest) {
             return src === dest;
         }
@@ -282,8 +294,8 @@ Types.Map[Types.ToString.Object] = new Type<any>({
         }
         for (const key in src) {
             if (hasOwnProperty.call(src, key)) {
-                const type1 = Types.getType(src[key]);
-                if (!type1.equals(src[key], dest[key])) {
+                stack = stack || [];
+                if (!equals(src[key], dest[key], stack)) {
                     return false;
                 }
             }

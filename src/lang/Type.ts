@@ -54,8 +54,9 @@ export interface IType<T> {
      *
      * @param src
      * @param dest
+     * @param stack
      */
-    equals?(src: T, dest: T): boolean;
+    equals?(src: T, dest: T, stack?: any[]): boolean;
 }
 
 /**
@@ -205,6 +206,7 @@ export default class Type<T> implements IType<T> {
      * sets initial properties to type from the given properties which implements IType<T> interfaces.
      * Check the given property if property not exist then apply standart properties which are defined as static members.
      * @param type
+     * @param name
      */
     public constructor(type: IType<T>) {
         this.hasNot = type.hasNot ? type.hasNot : Type.hasNot;
