@@ -1,6 +1,6 @@
+import {has} from "../util/Functions";
 import Collection from "./Collection";
 import Iterator from "./Iterator";
-import {has} from "../util/Functions";
 
 export class Entry<K = string | number, V = any> {
     public constructor(key: K, value: V) {
@@ -8,23 +8,25 @@ export class Entry<K = string | number, V = any> {
         this._value = value;
     }
 
+    /* tslint:disable */
     private _key: K;
 
-    get key(): K {
+    public get key(): K {
         return this._key;
     }
 
+    /* tslint:disable */
     private _value: V;
 
-    get value(): V {
+    public get value(): V {
         return this._value;
     }
 }
 
 export interface MapItems<V> {
-    [key: string]: V
+    [key: string]: V;
 
-    [key: number]: V
+    [key: number]: V;
 }
 
 export default class Map<K extends string | number, V = any> {

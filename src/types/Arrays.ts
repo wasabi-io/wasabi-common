@@ -1,6 +1,7 @@
+import {Props} from "wasabi-common/lib/types/Objects";
+import Collection from "../collection/Collection";
 import {has} from "../util/Functions";
 import Types from "../util/Types";
-import Collection from "../collection/Collection";
 
 /**
  * A class which provides some operations on Array
@@ -16,8 +17,10 @@ export default class Arrays {
      * @return {boolean}
      */
     public static has(src: any[], index?: number): boolean {
-        if (!has(src)) return false;
-        return has(index) ? src.length > index : src.length > 0
+        if (!has(src)) {
+            return false;
+        }
+        return has(index) ? src.length > index : src.length > 0;
     }
 
     /**
@@ -37,7 +40,9 @@ export default class Arrays {
      * @return {boolean}
      */
     public static add(src: any[], value: any, index: number): boolean {
-        if (!src) return false;
+        if (!src) {
+            return false;
+        }
         if (index > 0) {
             if (index < src.length) {
                 src.splice(index, 0, value);
@@ -58,7 +63,9 @@ export default class Arrays {
      * @return {any[]}
      */
     public static remove(src: any[], index: number): any[] {
-        if (!has(src)) return src;
+        if (!has(src)) {
+            return src;
+        }
         src.splice(index, 1);
         return src;
     }
@@ -71,7 +78,7 @@ export default class Arrays {
      */
     public static removeValue(src: any[], value: any) {
         for (let i = 0; i < src.length; i++) {
-            if (src[i] == value) {
+            if (src[i] === value) {
                 src.splice(i, 1);
                 i--;
             }
@@ -86,10 +93,14 @@ export default class Arrays {
      * @return {any[]}
      */
     public static pushAll(src: any[], destination: any[]) {
-        if (!Arrays.has(src)) return destination;
-        if (!destination) destination = [];
+        if (!Arrays.has(src)) {
+            return destination;
+        }
+        if (!destination) {
+            destination = [];
+        }
         Collection.forEachArray(src, (item: any) => {
-            destination.push(item)
+            destination.push(item);
         });
         return destination;
     }
@@ -101,13 +112,16 @@ export default class Arrays {
      * @return {any}
      */
     public static removeAll<T>(src: T[], dest: T[]): T[] {
-        if (!dest) return [];
-        if (!src || src.length === 0) return dest.slice(0);
-        let newArray = [];
-        for (let i = 0; i < dest.length; i++) {
-            let value = dest[i];
+        if (!dest) {
+            return [];
+        }
+        if (!src || src.length === 0) {
+            return dest.slice(0);
+        }
+        const newArray = [];
+        for (const value of dest) {
             if (src.indexOf(value) === -1) {
-                newArray.push(dest[i]);
+                newArray.push(value);
             }
         }
         return newArray;
@@ -120,10 +134,10 @@ export default class Arrays {
      * @param {(item: any, index?: number, obj?: Object) => T} callback
      * @returns {Array<T>}
      */
-    public static map<T>(array: any[], callback: (item: any, index?: number, obj?: Object) => T): T[] {
-        let result = [];
+    public static map<T>(array: any[], callback: (item: any, index?: number, obj?: Props) => T): T[] {
+        const result = [];
         for (let i = 0; i < array.length; i++) {
-            let callbackResult = callback(array[i], i, array);
+            const callbackResult = callback(array[i], i, array);
             if (has(callbackResult)) {
                 result[result.length] = callbackResult;
             }
@@ -131,16 +145,15 @@ export default class Arrays {
         return result;
     }
 
-
     /**
      * Provides to navigate in the given Object and can broken if return false from callback function.
      * @param {any[]} array
      * @param {(item: any, index?: number, obj?: Object) => boolean | void} callback
      * @returns {boolean}
      */
-    public static forEach(array: any[], callback: (item: any, index?: number, obj?: Object) => boolean | void): boolean {
+    public static forEach(array: any[], callback: (item: any, index?: number, obj?: Props) => boolean | void): boolean {
         for (let i = 0; i < array.length; i++) {
-            let callbackResult = callback(array[i], i, array);
+            const callbackResult = callback(array[i], i, array);
             if (callbackResult === false) {
                 return false;
             }
@@ -155,17 +168,17 @@ export default class Arrays {
      * @return {T[]}
      */
     public static merge(...arrays: any[][]): any[] {
-        let resultArray: any[] = [];
-        for (let i = 0; i < arrays.length; i++) {
-            let array = arrays[i];
-            if (!array) continue;
-            for (let i = 0; i < array.length; i++) {
-                let element = array[i];
+        const resultArray: any[] = [];
+        for (const array of arrays) {
+            if (!array) {
+                continue;
+            }
+            for (const element of array) {
                 labelSwitch: switch (Types.getRawName(element)) {
                     case Types.ToString.Array:
                     case Types.ToString.Object:
-                        for (let i = 0; i < resultArray.length; i++) {
-                            if (Types.equals(resultArray[i], element)) {
+                        for (const result of resultArray) {
+                            if (Types.equals(result, element)) {
                                 break labelSwitch;
                             }
                         }

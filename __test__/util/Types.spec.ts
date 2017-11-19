@@ -1,6 +1,7 @@
-import Types from "wasabi-common/lib/util/Types";
 import {expect} from "chai";
+import Types from "wasabi-common/lib/util/Types";
 
+/* tslint:disable no-unused-expression */
 describe("util/Types", () => {
 
     it("ToString", () => {
@@ -12,7 +13,8 @@ describe("util/Types", () => {
         expect(Types.ToString.Date).to.deep.eq(toString.call(new Date()));
         expect(Types.ToString.RegExp).to.deep.eq(toString.call(new RegExp(".*")));
         expect(Types.ToString.Null).to.deep.eq(toString.call(null));
-        expect(Types.ToString.Function).to.deep.eq(toString.call(function () {
+        expect(Types.ToString.Function).to.deep.eq(toString.call(() => {
+            /* */
         }));
         expect(Types.ToString.Undefined).to.deep.eq(toString.call(undefined));
         expect(Types.ToString.Object).to.deep.eq(toString.call({}));
@@ -26,7 +28,8 @@ describe("util/Types", () => {
         expect(Types.getType(new Date()).getName(new Date())).to.deep.eq(Types.getName(new Date()));
         expect(Types.getType(new RegExp(".*")).getName(new RegExp(".*"))).to.deep.eq(Types.getName(new RegExp(".*")));
         expect(Types.getType(null).getName(null)).to.deep.eq(Types.getName(null));
-        let fn = function () {
+        const fn = () => {
+            /* */
         };
         expect(Types.getType(fn).getName(fn)).to.deep.eq(Types.getName(fn));
         expect(Types.getType(undefined).getName(undefined)).to.deep.eq(Types.getName(undefined));
@@ -40,7 +43,8 @@ describe("util/Types", () => {
         expect(Types.getRawName(new Date())).to.deep.eq(Types.ToString.Date);
         expect(Types.getRawName(new RegExp(".*"))).to.deep.eq(Types.ToString.RegExp);
         expect(Types.getRawName(null)).to.deep.eq(Types.ToString.Null);
-        let fn = function () {
+        const fn = () => {
+            /* */
         };
         expect(Types.getRawName(fn)).to.deep.eq(Types.ToString.Function);
         expect(Types.getRawName(undefined)).to.deep.eq(Types.ToString.Undefined);
@@ -69,16 +73,17 @@ describe("util/Types", () => {
         expect(Types.getClone(["e1", "e2"])).to.deep.eq(["e1", "e2"]);
         expect(Types.getClone(new RegExp(".*"))).to.deep.eq(new RegExp(".*"));
         expect(Types.getClone(null)).to.deep.eq(null);
-        let fn = function () {
+        const fn = () => {
+            /* */
         };
         expect(Types.getClone(fn)).to.deep.eq(fn);
         expect(Types.getClone(undefined)).to.deep.eq(undefined);
         expect(Types.getClone({a1: "example", a2: ["example"]})).to.deep.eq({a1: "example", a2: ["example"]});
         expect(Types.getClone({a1: "example", a2: ["example"]}, ["Array"])).to.deep.eq({
             a1: "example",
-            a2: ["example"]
+            a2: ["example"],
         });
-        let date = new Date();
+        const date = new Date();
         expect(Types.getClone(date)).to.deep.eq(date);
     });
 
@@ -88,7 +93,8 @@ describe("util/Types", () => {
         expect(Types.getSize([])).to.deep.eq(0);
         expect(Types.getSize(["e1", "e2"])).to.deep.eq(8);
         expect(Types.getSize(null)).to.deep.eq(0);
-        let fn = function () {
+        const fn = () => {
+            /* */
         };
         expect(Types.getSize(fn)).to.deep.eq(fn.toString().length * 2);
         expect(Types.getSize(undefined)).to.deep.eq(0);
@@ -97,7 +103,7 @@ describe("util/Types", () => {
 
     it("equals", () => {
         class Example {
-            member: string;
+            public member: string;
 
             constructor(member: string) {
                 this.member = member;
@@ -158,7 +164,7 @@ describe("util/Types", () => {
         expect(Types.equals({a1: "example"}, [])).to.be.false;
         expect(Types.equals({a1: "example"}, {})).to.be.false;
         expect(Types.equals(new Example("ewew"), new Example("sdsd"))).to.be.false;
-        let example = new Example("sdcsdc");
+        const example = new Example("sdcsdc");
         expect(Types.equals(example, example)).to.be.true;
     });
 
@@ -181,19 +187,19 @@ describe("util/Types", () => {
 
         }
 
-        let isJsonType = false;
-        let isPrimitive = false;
-        let isNativeType = true;
+        const isJsonType = false;
+        const isPrimitive = false;
+        const isNativeType = true;
 
-        let expectedSize = 3;
+        const expectedSize = 3;
         Types.addType("Example", {
-            isPrimitive: () => isPrimitive,
+            getSize: (o: Example) => expectedSize,
             isJsonType: () => isJsonType,
             isNativeType: () => isNativeType,
-            getSize: (o: Example) => expectedSize
+            isPrimitive: () => isPrimitive,
         });
 
-        let type = Types.getTypeByName("Example");
+        const type = Types.getTypeByName("Example");
         expect(isJsonType).to.deep.eq(false);
         expect(isPrimitive).to.deep.eq(false);
         expect(isNativeType).to.deep.eq(true);
@@ -207,14 +213,14 @@ describe("util/Types", () => {
 
         try {
             Types.addType("Example", {
-                isPrimitive: () => isPrimitive,
+                getSize: (o: Example) => expectedSize,
                 isJsonType: () => isJsonType,
                 isNativeType: () => isNativeType,
-                getSize: (o: Example) => expectedSize
+                isPrimitive: () => isPrimitive,
             });
             expect(false).to.be.true;
         } catch (e) {
             expect(true).to.be.true;
         }
-    })
+    });
 });

@@ -1,8 +1,9 @@
-import Types from "wasabi-common/lib/util/Types";
+import {expect} from "chai";
 import Arrays from "wasabi-common/lib/types/Arrays";
 import Strings from "wasabi-common/lib/types/Strings";
-import {expect} from "chai";
+import Types from "wasabi-common/lib/util/Types";
 
+/* tslint:disable no-unused-expression */
 describe("util/Arrays", () => {
     it("has", () => {
         expect(Arrays.has([])).to.be.false;
@@ -21,9 +22,9 @@ describe("util/Arrays", () => {
     });
 
     it("remove", () => {
-        let array: any = [2, 3, 5, 6, 3];
-        let expected: any = [2, 3, 5, 3];
-        let result: any = Arrays.remove(array, 3);
+        const array: any = [2, 3, 5, 6, 3];
+        const expected: any = [2, 3, 5, 3];
+        const result: any = Arrays.remove(array, 3);
         expect(result).to.be.deep.eq(expected);
     });
 
@@ -52,8 +53,8 @@ describe("util/Arrays", () => {
         result = Arrays.map([null, 3, 4, 5, 5], (item) => item ? item * 2 : item);
         expect(result).to.be.deep.eq(expectedResult);
 
-        let mixedExpected = [15, "elpmaxE", false, 25];
-        let mixResult = Arrays.map([null, 3, "Example", true, 5], (item) => {
+        const mixedExpected = [15, "elpmaxE", false, 25];
+        const mixResult = Arrays.map([null, 3, "Example", true, 5], (item) => {
             switch (Types.getRawName(item)) {
                 case Types.ToString.Boolean:
                     return !item;
@@ -89,10 +90,10 @@ describe("util/Arrays", () => {
     });
 
     it("merge", () => {
-        let expectedResult = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        const expectedResult = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         expect(Arrays.merge([1, 2, 3], [4, 5, 6], [7, 8, 9])).to.be.deep.eq(expectedResult);
 
-        let date = new Date();
+        const date = new Date();
         let mixedExpected: any[] = ["", 2, true, {k: "example"}, "deneme", date];
         expect(Arrays.merge(["", 2, true], null, undefined, [{k: "example"}, "deneme", date])).to.be.deep.eq(mixedExpected);
 
@@ -101,8 +102,8 @@ describe("util/Arrays", () => {
     });
 
     it("pushAll", () => {
-        let expectedResult = [1, 2, 3, 7, 8, 9, 4, 5, 6];
-        let input = [1, 2, 3, 7, 8, 9];
+        const expectedResult = [1, 2, 3, 7, 8, 9, 4, 5, 6];
+        const input = [1, 2, 3, 7, 8, 9];
         expect(Arrays.pushAll([4, 5, 6], input)).to.be.deep.eq(expectedResult);
 
         expect(Arrays.pushAll(expectedResult, null)).to.be.deep.eq(expectedResult);
@@ -127,7 +128,7 @@ describe("util/Arrays", () => {
 
     it("add", () => {
         let expectedResult = [1, 2, 3, 4];
-        let inputRefArray = [1, 2, 4];
+        const inputRefArray = [1, 2, 4];
         expect(Arrays.add(inputRefArray, 3, 2)).to.be.true;
         expect(inputRefArray).to.be.deep.eq(expectedResult);
         expectedResult = [1, 2, 3, 4, 5];
@@ -142,4 +143,3 @@ describe("util/Arrays", () => {
         expect(Arrays.add(null, 3, 2)).to.be.false;
     });
 });
-

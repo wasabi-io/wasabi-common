@@ -4,7 +4,7 @@ export default class Chars {
      * @param c
      * @return {boolean}
      */
-    static isNumber(c: number): boolean {
+    public static isNumber(c: number): boolean {
         return c > 47 && c < 58;
     }
 
@@ -13,7 +13,7 @@ export default class Chars {
      * @param c
      * @return {boolean}
      */
-    static isDot(c: number): boolean {
+    public static isDot(c: number): boolean {
         return c === 46;
     }
 
@@ -22,7 +22,7 @@ export default class Chars {
      * @param c
      * @return {boolean}
      */
-    static isSemiColon(c: number): boolean {
+    public static isSemiColon(c: number): boolean {
         return c === 44;
     }
 
@@ -31,7 +31,7 @@ export default class Chars {
      * @param c
      * @return {boolean}
      */
-    static isDecimal(c: number) {
+    public static isDecimal(c: number) {
         return this.isNumber(c) || this.isDot(c) || this.isSemiColon(c);
     }
 
@@ -40,7 +40,7 @@ export default class Chars {
      * @param c
      * @return {string}
      */
-    static toString(c: number): string {
+    public static toString(c: number): string {
         return String.fromCharCode(c);
     }
 }

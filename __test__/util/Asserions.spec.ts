@@ -1,6 +1,7 @@
-import Assertions from "wasabi-common/lib/util/Assertions"
 import {assert} from "chai";
+import Assertions from "wasabi-common/lib/util/Assertions";
 
+/* tslint:disable no-unused-expression */
 const tryBlock = (success: () => void, error: () => void) => {
     if (success) {
         try {
@@ -38,11 +39,12 @@ describe("util/Assertions", () => {
                 Assertions.isPrimitive(new Date());
                 Assertions.isPrimitive([]);
                 Assertions.isPrimitive({});
-                Assertions.isPrimitive(function () {
+                Assertions.isPrimitive(() => {
+                    /* */
                 });
                 Assertions.isPrimitive(new RegExp(".*"));
-            }
-        )
+            },
+        );
     });
 
     it("isJsonType", () => {
@@ -60,13 +62,13 @@ describe("util/Assertions", () => {
             },
             () => {
                 Assertions.isJsonType(new Date());
-                Assertions.isJsonType(function () {
+                Assertions.isJsonType(() => {
+                    /* */
                 });
                 Assertions.isJsonType(new RegExp(".*"));
-            }
-        )
+            },
+        );
     });
-
 
     it("isNativeType", () => {
         tryBlock(
@@ -82,12 +84,13 @@ describe("util/Assertions", () => {
                 Assertions.isNativeType(new RegExp(".*"));
                 Assertions.isNativeType([]);
                 Assertions.isNativeType({});
-                Assertions.isNativeType(function () {
+                Assertions.isNativeType(() => {
+                    /* */
                 });
                 Assertions.isNativeType(new RegExp(".*"));
             },
-            null
-        )
+            null,
+        );
     });
 
     it("isObject", () => {
@@ -105,8 +108,8 @@ describe("util/Assertions", () => {
                 Assertions.isObject(-10);
                 Assertions.isObject(new Date());
                 Assertions.isObject([]);
-            }
-        )
+            },
+        );
     });
 
     it("isNumber", () => {
@@ -124,8 +127,8 @@ describe("util/Assertions", () => {
                 Assertions.isNumber(new Date());
                 Assertions.isNumber([]);
                 Assertions.isNumber({});
-            }
-        )
+            },
+        );
     });
 
     it("isBoolean", () => {
@@ -143,8 +146,8 @@ describe("util/Assertions", () => {
                 Assertions.isBoolean(new Date());
                 Assertions.isBoolean([]);
                 Assertions.isBoolean({});
-            }
-        )
+            },
+        );
     });
 
     it("isArray", () => {
@@ -162,8 +165,8 @@ describe("util/Assertions", () => {
                 Assertions.isArray(-10);
                 Assertions.isArray(new Date());
                 Assertions.isArray({});
-            }
-        )
+            },
+        );
     });
 
     it("isString", () => {
@@ -181,8 +184,8 @@ describe("util/Assertions", () => {
                 Assertions.isString(new Date());
                 Assertions.isString([]);
                 Assertions.isString({});
-            }
-        )
+            },
+        );
     });
 
     it("isDate", () => {
@@ -200,8 +203,8 @@ describe("util/Assertions", () => {
                 Assertions.isDate(-10);
                 Assertions.isDate([]);
                 Assertions.isDate({});
-            }
-        )
+            },
+        );
 
     });
 
@@ -221,8 +224,8 @@ describe("util/Assertions", () => {
                 Assertions.isRegExp(new Date());
                 Assertions.isRegExp([]);
                 Assertions.isRegExp({});
-            }
-        )
+            },
+        );
     });
 
     it("isNull", () => {
@@ -241,14 +244,15 @@ describe("util/Assertions", () => {
                 Assertions.isNull(new Date());
                 Assertions.isNull([]);
                 Assertions.isNull({});
-            }
+            },
         );
     });
 
     it("isFunction", () => {
         tryBlock(
             () => {
-                Assertions.isFunction(function () {
+                Assertions.isFunction(() => {
+                    /* */
                 });
             },
             () => {
@@ -262,8 +266,8 @@ describe("util/Assertions", () => {
                 Assertions.isFunction(new Date());
                 Assertions.isFunction([]);
                 Assertions.isFunction({});
-            }
-        )
+            },
+        );
     });
 
     it("isUndefined", () => {
@@ -283,10 +287,9 @@ describe("util/Assertions", () => {
                 Assertions.isUndefined(new Date());
                 Assertions.isUndefined([]);
                 Assertions.isUndefined({});
-            }
-        )
+            },
+        );
     });
-
 
     it("has", () => {
         tryBlock(
@@ -305,8 +308,8 @@ describe("util/Assertions", () => {
                 Assertions.has("");
                 Assertions.has([]);
                 Assertions.has({});
-            }
-        )
+            },
+        );
     });
 
     it("hasNot", () => {
@@ -326,8 +329,8 @@ describe("util/Assertions", () => {
                 Assertions.hasNot(6);
                 Assertions.hasNot(-10);
                 Assertions.hasNot(new Date());
-            }
-        )
+            },
+        );
     });
 
     it("equals", () => {
@@ -392,7 +395,7 @@ describe("util/Assertions", () => {
                 Assertions.equals({a1: "example"}, undefined);
                 Assertions.equals({a1: "example"}, []);
                 Assertions.equals({a1: "example"}, {});
-            }
-        )
+            },
+        );
     });
 });

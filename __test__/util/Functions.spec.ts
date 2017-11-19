@@ -1,6 +1,7 @@
-import {asEs6Module, getType, has} from "wasabi-common/lib/util/Functions"
 import {expect} from "chai";
+import {getType, has} from "wasabi-common/lib/util/Functions";
 
+/* tslint:disable no-unused-expression */
 describe("util/Functions", () => {
     it("getType", () => {
         expect(getType("")).to.be.eq("String");

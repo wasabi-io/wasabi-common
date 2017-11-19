@@ -8,7 +8,7 @@ const startIndex: number = "[object ".length;
  * @return {string}
  */
 const getType = (value: any): string => {
-    let type = Object.prototype.toString.call(value);
+    const type = Object.prototype.toString.call(value);
     return type.substring(startIndex, type.length - 1);
 };
 
@@ -31,7 +31,7 @@ const asEs6Module = (module: any, name?: string) => {
         // Checks one module is exist or not.
         let count = 0;
         let moduleKey;
-        for (let key in module) {
+        for (const key in module) {
             if (module.hasOwnProperty(key) && key !== "__esModule") {
                 count++;
                 moduleKey = key;
@@ -47,5 +47,5 @@ const asEs6Module = (module: any, name?: string) => {
 export {
     getType,
     has,
-    asEs6Module
-}
+    asEs6Module,
+};

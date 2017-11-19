@@ -19,10 +19,10 @@ export default class ElectronResolver implements IResolver {
             try {
                 return this.originalResolver(request, parent, isMain);
             } catch (e) {
-                let paths = resolve(request);
+                const paths = resolve(request);
                 if (paths.length > 0) {
-                    for (let i = 0; i < paths.length; i++) {
-                        let mod = this.resolve(paths[i], parent, isMain);
+                    for (const path of paths) {
+                        const mod = this.resolve(path, parent, isMain);
                         if (!(mod instanceof Error)) {
                             return mod;
                         }
@@ -31,12 +31,11 @@ export default class ElectronResolver implements IResolver {
                 throw e;
             }
         };
-    };
+    }
 
     private resolve(request: string, parent: any, isMain: boolean) {
         try {
-            let mod = this.originalResolver(request, parent, isMain);
-            return mod;
+            return this.originalResolver(request, parent, isMain);
         } catch (e) {
             return e;
         }

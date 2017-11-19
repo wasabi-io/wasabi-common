@@ -2,7 +2,7 @@ import "../prototype";
 import Objects from "../types/Objects";
 
 export interface PropertiesProps {
-    [key: string]: any
+    [key: string]: any;
 }
 
 export default class Properties {

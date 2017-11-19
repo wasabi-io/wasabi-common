@@ -1,3 +1,4 @@
+import {Props} from "wasabi-common/lib/types/Objects";
 import "../prototype";
 import Types from "../util/Types";
 
@@ -14,7 +15,7 @@ export default class Maps {
      * @param {any} dest Destination object to compare the equality
      * @returns : {boolean} if the string value of the given source equals the string value of the given destination then "true" else "false"
      */
-    public static equals(src: Object, dest: Object): boolean {
+    public static equals(src: Props, dest: Props): boolean {
         return JSON.stringify(src) === JSON.stringify(dest);
     }
 
@@ -27,7 +28,7 @@ export default class Maps {
      * @param src the given source object
      * @returns the clonse of the given source object
      */
-    public static deepCopy(src: Object): Object {
+    public static deepCopy(src: Props): Props {
         return JSON.parse(JSON.stringify(src));
     }
 
@@ -35,7 +36,7 @@ export default class Maps {
      * parameter is:
      * object - the object whose size should be determined
      */
-    public static sizeOf(object: Object): number {
+    public static sizeOf(object: Props): number {
         return Types.getSize(object);
     }
 }

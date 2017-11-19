@@ -17,14 +17,13 @@ const hasOwnProperty = Object.prototype.hasOwnProperty;
  * } types.
  * @type {Type<Object>}
  */
-const UnknownType = new Type<Object>({
-    hasNot: (o: Object) => Type.hasNot(o),
-    isPrimitive: () => false,
-    isJsonType: () => false,
-    isNativeType: () => false,
+const UnknownType = new Type<any>({
+    getClone: (o: any, ignoreList?: string[]): any => {
+        return o;
+    },
     getSize: (o: any): number => {
         let size = 0;
-        for (let key in o) {
+        for (const key in o) {
             if (hasOwnProperty.call(o, key)) {
                 size += 2 * key.length;
                 size += Types.getSize(o[key]);
@@ -32,14 +31,14 @@ const UnknownType = new Type<Object>({
         }
         return size;
     },
-    getClone: (o: Object, ignoreList?: string[]): Object => {
-        return o;
-    }
+    hasNot: (o: any) => Type.hasNot(o),
+    isJsonType: () => false,
+    isNativeType: () => false,
+    isPrimitive: () => false,
 });
 
-
 export interface TypesMapProps {
-    [key: string]: IType<any>
+    [key: string]: IType<any>;
 }
 
 /**
@@ -55,16 +54,16 @@ export default class Types {
      * Holds standard types.
      */
     public static readonly ToString = {
-        Number: "[object Number]",
-        Boolean: "[object Boolean]",
         Array: "[object Array]",
-        String: "[object String]",
+        Boolean: "[object Boolean]",
         Date: "[object Date]",
-        RegExp: "[object RegExp]",
-        Null: "[object Null]",
         Function: "[object Function]",
-        Undefined: "[object Undefined]",
+        Null: "[object Null]",
+        Number: "[object Number]",
         Object: "[object Object]",
+        RegExp: "[object RegExp]",
+        String: "[object String]",
+        Undefined: "[object Undefined]",
     };
     /**
      * Gets type name of the given value.
@@ -73,7 +72,7 @@ export default class Types {
      */
     public static getRawName = (o: any): string => {
         return Type.getRawName(o);
-    };
+    }
     /**
      * Gets type name of the given value.
      * @param o
@@ -81,7 +80,7 @@ export default class Types {
      */
     public static getName = (o: any): string => {
         return Type.getName(o);
-    };
+    }
 
     /**
      * Finds @see Type by given object
@@ -90,7 +89,7 @@ export default class Types {
      * @public
      */
     public static getType(o: any): IType<any> {
-        let type = Types.Map[Type.getRawName(o)];
+        const type = Types.Map[Type.getRawName(o)];
         return type ? type : UnknownType;
     }
 
@@ -101,18 +100,18 @@ export default class Types {
      * @public
      */
     public static getTypeByName(name: string): IType<any> {
-        let type = Types.Map["[object " + name + "]"];
+        const type = Types.Map["[object " + name + "]"];
         return type ? type : UnknownType;
     }
 
     /**
-     finds @see Type by given name of object
+     * finds @see Type by given name of object
      * @param {any} o
      * @param {string[]} ignoreList
      * @returns {any}
      */
     public static getClone<T>(o: T, ignoreList?: string[]): T {
-        let type = Types.getType(o);
+        const type = Types.getType(o);
         if (ignoreList && ignoreList.indexOf(type.getName(o))) {
             return o;
         }
@@ -156,10 +155,10 @@ export default class Types {
         if (!type) {
             throw new Error("Given type ( " + type + " ) is empty or null !");
         }
-        let key = typeof obj === "string" ? "[object " + obj + "]" : Type.getRawName(obj);
-        let newType = Types.Map[key];
+        const key = typeof obj === "string" ? "[object " + obj + "]" : Type.getRawName(obj);
+        const newType = Types.Map[key];
         if (newType) {
-            throw new Error("You cannot add some types. That's used by core code.")
+            throw new Error("You cannot add some types. That's used by core code.");
         }
         Types.Map[key] = type;
     }
@@ -170,7 +169,7 @@ export default class Types {
  * @type {Type<any>}
  */
 const nullOrUndefined = new Type<any>({
-    hasNot: () => true
+    hasNot: () => true,
 });
 
 // Null Type
@@ -179,64 +178,80 @@ Types.Map[Types.ToString.Null] = nullOrUndefined;
 // Undefined Type
 Types.Map[Types.ToString.Undefined] = nullOrUndefined;
 
-
 // Number Type
 Types.Map[Types.ToString.Number] = new Type<number>({
     getClone: (o: number): number => {
         return Number(o);
     },
-    getSize: (o: number): number => 8
+    getSize: (o: number): number => 8,
 });
 
 // Boolean Type
 Types.Map[Types.ToString.Boolean] = new Type<boolean>({
-    getSize: (o: boolean): number => 4
+    getSize: (o: boolean): number => 4,
 });
 
 // String type
 Types.Map[Types.ToString.String] = new Type<string>({
-    hasNot: (o: string) => Type.hasNot(o) || o.trim() === "",
     getClone: (o: string): string => {
         return String(o);
     },
     getSize: (o: string): number => {
-        return 2 * o.length
-    }
+        return 2 * o.length;
+    },
+    hasNot: (o: string) => Type.hasNot(o) || o.trim() === "",
 });
 
 // Date type
 Types.Map[Types.ToString.Date] = new Type<Date>({
-    isPrimitive: (): boolean => false,
-    isJsonType: (): boolean => false,
     getClone: (o: Date): Date => {
         return new Date(o.getTime());
-    }
+    },
+    isJsonType: (): boolean => false,
+    isPrimitive: (): boolean => false,
 });
 
 // Date type
 Types.Map[Types.ToString.RegExp] = new Type<RegExp>({
-    isPrimitive: (): boolean => false,
-    isJsonType: (): boolean => false,
     getClone: (o: RegExp): RegExp => {
         return new RegExp(o.source);
-    }
+    },
+    isJsonType: (): boolean => false,
+    isPrimitive: (): boolean => false,
 });
 
 // String type
 Types.Map[Types.ToString.Function] = new Type<Function>({
-    isPrimitive: (): boolean => false,
-    isJsonType: (): boolean => false,
     getSize: (o: Function): number => {
         return (o as any).toString().length * 2;
-    }
+    },
+    isJsonType: (): boolean => false,
+    isPrimitive: (): boolean => false,
 });
 
 // Array Type
 Types.Map[Types.ToString.Array] = new Type<any[]>({
-    hasNot: (o: any[]) => Type.hasNot(o) || o.length === 0,
-    isPrimitive: () => false,
+    equals: (src: any[], dest: any[]): boolean => {
+        if (!src || !dest) {
+            return src === dest;
+        }
+        const isEqual = Types.getType(src) === Types.getType(dest);
+        if (!isEqual) {
+            return false;
+        }
+        if (src.length !== dest.length) {
+            return false;
+        }
+        for (let i = 0; i < src.length; i++) {
+            const type1 = Types.getType(src[i]);
+            if (!type1.equals(src[i], dest[i])) {
+                return false;
+            }
+        }
+        return true;
+    },
     getClone: (o: any[], ignoreList?: string[]): any[] => {
-        let cloneArray = [];
+        const cloneArray = [];
         for (let i = 0; i < o.length; i++) {
             cloneArray[i] = Types.getClone(o[i], ignoreList);
         }
@@ -244,42 +259,40 @@ Types.Map[Types.ToString.Array] = new Type<any[]>({
     },
     getSize: (o: any[]): number => {
         let size = 0;
-        for (let i = 0; i < o.length; i++) {
-            let itemSize = Types.getSize(o[i]);
+        for (const item of o) {
+            const itemSize = Types.getSize(item);
             if (!Type.hasNot(itemSize)) {
                 size += itemSize;
             }
         }
         return size;
     },
-    equals: (src: any[], dest: any[]): boolean => {
-        if (!src || !dest) return src === dest;
-        let isEqual = Types.getType(src) === Types.getType(dest);
-        if (!isEqual) return false;
-        if (src.length !== dest.length) return false;
-        for (let i = 0; i < src.length; i++) {
-            let type1 = Types.getType(src[i]);
-            if (!type1.equals(src[i], dest[i])) {
-                return false;
-            }
-        }
-        return true;
-    }
+    hasNot: (o: any[]) => Type.hasNot(o) || o.length === 0,
+    isPrimitive: () => false,
 });
 
-Types.Map[Types.ToString.Object] = new Type<Object>({
-    hasNot: (o: Object): boolean => {
-        for (let key in o) {
-            if (hasOwnProperty.call(o, key)) {
-                return false;
+Types.Map[Types.ToString.Object] = new Type<any>({
+    equals: (src: any, dest: any): boolean => {
+        if (!src || !dest) {
+            return src === dest;
+        }
+        const isEqual = Types.getType(src) === Types.getType(dest);
+        if (!isEqual) {
+            return false;
+        }
+        for (const key in src) {
+            if (hasOwnProperty.call(src, key)) {
+                const type1 = Types.getType(src[key]);
+                if (!type1.equals(src[key], dest[key])) {
+                    return false;
+                }
             }
         }
-        return true;
+        return isEqual;
     },
-    isPrimitive: () => false,
     getClone: (o: any, ignoreList?: string[]): any => {
-        let cloneObject: any = {};
-        for (let key in o) {
+        const cloneObject: any = {};
+        for (const key in o) {
             if (hasOwnProperty.call(o, key)) {
                 cloneObject[key] = Types.getClone(o[key], ignoreList);
             }
@@ -288,7 +301,7 @@ Types.Map[Types.ToString.Object] = new Type<Object>({
     },
     getSize: (o: any): number => {
         let size = 0;
-        for (let key in o) {
+        for (const key in o) {
             if (hasOwnProperty.call(o, key)) {
                 size += 2 * key.length;
                 size += Types.getSize(o[key]);
@@ -296,20 +309,13 @@ Types.Map[Types.ToString.Object] = new Type<Object>({
         }
         return size;
     },
-    equals: (src: any, dest: any): boolean => {
-        if (!src || !dest) return src === dest;
-        let isEqual = Types.getType(src) === Types.getType(dest);
-        if (!isEqual) return false;
-        for (let key in src) {
-            if (hasOwnProperty.call(src, key)) {
-                let type1 = Types.getType(src[key]);
-                if (!type1.equals(src[key], dest[key])) {
-                    return false;
-                }
+    hasNot: (o: any): boolean => {
+        for (const key in o) {
+            if (hasOwnProperty.call(o, key)) {
+                return false;
             }
         }
-        return isEqual;
-    }
+        return true;
+    },
+    isPrimitive: () => false,
 });
-
-

@@ -1,8 +1,8 @@
 import {resolve} from "path";
-import IResolver from "./IResolver";
-import ElectronResolver from "./ElectronResolver";
-import {AliasResolver} from "./AliasResolver";
 import Binder from "../lang/Binder";
+import {AliasResolver} from "./AliasResolver";
+import ElectronResolver from "./ElectronResolver";
+import IResolver from "./IResolver";
 
 export class Builder {
     private rootKeys: string[] = [];
@@ -19,7 +19,7 @@ export class Builder {
     }
 
     public root(path: string): Builder {
-        if (this.rootKeys.indexOf(path) == -1) {
+        if (this.rootKeys.indexOf(path) === -1) {
             this.rootKeys.push(path);
             this.roots.push(resolve(path));
         }
@@ -27,22 +27,22 @@ export class Builder {
     }
 
     public alias(alias: string, ...refs: string[]): Builder {
-        this.aliasResolver.add.apply(this.aliasResolver, [alias].concat(refs))
+        this.aliasResolver.add.apply(this.aliasResolver, [alias].concat(refs));
         return this;
     }
 
     public resolve(request: string) {
         let paths = [request];
         if (this.aliasResolver.has()) {
-            let aliasesPaths = this.aliasResolver.resolve(request);
+            const aliasesPaths = this.aliasResolver.resolve(request);
             if (aliasesPaths) {
                 paths = aliasesPaths.concat(paths);
             }
         }
-        let allPaths = [];
-        for (let p in paths) {
-            for (let r in this.roots) {
-                let joinPath = resolve(this.roots[r], paths[p]);
+        const allPaths = [];
+        for (const path of paths) {
+            for (const root of this.roots) {
+                const joinPath = resolve(root, path);
                 allPaths.push(joinPath);
             }
         }

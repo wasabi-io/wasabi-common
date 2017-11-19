@@ -1,17 +1,18 @@
-const {join} = require("path");
+import {join} from "path";
 
 export interface AliasEntry {
-    pattern: RegExp,
-    ends: boolean,
-    paths: string[]
+    pattern: RegExp;
+    ends: boolean;
+    paths: string[];
 }
 
 export class AliasResolver {
-    private aliases: AliasEntry[] = [];
 
     public static escapeRegExp(str: string) {
         return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
     }
+
+    private aliases: AliasEntry[] = [];
 
     public has(): boolean {
         return this.aliases.length > 0;
@@ -28,23 +29,22 @@ export class AliasResolver {
             ends = true;
         }
         this.aliases.push({
-            pattern,
             ends,
-            paths
+            paths,
+            pattern,
         });
     }
 
     public resolve(requestPath: string): string[] {
-        for (let i = 0; i < this.aliases.length; i++) {
-            let alias: AliasEntry = this.aliases[i];
-            let match = requestPath.match(alias.pattern);
+        for (const alias of this.aliases) {
+            const match = requestPath.match(alias.pattern);
             if (match) {
-                if (match.length == 1) {
+                if (match.length === 1) {
                     return alias.paths;
-                } else if (match.length == 2) {
-                    let newPaths = [];
-                    for (let i = 0; i < alias.paths.length; i++) {
-                        newPaths.push(join(alias.paths[i], match[1]));
+                } else if (match.length === 2) {
+                    const newPaths = [];
+                    for (const path of alias.paths) {
+                        newPaths.push(join(path, match[1]));
                     }
                     return newPaths;
                 }

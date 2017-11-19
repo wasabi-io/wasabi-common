@@ -1,9 +1,10 @@
 import {expect} from "chai";
 import Iterator from "wasabi-common/lib/collection/Iterator";
 
+/* tslint:disable no-unused-expression */
 describe("collection/Map", () => {
     it("constructor", () => {
-        let iterator = new Iterator([]);
+        const iterator = new Iterator([]);
         expect(iterator).to.be.exist;
     });
     it("hasNext", () => {
@@ -24,10 +25,10 @@ describe("collection/Map", () => {
         expect(iterator.next()).to.be.undefined;
         iterator = new Iterator(["Test", "Test2", "Test3"]);
         expect(iterator.next()).to.be.eq("Test");
-        let remainedValues: string[] = [];
+        const remainedValues: string[] = [];
         iterator.forEachRemaining((element: string) => {
             remainedValues.push(element);
         });
-        expect(remainedValues).to.be.deep.eq(["Test2", "Test3"])
+        expect(remainedValues).to.be.deep.eq(["Test2", "Test3"]);
     });
 });

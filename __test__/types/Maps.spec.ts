@@ -1,64 +1,64 @@
+import {expect} from "chai";
 import Maps from "wasabi-common/lib/types/Maps";
 import Types from "wasabi-common/lib/util/Types";
-import {expect} from "chai";
 
+/* tslint:disable no-unused-expression */
 describe("util/Maps", () => {
     it("equals", () => {
-        let value1 = {
-            "sds": "Example",
-            "vsd": true,
-            "deneme": ["", "dddsf"]
+        const value1 = {
+            deneme: ["", "dddsf"],
+            sds: "Example",
+            vsd: true,
         };
-        let value2 = {
-            "sds": "Example",
-            "vsd": true,
-            "deneme": ["", "dddsf"]
+        const value2 = {
+            deneme: ["", "dddsf"],
+            sds: "Example",
+            vsd: true,
         };
         expect(Maps.equals(value1, value2)).to.be.true;
 
-        let value3 = {
-            "sds": "Example",
-            "vsd": false,
-            "deneme": ["", "dddsf"]
+        const value3 = {
+            deneme: ["", "dddsf"],
+            sds: "Example",
+            vsd: false,
         };
         expect(Maps.equals(value1, value3)).to.be.false;
     });
 
     it("deepCopy", () => {
-        let value1 = {
-            "sds": "Example",
-            "vsd": true,
-            "deneme": ["", "dddsf"]
+        const value1 = {
+            deneme: ["", "dddsf"],
+            sds: "Example",
+            vsd: true,
         };
         expect(Maps.deepCopy(value1)).to.be.deep.eq(value1);
     });
 
     it("sizeOf", () => {
 
-        let str = "Example String";
-        let strSize = str.length * 2;
+        const str = "Example String";
+        const strSize = str.length * 2;
 
-        let fn = function () { // 208 charachter
-            let example = "sddfsd";
-            console.log(example);
+        const fn = () => { // 208 charachter
+            const example = "sddfsd";
         };
-        let fnSize = Types.getType(fn).getSize(fn);
+        const fnSize = Types.getType(fn).getSize(fn);
 
         class Example { // 18
-            name: string = "kamil";
+            public name: string = "kamil";
         }
 
-        let exampleInstance = new Example();
-        let exampleInstanceSize = Types.getType(exampleInstance).getSize(exampleInstance);
+        const exampleInstance = new Example();
+        const exampleInstanceSize = Types.getType(exampleInstance).getSize(exampleInstance);
 
-        let expectedSize =
+        const expectedSize =
             "str".length * 2 + strSize +
             "exampleInstance".length * 2 + exampleInstanceSize +
             "fn".length * 2 + fnSize;
-        let value = {
-            str: str,
-            fn: fn,
-            exampleInstance: exampleInstance
+        const value = {
+            exampleInstance,
+            fn,
+            str,
         };
         expect(Maps.sizeOf(value)).to.be.deep.eq(expectedSize);
     });

@@ -1,7 +1,7 @@
 export default class Iterator<E> {
-    private array: Array<E>;
+    private array: E[];
 
-    public constructor(array: Array<E>) {
+    public constructor(array: E[]) {
         this.array = array.slice(0);
     }
 
@@ -28,6 +28,8 @@ export default class Iterator<E> {
      * @param {(element: E) => any} callback
      */
     public forEachRemaining(callback: (element: E) => any) {
-        while (this.hasNext()) callback(this.next());
+        while (this.hasNext()) {
+            callback(this.next());
+        }
     }
 }

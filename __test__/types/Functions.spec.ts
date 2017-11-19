@@ -1,10 +1,11 @@
-import Functions from "wasabi-common/lib/types/Functions"
 import {expect} from "chai";
+import Functions from "wasabi-common/lib/types/Functions";
 
+/* tslint:disable no-unused-expression */
 describe("types/Functions", () => {
     it("is", () => {
-        expect(Functions.is(function () {
-
+        expect(Functions.is(() => {
+            /* */
         })).to.be.true;
         expect(Functions.is("")).to.be.false;
         expect(Functions.is("Danina")).to.be.false;

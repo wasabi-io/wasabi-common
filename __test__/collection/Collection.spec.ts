@@ -1,13 +1,14 @@
 import {expect} from "chai";
 import Collection from "wasabi-common/lib/collection/Collection";
 
+/* tslint:disable no-unused-expression */
 describe("collection/Collection", () => {
     it("mapObject", () => {
         let obj;
         let inLoop = false;
         let result: string[] = Collection.mapObject(obj, () => {
             inLoop = true;
-            return ""
+            return "";
         });
         expect(result).to.be.deep.eq([]);
         expect(inLoop).to.be.false;
@@ -18,9 +19,7 @@ describe("collection/Collection", () => {
         });
         expect(result).to.be.deep.eq([]);
         expect(inLoop).to.be.false;
-        obj = {
-            "test": "testValue"
-        };
+        obj = {test: "testValue"};
         result = Collection.mapObject(obj, (value: string, key: string) => {
             expect(key).to.be.eq("test");
             expect(value).to.be.eq("testValue");
@@ -61,7 +60,7 @@ describe("collection/Collection", () => {
         let inLoop = false;
         let result: string[] = Collection.map(obj, () => {
             inLoop = true;
-            return ""
+            return "";
         });
         expect(result).to.be.deep.eq([]);
         expect(inLoop).to.be.false;
@@ -72,9 +71,7 @@ describe("collection/Collection", () => {
         });
         expect(result).to.be.deep.eq([]);
         expect(inLoop).to.be.false;
-        obj = {
-            "test": "testValue"
-        };
+        obj = {test: "testValue"};
         result = Collection.map(obj, (value: string, key: string) => {
             expect(key).to.be.eq("test");
             expect(value).to.be.eq("testValue");
@@ -114,18 +111,18 @@ describe("collection/Collection", () => {
         let inLoop = false;
         Collection.forEachObject(obj, () => {
             inLoop = true;
-            return true
+            return true;
         });
         expect(inLoop).to.be.false;
         obj = {};
         Collection.forEachObject(obj, (item) => {
             inLoop = true;
-            return true
+            return true;
         });
         expect(inLoop).to.be.false;
         obj = {
-            "test": "testValue",
-            "test2": "test2Value"
+            test: "testValue",
+            test2: "test2Value",
         };
         let result: any = {};
         Collection.forEachObject(obj, (value: string, key: string) => {
@@ -142,7 +139,7 @@ describe("collection/Collection", () => {
             return false;
         });
         expect(result).to.be.deep.eq({
-            "test": "testValue"
+            test: "testValue",
         });
         expect(inLoop).to.be.true;
 
@@ -186,18 +183,18 @@ describe("collection/Collection", () => {
         let inLoop = false;
         Collection.forEach(obj, () => {
             inLoop = true;
-            return true
+            return true;
         });
         expect(inLoop).to.be.false;
         obj = {};
         Collection.forEach(obj, (item) => {
             inLoop = true;
-            return true
+            return true;
         });
         expect(inLoop).to.be.false;
         obj = {
-            "test": "testValue",
-            "test2": "test2Value"
+            test: "testValue",
+            test2: "test2Value",
         };
         let result: any = {};
         Collection.forEach(obj, (value: string, key: string) => {
@@ -214,10 +211,9 @@ describe("collection/Collection", () => {
             return false;
         });
         expect(result).to.be.deep.eq({
-            "test": "testValue"
+            test: "testValue",
         });
         expect(inLoop).to.be.true;
-
 
         let arr: any[];
         inLoop = false;
@@ -250,5 +246,5 @@ describe("collection/Collection", () => {
         });
         expect(resultArr).to.be.deep.eq(["testValue"]);
         expect(inLoop).to.be.true;
-    })
+    });
 });

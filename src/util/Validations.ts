@@ -1,7 +1,6 @@
-import "../prototype";
 import Type from "../lang/Type";
+import "../prototype";
 import Types from "./Types";
-
 
 /**
  * Provides some validation operations
@@ -17,7 +16,7 @@ export default class Validations {
      * @return {boolean}
      */
     public static isPrimitive(o: any): boolean {
-        let type = Types.getType(o);
+        const type = Types.getType(o);
         return type.isPrimitive();
     }
 
@@ -27,7 +26,7 @@ export default class Validations {
      * @return {boolean}
      */
     public static isJsonType(o: any): boolean {
-        let element = Types.getType(o);
+        const element = Types.getType(o);
         return element ? element.isJsonType() : false;
     }
 
@@ -37,7 +36,7 @@ export default class Validations {
      * @return {boolean}
      */
     public static isNativeType(o: any): boolean {
-        let element = Types.getType(o);
+        const element = Types.getType(o);
         return element ? element.isNativeType() : false;
     }
 
@@ -129,7 +128,7 @@ export default class Validations {
      * @return {boolean}
      */
     public static isUndefined(o: any): boolean {
-        return Type.getRawName(o) === Types.ToString.Undefined
+        return Type.getRawName(o) === Types.ToString.Undefined;
     }
 
     /**

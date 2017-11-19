@@ -1,5 +1,12 @@
 ## CHANGE LOG
 
+#### v2.1.1
+
+* fixed **Binder** problems.
+* added **tslint** library for development.
+* upgraded all libraries.
+* applied tslint rules to all codes.
+
 #### v2.1.0
 
 * removed require from Functions.

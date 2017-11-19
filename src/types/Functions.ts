@@ -7,7 +7,7 @@ export default class Functions {
      * @param fn {any}
      * @return {boolean}
      */
-    static has(fn: any): boolean {
+    public static has(fn: any): boolean {
         return has(fn);
     }
 
@@ -16,7 +16,7 @@ export default class Functions {
      * @param fn
      * @return {boolean}
      */
-    static is(fn: any) {
+    public static is(fn: any) {
         return Validations.isFunction(fn);
     }
 
@@ -24,8 +24,7 @@ export default class Functions {
      * Checks the given function name
      * @param fn
      */
-    static getName(fn: any) {
+    public static getName(fn: any) {
         return fn.name;
     }
 }
-

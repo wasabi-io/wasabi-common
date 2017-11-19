@@ -1,0 +1,19 @@
+{
+  "extends": "tslint:recommended",
+  "rules": {
+    "interface-name": false,
+    "max-classes-per-file": [
+      false
+    ],
+    "no-arg": false,
+    "ban-types": [
+      "Function"
+    ],
+    "max-line-length": [
+      250
+    ],
+    "no-conditional-assignment": false
+  },
+  "jsRules": {
+  }
+}

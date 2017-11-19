@@ -17,7 +17,7 @@ export default class Generator {
      * @return {string}
      */
     public static guid(): string {
-        let s = Generator.s4;
+        const s = Generator.s4;
         return `${s()}${s()}-${s()}-${s()}-${s()}-${s()}${s()}${s()}`;
     }
 }

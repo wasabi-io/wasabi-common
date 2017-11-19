@@ -1,5 +1,5 @@
-import {has} from "../util/Functions";
 import {Props} from "../types/Objects";
+import {has} from "../util/Functions";
 
 /**
  * A class which provides some operations on String
@@ -15,7 +15,9 @@ export default class Strings {
      * @return {boolean}
      */
     public static has(src: string, index?: number): boolean {
-        if (!has(src)) return false;
+        if (!has(src)) {
+            return false;
+        }
         src = Strings.trim(src);
         return ((has(index) && src.length > index) || src.length > 0);
     }
@@ -35,7 +37,9 @@ export default class Strings {
      * @return {any}
      */
     public static toString(value: string): string {
-        if (value === null || value === undefined) return "";
+        if (value === null || value === undefined) {
+            return "";
+        }
         return value.toString();
     }
 
@@ -76,7 +80,9 @@ export default class Strings {
      * @return {string}
      */
     public static trim(value: string) {
-        if (!value) return "";
+        if (!value) {
+            return "";
+        }
         return value.replace(/^\s+|\s+$/g, "");
     }
 
@@ -86,7 +92,9 @@ export default class Strings {
      * @return {string}
      */
     public static lTrim(value: string) {
-        if (!has(value)) return "";
+        if (!has(value)) {
+            return "";
+        }
         return value.replace(/^\s+/, "");
     }
 
@@ -96,7 +104,9 @@ export default class Strings {
      * @return {string}
      */
     public static rTrim(value: string) {
-        if (!has(value)) return "";
+        if (!has(value)) {
+            return "";
+        }
         return value.replace(/\s+$/, "");
     }
 
@@ -106,7 +116,9 @@ export default class Strings {
      * @return {string}
      */
     public static capitalizeFirstLetter(value: string): string {
-        if (!has(value)) return "";
+        if (!has(value)) {
+            return "";
+        }
         return value.charAt(0).toUpperCase() + value.slice(1);
     }
 
@@ -118,9 +130,12 @@ export default class Strings {
      * @return {string}
      */
     public static lPad(value: string, pad: string, length: number) {
-        if (!Strings.has(value)) value = "";
-        while (value.length < length)
+        if (!Strings.has(value)) {
+            value = "";
+        }
+        while (value.length < length) {
             value = pad + value;
+        }
         return value;
     }
 
@@ -132,9 +147,12 @@ export default class Strings {
      * @return {string}
      */
     public static rPad(value: string, pad: string, length: number) {
-        if (!Strings.has(value)) value = "";
-        while (value.length < length)
+        if (!Strings.has(value)) {
+            value = "";
+        }
+        while (value.length < length) {
             value = value + pad;
+        }
         return value;
     }
 
@@ -145,9 +163,13 @@ export default class Strings {
      * @return {any}
      */
     public static partsByNumber(value: string, length: number): string[] {
-        if (!Strings.has(value)) return [];
-        if (value.length < length) return [value];
-        let values = [];
+        if (!Strings.has(value)) {
+            return [];
+        }
+        if (value.length < length) {
+            return [value];
+        }
+        const values = [];
         let start = 0;
         while (start < value.length) {
             values.push(value.substring(start, start + length));
@@ -209,14 +231,12 @@ export default class Strings {
             return msg;
         }
 
-        return msg.replace(/\${(.*?)}/g, function (_, code) {
-            let scoped = code.replace(/(["'\.\w\$]+)/g, function (match: any) {
-                return /["']/.test(match[0]) ? match : 'scope.' + match;
-            });
+        return msg.replace(/\${(.*?)}/g, (_, code) => {
+            const scoped = code.replace(/(["'\.\w\$]+)/g, (match: any) => /["']/.test(match[0]) ? match : "scope." + match);
             try {
-                return new Function('scope', 'return ' + scoped)(params);
+                return new Function("scope", "return " + scoped)(params);
             } catch (e) {
-                return '';
+                return "";
             }
         });
     }

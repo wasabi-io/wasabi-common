@@ -1,6 +1,7 @@
-import Strings from "wasabi-common/lib/types/Strings";
 import {expect} from "chai";
+import Strings from "wasabi-common/lib/types/Strings";
 
+/* tslint:disable no-unused-expression */
 describe("util/Strings", () => {
 
     it("has", () => {
@@ -11,11 +12,11 @@ describe("util/Strings", () => {
     });
 
     it("getLength", () => {
-
+        /* */
     });
 
     it("toString", () => {
-
+        /* */
     });
 
     it("startsWith", () => {
@@ -73,7 +74,6 @@ describe("util/Strings", () => {
         expect(Strings.lPad(undefined, "0", 10)).to.be.eq("0000000000");
     });
 
-
     it("rPad", () => {
         expect(Strings.rPad("example ", "0", 10)).to.be.eq("example 00");
         expect(Strings.rPad("Example", "0", 10)).to.be.eq("Example000");
@@ -99,19 +99,19 @@ describe("util/Strings", () => {
     });
 
     it("template", () => {
-        let data = {
-            name1: 'Silento',
-            name2: 'Miley',
-            nested: {greeting: 'Dude', useName1: true},
-            verb: function () {
-                return this.nested.useName1 ? 'nae nae' : 'twerk';
-            }
+        const data = {
+            name1: "Silento",
+            name2: "Miley",
+            nested: {greeting: "Dude", useName1: true},
+            verb() {
+                return this.nested.useName1 ? "nae nae" : "twerk";
+            },
         };
         let result = Strings.template('Hello, ${nested["greeting"]}!', data);
-        expect(result).to.be.eq(`Hello, ${data.nested["greeting"]}!`);
-        result = Strings.template('${nested.useName1 ? name1 : name2}', data);
+        expect(result).to.be.eq(`Hello, ${data.nested.greeting}!`);
+        result = Strings.template("${nested.useName1 ? name1 : name2}", data);
         expect(result).to.be.eq(`${data.nested.useName1 ? data.name1 : data.name2}`);
-        result = Strings.template('${name1} likes to ${verb()}', data);
+        result = Strings.template("${name1} likes to ${verb()}", data);
         expect(result).to.be.eq(`${data.name1} likes to ${data.verb()}`);
         result = Strings.template(undefined, data);
         expect(result).to.be.eq("");
@@ -123,5 +123,5 @@ describe("util/Strings", () => {
         expect(result).to.be.eq("test message ${verb()}");
         result = Strings.template("test message ${verb()}", null);
         expect(result).to.be.eq("test message ${verb()}");
-    })
+    });
 });

@@ -1,14 +1,15 @@
-import Properties from "wasabi-common/lib/util/Properties";
 import {expect} from "chai";
+import Properties from "wasabi-common/lib/util/Properties";
 
+/* tslint:disable no-unused-expression */
 describe("util/Properties", () => {
     it("constructor", () => {
-        let expectedObject = {
+        const expectedObject = {
             a: "a1",
             b: "b1",
-            c: ["example", "example"]
+            c: ["example", "example"],
         };
-        let prop: Properties = new Properties(expectedObject);
+        const prop: Properties = new Properties(expectedObject);
         expect(prop.get("a")).to.be.deep.eq(expectedObject.a);
         expect(prop.get("b")).to.be.deep.eq(expectedObject.b);
         expect(prop.get("c")).to.be.deep.eq(expectedObject.c);
@@ -16,32 +17,32 @@ describe("util/Properties", () => {
     });
 
     it("add", () => {
-        let expectedObject = {
+        const expectedObject = {
             a: "a1",
             b: "b1",
-            c: ["example", "example"]
+            c: ["example", "example"],
         };
-        let prop: Properties = new Properties(expectedObject);
+        const prop: Properties = new Properties(expectedObject);
         prop.add("b", "ex", ["childb"]);
         expect(prop.get("b", ["childb"])).to.be.deep.eq("ex");
     });
 
     it("merge", () => {
-        let expectedObject = {
+        const expectedObject = {
             a: "a1",
             b: {
-                d: "2"
+                d: "2",
             },
-            c: ["example", "example"]
+            c: ["example", "example"],
         };
-        let props2: {
+        const props2 = {
             a: "a1",
             b: {
-                d: "2"
+                d: "2",
             },
-            c: ["example", "example"]
+            c: ["example", "example"],
         };
-        let prop: Properties = new Properties(expectedObject);
+        const prop: Properties = new Properties(expectedObject);
         prop.merge(props2);
         expect(prop.get("b", ["d"])).to.be.deep.eq("2");
     });

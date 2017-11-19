@@ -1,10 +1,11 @@
 import Types from "../util/Types";
 
 export default class Set<E = any> {
-    public constructor(array?: Array<E> | Set<E>) {
-        this.addAll(array)
+    public constructor(array?: E[] | Set<E>) {
+        this.addAll(array);
     }
 
+    /* tslint:disable */
     private _length: number = 0;
 
     public get length(): number {
