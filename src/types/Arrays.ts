@@ -1,7 +1,7 @@
-import {Props} from "wasabi-common/lib/types/Objects";
 import Collection from "../collection/Collection";
 import {has} from "../util/Functions";
 import Types from "../util/Types";
+import {Props} from "./Objects";
 
 /**
  * A class which provides some operations on Array

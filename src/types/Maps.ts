@@ -1,6 +1,6 @@
-import {Props} from "wasabi-common/lib/types/Objects";
 import "../prototype";
 import Types from "../util/Types";
+import {Props} from "./Objects";
 
 /**
  * Provides some operations on Json Types.
