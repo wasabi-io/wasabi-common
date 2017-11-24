@@ -76,13 +76,22 @@ describe("util/Objects", () => {
         expect(array).to.deep.eq(expectedArray);
     });
 
-    it("getKeys", () => {
+    it("keys", () => {
         const object = {
             a: "4",
             b: 5,
             c: [6, 7],
         };
-        expect(Objects.getKeys(object)).to.deep.eq(["a", "b", "c"]);
+        expect(Objects.keys(object)).to.deep.eq(["a", "b", "c"]);
+    });
+
+    it("values", () => {
+        const object = {
+            a: "4",
+            b: 5,
+            c: [6, 7],
+        };
+        expect(Objects.values(object)).to.deep.eq(["4", 5, [6, 7]]);
     });
 
     it("addValue", () => {

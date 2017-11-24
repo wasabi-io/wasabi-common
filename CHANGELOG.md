@@ -1,5 +1,9 @@
 ## CHANGE LOG
 
+#### v2.2.0
+* added `values` to **types/Objects** class.
+* changed name of `getKeys` method as `keys` in **types/Objects** class.
+
 #### v2.1.1
 
 * fixed **Binder** problems.

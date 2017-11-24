@@ -46,7 +46,8 @@ Objects.remove(src, "key1"); // { key2: "3", key3: "6" }
 Objects.removeValue(src, "3"); // {key3: "6"}
 Objects.map(src, (value, key) => { return key + "->" value; }); // ["key3->6"]
 Objects.forEach(src, (value, key) => { console.log(key) });
-Objects.getKeys(src); // ["key3"]
+Objects.keys(src); // ["key3"]
+Objects.values(src); // ["6"]
 Objects.addValue(src, "key4", "5"); // { key3: "6", key4: "5" }
 Objects.addValue(src, "nestedObject", "5", ["key5"]); // { key3: "6", key4: "5", nestedObject: { key5: "5"} }
 Objects.getValue(src, "key4"); // "6"

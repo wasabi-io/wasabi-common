@@ -126,7 +126,7 @@ export default class Objects {
      * @param src {T}
      * @returns {string[]}
      */
-    public static getKeys<T extends Props>(src: T): string[] {
+    public static keys<T extends Props>(src: T): string[] {
         const keys: string[] = [];
         if (!has(src)) {
             return keys;
@@ -137,6 +137,29 @@ export default class Objects {
             }
         }
         return keys;
+    }
+
+    /**
+     * Gets values of the given object as any[].
+     * @public
+     * @static
+     * @param src {T}
+     * @returns {any[]}
+     */
+    public static values<T extends Props>(src: T): any[] {
+        const values: any[] = [];
+        if (!has(src)) {
+            return values;
+        }
+        for (const key in src) {
+            if (src.hasOwnProperty(key)) {
+                const value = src[key];
+                if (has(value)) {
+                    values.push(value);
+                }
+            }
+        }
+        return values;
     }
 
     /**
