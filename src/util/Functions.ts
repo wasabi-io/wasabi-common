@@ -44,8 +44,13 @@ const asEs6Module = (module: any, name?: string) => {
     return module;
 };
 
+const getOrDefault = <T>(value: T, defaultValue: T): T => {
+    return has(value) ? value : defaultValue;
+};
+
 export {
     getType,
     has,
     asEs6Module,
+    getOrDefault
 };

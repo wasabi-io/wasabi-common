@@ -42,13 +42,19 @@ Assertions.isString(value1); // true
 * Usage [Functions](https://wasabi-io.github.io/wasabi-common/modules/_util_functions_.html)
 
 ```typescript
-import { has, requireEs6, getType } from "wasabi-common";
+import { has, asEs6Module, getType, getOrDefault } from "wasabi-common";
 has(null); // false
 has(undefined); // false
 has(""); // true
 has({}); // true
 getType(""); // String
-getType(true); // Boolean
+getOrDefault(null, ""); // ""
+getOrDefault(null, 3); // 3
+getOrDefault(null, "test"); // "test"
+getOrDefault(undefined, ""); // ""
+getOrDefault(undefined, 3); // 3
+getOrDefault(undefined, "test"); // "test"
+
 ```
 
 * Usage [Resolver](https://wasabi-io.github.io/wasabi-common/modules/_util_resolver_.html)

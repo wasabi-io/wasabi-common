@@ -1,4 +1,5 @@
 import {expect} from "chai";
+import {getOrDefault} from "wasabi-common/lib/util";
 import {getType, has} from "wasabi-common/lib/util/Functions";
 
 /* tslint:disable no-unused-expression */
@@ -20,5 +21,16 @@ describe("util/Functions", () => {
         expect(has(undefined)).to.be.false;
         expect(has([])).to.be.true;
         expect(has({})).to.be.true;
+    });
+
+    it("getOrDefault", () => {
+        expect(getOrDefault(null, "")).to.be.eq("");
+        expect(getOrDefault(null, 3)).to.be.eq(3);
+        expect(getOrDefault(null, "test")).to.be.eq("test");
+        expect(getOrDefault(null, "test")).to.be.not.eq("test2");
+        expect(getOrDefault(undefined, "")).to.be.eq("");
+        expect(getOrDefault(undefined, 3)).to.be.eq(3);
+        expect(getOrDefault(undefined, "test")).to.be.eq("test");
+        expect(getOrDefault(undefined, "test")).to.be.not.eq("test2");
     });
 });
