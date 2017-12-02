@@ -1,5 +1,10 @@
 ## CHANGE LOG
 
+#### v2.2.3
+
+* added new **getOrDefault** as a global Function in **util/Functions** file.
+
+
 #### v2.2.2
 
 * added new **getOrDefault** as a global Function in **util/Functions** file.

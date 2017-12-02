@@ -1,5 +1,5 @@
 import {has} from "../util/Functions";
-import Collection from "./Collection";
+import Collection, { MapItems } from "./Collection";
 import Iterator from "./Iterator";
 
 export class Entry<K = string | number, V = any> {
@@ -21,12 +21,6 @@ export class Entry<K = string | number, V = any> {
     public get value(): V {
         return this._value;
     }
-}
-
-export interface MapItems<V> {
-    [key: string]: V;
-
-    [key: number]: V;
 }
 
 export default class Map<K extends string | number, V = any> {
