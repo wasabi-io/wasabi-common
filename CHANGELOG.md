@@ -1,9 +1,12 @@
 ## CHANGE LOG
 
+#### v2.3.0
+
+* added validation.
+
 #### v2.2.3
 
 * added new **getOrDefault** as a global Function in **util/Functions** file.
-
 
 #### v2.2.2
 

@@ -169,7 +169,7 @@ describe("collection/Map", () => {
     it("entrySet", () => {
         const map = new Map<string, string>();
         expect(map.entrySet()).to.be.deep.eq([]);
-        const entrySet: Array<Entry<string, string>> = [];
+        const entrySet: Entry<string, string>[] = [];
         entrySet.push(new Entry("test", "TestValue"));
         entrySet.push(new Entry("test2", "TestValue"));
         map.put("test", "TestValue");
@@ -178,7 +178,7 @@ describe("collection/Map", () => {
 
         const map2 = new Map<number, string>();
 
-        const entrySet2: Array<Entry<number, string>> = [];
+        const entrySet2: Entry<number, string>[] = [];
         entrySet2.push(new Entry(0, "TestValue"));
         entrySet2.push(new Entry(1, "TestValue"));
 
@@ -244,19 +244,19 @@ describe("collection/Map", () => {
     });
     it("filter", () => {
         const map = new Map<string, string>();
-        let filteredMap = map.filter((entry) => true);
+        let filteredMap = map.filter((entry: Entry<string, string>) => true);
         expect(filteredMap.length).to.be.eq(0);
         map.put("test", "TestValue");
         map.put("test2", "TestValue");
-        filteredMap = map.filter((entry) => entry.key === "test");
+        filteredMap = map.filter((entry: Entry<string, string>) => entry.key === "test");
         expect(filteredMap.length).to.be.deep.eq(1);
 
         const map2 = new Map<number, string>();
-        let filteredMap2 = map2.filter((entry) => true);
+        let filteredMap2 = map2.filter((entry: Entry<number, string>) => true);
         expect(filteredMap2.length).to.be.eq(0);
         map2.put(0, "TestValue");
         map2.put(1, "TestValue");
-        filteredMap2 = map2.filter((entry) => entry.key === 0);
+        filteredMap2 = map2.filter((entry: Entry<number, string>) => entry.key === 0);
         expect(filteredMap2.length).to.be.deep.eq(1);
     });
 

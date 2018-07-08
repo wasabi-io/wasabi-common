@@ -46,11 +46,11 @@ describe("util/Arrays", () => {
     });
     it("map", () => {
         let expectedResult = [4, 6, 8, 10, 10];
-        let result = Arrays.map([2, 3, 4, 5, 5], (item) => item * 2);
+        let result = Arrays.map([2, 3, 4, 5, 5], (item: any) => item * 2);
         expect(result).to.be.deep.eq(expectedResult);
 
         expectedResult = [6, 8, 10, 10];
-        result = Arrays.map([null, 3, 4, 5, 5], (item) => item ? item * 2 : item);
+        result = Arrays.map([null, 3, 4, 5, 5], (item: any) => item ? item * 2 : item);
         expect(result).to.be.deep.eq(expectedResult);
 
         const mixedExpected = [15, "elpmaxE", false, 25];
