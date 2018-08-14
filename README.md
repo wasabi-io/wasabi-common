@@ -61,6 +61,7 @@ Provides some common operations.
     - [Types](https://wasabi-io.github.io/wasabi-common/modules/_util_types_.html): 
     Provides some operations on any types and defined some standard types in it. (Number, Boolean, Array, String, Date, RegExp: , Null, Function, Undefined, Object)
 
+* util/ajax [..more](./usage/ajax.md)
 
 #### Usage
 

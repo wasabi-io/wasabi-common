@@ -1,4 +1,7 @@
 import Resolver from "../../src/resolver";
+import Ajax from "../../src/util/ajax/Ajax";
+import {expect} from 'chai';
+import {spy} from 'sinon';
 
 Resolver
     .electron()
@@ -6,9 +9,9 @@ Resolver
     .alias("wasabi-common/lib/*", "./")
     .apply();
 
-import { expect } from 'chai';
-import { spy } from 'sinon';
-
 (global as any).expect = expect;
 (global as any).spy = spy;
 
+Ajax.setup({
+    baseUrl: "http://localhost:3002"
+});

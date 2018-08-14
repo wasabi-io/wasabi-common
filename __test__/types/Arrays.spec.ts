@@ -4,7 +4,7 @@ import Strings from "wasabi-common/lib/types/Strings";
 import Types from "wasabi-common/lib/util/Types";
 
 /* tslint:disable no-unused-expression */
-describe("util/Arrays", () => {
+describe("types/Arrays", () => {
     it("has", () => {
         expect(Arrays.has([])).to.be.false;
         expect(Arrays.has(["example"], 1)).to.be.false;

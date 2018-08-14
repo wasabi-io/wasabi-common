@@ -2,7 +2,7 @@ import {expect} from "chai";
 import Chars from "wasabi-common/lib/types/Chars";
 
 /* tslint:disable no-unused-expression */
-describe("util/Chars", () => {
+describe("types/Chars", () => {
     it("isNumber", () => {
         expect(Chars.isNumber("3".charCodeAt(0))).to.be.true;
         expect(Chars.isNumber("A".charCodeAt(0))).to.be.false;

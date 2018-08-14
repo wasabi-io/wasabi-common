@@ -3,7 +3,7 @@ import Maps from "wasabi-common/lib/types/Maps";
 import Types from "wasabi-common/lib/util/Types";
 
 /* tslint:disable no-unused-expression */
-describe("util/Maps", () => {
+describe("types/Maps", () => {
     it("equals", () => {
         const value1 = {
             deneme: ["", "dddsf"],

@@ -2,7 +2,7 @@ import {expect} from "chai";
 import Strings from "wasabi-common/lib/types/Strings";
 
 /* tslint:disable no-unused-expression */
-describe("util/Strings", () => {
+describe("types/Strings", () => {
 
     it("has", () => {
         expect(Strings.has("")).to.be.false;

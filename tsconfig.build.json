@@ -17,6 +17,10 @@
     "declarationDir": "./lib",
     "outDir": "./lib"
   },
+  "include": [
+    "typings/**/*",
+    "src/**/*"
+  ],
   "exclude": [
     "__test__",
     "lib",

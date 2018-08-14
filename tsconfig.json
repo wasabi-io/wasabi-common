@@ -22,6 +22,10 @@
     "declarationDir": "./lib",
     "outDir": "./lib"
   },
+  "include": [
+    "typings/**/*",
+    "src/**/*"
+  ],
   "exclude": [
     "lib",
     "tools",

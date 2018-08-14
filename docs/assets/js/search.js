@@ -3,6 +3,8 @@
 typedoc.search.data = {
     "kinds": {
         "1": "External module",
+        "4": "Enumeration",
+        "16": "Enumeration member",
         "32": "Variable",
         "64": "Function",
         "128": "Class",
@@ -2684,5 +2686,911 @@ typedoc.search.data = {
         "url": "classes/_resolver_index_.resolver.html#electron",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"resolver/index\".Resolver"
+    }, {
+        "id": 386,
+        "kind": 1,
+        "name": "\"util/UrlUtil\"",
+        "url": "modules/_util_urlutil_.html",
+        "classes": "tsd-kind-external-module"
+    }, {
+        "id": 387,
+        "kind": 128,
+        "name": "UrlUtil",
+        "url": "classes/_util_urlutil_.urlutil.html",
+        "classes": "tsd-kind-class tsd-parent-kind-external-module",
+        "parent": "\"util/UrlUtil\""
+    }, {
+        "id": 388,
+        "kind": 2048,
+        "name": "getLocation",
+        "url": "classes/_util_urlutil_.urlutil.html#getlocation",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/UrlUtil\".UrlUtil"
+    }, {
+        "id": 389,
+        "kind": 2048,
+        "name": "join",
+        "url": "classes/_util_urlutil_.urlutil.html#join",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/UrlUtil\".UrlUtil"
+    }, {
+        "id": 390,
+        "kind": 2048,
+        "name": "joinWithQueries",
+        "url": "classes/_util_urlutil_.urlutil.html#joinwithqueries",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/UrlUtil\".UrlUtil"
+    }, {
+        "id": 391,
+        "kind": 2048,
+        "name": "isValidURL",
+        "url": "classes/_util_urlutil_.urlutil.html#isvalidurl",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/UrlUtil\".UrlUtil"
+    }, {
+        "id": 392,
+        "kind": 2048,
+        "name": "normalize",
+        "url": "classes/_util_urlutil_.urlutil.html#normalize",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/UrlUtil\".UrlUtil"
+    }, {
+        "id": 393,
+        "kind": 1,
+        "name": "\"util/ajax/AjaxResponse\"",
+        "url": "modules/_util_ajax_ajaxresponse_.html",
+        "classes": "tsd-kind-external-module"
+    }, {
+        "id": 394,
+        "kind": 256,
+        "name": "AjaxResponse",
+        "url": "interfaces/_util_ajax_ajaxresponse_.ajaxresponse.html",
+        "classes": "tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter",
+        "parent": "\"util/ajax/AjaxResponse\""
+    }, {
+        "id": 395,
+        "kind": 1024,
+        "name": "xhr",
+        "url": "interfaces/_util_ajax_ajaxresponse_.ajaxresponse.html#xhr",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/AjaxResponse\".AjaxResponse"
+    }, {
+        "id": 396,
+        "kind": 1024,
+        "name": "data",
+        "url": "interfaces/_util_ajax_ajaxresponse_.ajaxresponse.html#data",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/AjaxResponse\".AjaxResponse"
+    }, {
+        "id": 397,
+        "kind": 1024,
+        "name": "error",
+        "url": "interfaces/_util_ajax_ajaxresponse_.ajaxresponse.html#error",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/AjaxResponse\".AjaxResponse"
+    }, {
+        "id": 398,
+        "kind": 1024,
+        "name": "status",
+        "url": "interfaces/_util_ajax_ajaxresponse_.ajaxresponse.html#status",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/AjaxResponse\".AjaxResponse"
+    }, {
+        "id": 399,
+        "kind": 1024,
+        "name": "statusText",
+        "url": "interfaces/_util_ajax_ajaxresponse_.ajaxresponse.html#statustext",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/AjaxResponse\".AjaxResponse"
+    }, {
+        "id": 400,
+        "kind": 1024,
+        "name": "headers",
+        "url": "interfaces/_util_ajax_ajaxresponse_.ajaxresponse.html#headers",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/AjaxResponse\".AjaxResponse"
+    }, {
+        "id": 401,
+        "kind": 1024,
+        "name": "responseType",
+        "url": "interfaces/_util_ajax_ajaxresponse_.ajaxresponse.html#responsetype",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/AjaxResponse\".AjaxResponse"
+    }, {
+        "id": 402,
+        "kind": 1024,
+        "name": "allowedMethods",
+        "url": "interfaces/_util_ajax_ajaxresponse_.ajaxresponse.html#allowedmethods",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/AjaxResponse\".AjaxResponse"
+    }, {
+        "id": 403,
+        "kind": 1024,
+        "name": "allowedOrigin",
+        "url": "interfaces/_util_ajax_ajaxresponse_.ajaxresponse.html#allowedorigin",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/AjaxResponse\".AjaxResponse"
+    }, {
+        "id": 404,
+        "kind": 1024,
+        "name": "responseURL",
+        "url": "interfaces/_util_ajax_ajaxresponse_.ajaxresponse.html#responseurl",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/AjaxResponse\".AjaxResponse"
+    }, {
+        "id": 405,
+        "kind": 1,
+        "name": "\"util/ajax/AjaxError\"",
+        "url": "modules/_util_ajax_ajaxerror_.html",
+        "classes": "tsd-kind-external-module"
+    }, {
+        "id": 406,
+        "kind": 128,
+        "name": "AjaxError",
+        "url": "classes/_util_ajax_ajaxerror_.ajaxerror.html",
+        "classes": "tsd-kind-class tsd-parent-kind-external-module",
+        "parent": "\"util/ajax/AjaxError\""
+    }, {
+        "id": 407,
+        "kind": 1024,
+        "name": "status",
+        "url": "classes/_util_ajax_ajaxerror_.ajaxerror.html#status",
+        "classes": "tsd-kind-property tsd-parent-kind-class",
+        "parent": "\"util/ajax/AjaxError\".AjaxError"
+    }, {
+        "id": 408,
+        "kind": 1024,
+        "name": "statusText",
+        "url": "classes/_util_ajax_ajaxerror_.ajaxerror.html#statustext",
+        "classes": "tsd-kind-property tsd-parent-kind-class",
+        "parent": "\"util/ajax/AjaxError\".AjaxError"
+    }, {
+        "id": 409,
+        "kind": 1024,
+        "name": "xhr",
+        "url": "classes/_util_ajax_ajaxerror_.ajaxerror.html#xhr",
+        "classes": "tsd-kind-property tsd-parent-kind-class",
+        "parent": "\"util/ajax/AjaxError\".AjaxError"
+    }, {
+        "id": 410,
+        "kind": 1024,
+        "name": "data",
+        "url": "classes/_util_ajax_ajaxerror_.ajaxerror.html#data",
+        "classes": "tsd-kind-property tsd-parent-kind-class",
+        "parent": "\"util/ajax/AjaxError\".AjaxError"
+    }, {
+        "id": 411,
+        "kind": 1024,
+        "name": "headers",
+        "url": "classes/_util_ajax_ajaxerror_.ajaxerror.html#headers",
+        "classes": "tsd-kind-property tsd-parent-kind-class",
+        "parent": "\"util/ajax/AjaxError\".AjaxError"
+    }, {
+        "id": 412,
+        "kind": 1024,
+        "name": "allowedMethods",
+        "url": "classes/_util_ajax_ajaxerror_.ajaxerror.html#allowedmethods",
+        "classes": "tsd-kind-property tsd-parent-kind-class",
+        "parent": "\"util/ajax/AjaxError\".AjaxError"
+    }, {
+        "id": 413,
+        "kind": 1024,
+        "name": "allowedOrigin",
+        "url": "classes/_util_ajax_ajaxerror_.ajaxerror.html#allowedorigin",
+        "classes": "tsd-kind-property tsd-parent-kind-class",
+        "parent": "\"util/ajax/AjaxError\".AjaxError"
+    }, {
+        "id": 414,
+        "kind": 1024,
+        "name": "responseType",
+        "url": "classes/_util_ajax_ajaxerror_.ajaxerror.html#responsetype",
+        "classes": "tsd-kind-property tsd-parent-kind-class",
+        "parent": "\"util/ajax/AjaxError\".AjaxError"
+    }, {
+        "id": 415,
+        "kind": 1024,
+        "name": "responseURL",
+        "url": "classes/_util_ajax_ajaxerror_.ajaxerror.html#responseurl",
+        "classes": "tsd-kind-property tsd-parent-kind-class",
+        "parent": "\"util/ajax/AjaxError\".AjaxError"
+    }, {
+        "id": 416,
+        "kind": 1024,
+        "name": "cause",
+        "url": "classes/_util_ajax_ajaxerror_.ajaxerror.html#cause",
+        "classes": "tsd-kind-property tsd-parent-kind-class",
+        "parent": "\"util/ajax/AjaxError\".AjaxError"
+    }, {
+        "id": 417,
+        "kind": 1024,
+        "name": "isAjaxError",
+        "url": "classes/_util_ajax_ajaxerror_.ajaxerror.html#isajaxerror",
+        "classes": "tsd-kind-property tsd-parent-kind-class",
+        "parent": "\"util/ajax/AjaxError\".AjaxError"
+    }, {
+        "id": 418,
+        "kind": 512,
+        "name": "constructor",
+        "url": "classes/_util_ajax_ajaxerror_.ajaxerror.html#constructor",
+        "classes": "tsd-kind-constructor tsd-parent-kind-class",
+        "parent": "\"util/ajax/AjaxError\".AjaxError"
+    }, {
+        "id": 419,
+        "kind": 1024,
+        "name": "name",
+        "url": "classes/_util_ajax_ajaxerror_.ajaxerror.html#name",
+        "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static",
+        "parent": "\"util/ajax/AjaxError\".AjaxError"
+    }, {
+        "id": 420,
+        "kind": 1024,
+        "name": "message",
+        "url": "classes/_util_ajax_ajaxerror_.ajaxerror.html#message",
+        "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static",
+        "parent": "\"util/ajax/AjaxError\".AjaxError"
+    }, {
+        "id": 421,
+        "kind": 1024,
+        "name": "stack",
+        "url": "classes/_util_ajax_ajaxerror_.ajaxerror.html#stack",
+        "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-static",
+        "parent": "\"util/ajax/AjaxError\".AjaxError"
+    }, {
+        "id": 422,
+        "kind": 1024,
+        "name": "Error",
+        "url": "classes/_util_ajax_ajaxerror_.ajaxerror.html#error",
+        "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/AjaxError\".AjaxError"
+    }, {
+        "id": 423,
+        "kind": 1,
+        "name": "\"util/ajax/AjaxDefaults\"",
+        "url": "modules/_util_ajax_ajaxdefaults_.html",
+        "classes": "tsd-kind-external-module"
+    }, {
+        "id": 424,
+        "kind": 256,
+        "name": "AjaxDefaults",
+        "url": "interfaces/_util_ajax_ajaxdefaults_.ajaxdefaults.html",
+        "classes": "tsd-kind-interface tsd-parent-kind-external-module",
+        "parent": "\"util/ajax/AjaxDefaults\""
+    }, {
+        "id": 425,
+        "kind": 1024,
+        "name": "baseUrl",
+        "url": "interfaces/_util_ajax_ajaxdefaults_.ajaxdefaults.html#baseurl",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/AjaxDefaults\".AjaxDefaults"
+    }, {
+        "id": 426,
+        "kind": 1024,
+        "name": "contentType",
+        "url": "interfaces/_util_ajax_ajaxdefaults_.ajaxdefaults.html#contenttype",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/AjaxDefaults\".AjaxDefaults"
+    }, {
+        "id": 427,
+        "kind": 128,
+        "name": "AjaxDefaultsConstructor",
+        "url": "classes/_util_ajax_ajaxdefaults_.ajaxdefaultsconstructor.html",
+        "classes": "tsd-kind-class tsd-parent-kind-external-module",
+        "parent": "\"util/ajax/AjaxDefaults\""
+    }, {
+        "id": 428,
+        "kind": 1024,
+        "name": "_baseUrl",
+        "url": "classes/_util_ajax_ajaxdefaults_.ajaxdefaultsconstructor.html#_baseurl",
+        "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-private",
+        "parent": "\"util/ajax/AjaxDefaults\".AjaxDefaultsConstructor"
+    }, {
+        "id": 429,
+        "kind": 1024,
+        "name": "_contentType",
+        "url": "classes/_util_ajax_ajaxdefaults_.ajaxdefaultsconstructor.html#_contenttype",
+        "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-private",
+        "parent": "\"util/ajax/AjaxDefaults\".AjaxDefaultsConstructor"
+    }, {
+        "id": 430,
+        "kind": 262144,
+        "name": "baseUrl",
+        "url": "classes/_util_ajax_ajaxdefaults_.ajaxdefaultsconstructor.html#baseurl",
+        "classes": "tsd-kind-accessor tsd-parent-kind-class",
+        "parent": "\"util/ajax/AjaxDefaults\".AjaxDefaultsConstructor"
+    }, {
+        "id": 431,
+        "kind": 262144,
+        "name": "contentType",
+        "url": "classes/_util_ajax_ajaxdefaults_.ajaxdefaultsconstructor.html#contenttype",
+        "classes": "tsd-kind-accessor tsd-parent-kind-class",
+        "parent": "\"util/ajax/AjaxDefaults\".AjaxDefaultsConstructor"
+    }, {
+        "id": 432,
+        "kind": 1,
+        "name": "\"util/ajax/ajaxHttp\"",
+        "url": "modules/_util_ajax_ajaxhttp_.html",
+        "classes": "tsd-kind-external-module"
+    }, {
+        "id": 433,
+        "kind": 64,
+        "name": "ajaxHttp",
+        "url": "modules/_util_ajax_ajaxhttp_.html#ajaxhttp",
+        "classes": "tsd-kind-function tsd-parent-kind-external-module",
+        "parent": "\"util/ajax/ajaxHttp\""
+    }, {
+        "id": 434,
+        "kind": 1,
+        "name": "\"util/ajax/AjaxMethod\"",
+        "url": "modules/_util_ajax_ajaxmethod_.html",
+        "classes": "tsd-kind-external-module"
+    }, {
+        "id": 435,
+        "kind": 4,
+        "name": "AjaxMethod",
+        "url": "enums/_util_ajax_ajaxmethod_.ajaxmethod.html",
+        "classes": "tsd-kind-enum tsd-parent-kind-external-module",
+        "parent": "\"util/ajax/AjaxMethod\""
+    }, {
+        "id": 436,
+        "kind": 16,
+        "name": "GET",
+        "url": "enums/_util_ajax_ajaxmethod_.ajaxmethod.html#get",
+        "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
+        "parent": "\"util/ajax/AjaxMethod\".AjaxMethod"
+    }, {
+        "id": 437,
+        "kind": 16,
+        "name": "POST",
+        "url": "enums/_util_ajax_ajaxmethod_.ajaxmethod.html#post",
+        "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
+        "parent": "\"util/ajax/AjaxMethod\".AjaxMethod"
+    }, {
+        "id": 438,
+        "kind": 16,
+        "name": "PUT",
+        "url": "enums/_util_ajax_ajaxmethod_.ajaxmethod.html#put",
+        "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
+        "parent": "\"util/ajax/AjaxMethod\".AjaxMethod"
+    }, {
+        "id": 439,
+        "kind": 16,
+        "name": "DELETE",
+        "url": "enums/_util_ajax_ajaxmethod_.ajaxmethod.html#delete",
+        "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
+        "parent": "\"util/ajax/AjaxMethod\".AjaxMethod"
+    }, {
+        "id": 440,
+        "kind": 16,
+        "name": "PATCH",
+        "url": "enums/_util_ajax_ajaxmethod_.ajaxmethod.html#patch",
+        "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
+        "parent": "\"util/ajax/AjaxMethod\".AjaxMethod"
+    }, {
+        "id": 441,
+        "kind": 16,
+        "name": "HEAD",
+        "url": "enums/_util_ajax_ajaxmethod_.ajaxmethod.html#head",
+        "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
+        "parent": "\"util/ajax/AjaxMethod\".AjaxMethod"
+    }, {
+        "id": 442,
+        "kind": 16,
+        "name": "OPTIONS",
+        "url": "enums/_util_ajax_ajaxmethod_.ajaxmethod.html#options",
+        "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
+        "parent": "\"util/ajax/AjaxMethod\".AjaxMethod"
+    }, {
+        "id": 443,
+        "kind": 1,
+        "name": "\"util/ajax/ContentType\"",
+        "url": "modules/_util_ajax_contenttype_.html",
+        "classes": "tsd-kind-external-module"
+    }, {
+        "id": 444,
+        "kind": 4,
+        "name": "ContentType",
+        "url": "enums/_util_ajax_contenttype_.contenttype.html",
+        "classes": "tsd-kind-enum tsd-parent-kind-external-module",
+        "parent": "\"util/ajax/ContentType\""
+    }, {
+        "id": 445,
+        "kind": 16,
+        "name": "json",
+        "url": "enums/_util_ajax_contenttype_.contenttype.html#json",
+        "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
+        "parent": "\"util/ajax/ContentType\".ContentType"
+    }, {
+        "id": 446,
+        "kind": 16,
+        "name": "text",
+        "url": "enums/_util_ajax_contenttype_.contenttype.html#text",
+        "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
+        "parent": "\"util/ajax/ContentType\".ContentType"
+    }, {
+        "id": 447,
+        "kind": 16,
+        "name": "multipart",
+        "url": "enums/_util_ajax_contenttype_.contenttype.html#multipart",
+        "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
+        "parent": "\"util/ajax/ContentType\".ContentType"
+    }, {
+        "id": 448,
+        "kind": 16,
+        "name": "form",
+        "url": "enums/_util_ajax_contenttype_.contenttype.html#form",
+        "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
+        "parent": "\"util/ajax/ContentType\".ContentType"
+    }, {
+        "id": 449,
+        "kind": 1,
+        "name": "\"util/ajax/AjaxFileEvent\"",
+        "url": "modules/_util_ajax_ajaxfileevent_.html",
+        "classes": "tsd-kind-external-module"
+    }, {
+        "id": 450,
+        "kind": 256,
+        "name": "AjaxFileEventHandler",
+        "url": "interfaces/_util_ajax_ajaxfileevent_.ajaxfileeventhandler.html",
+        "classes": "tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter",
+        "parent": "\"util/ajax/AjaxFileEvent\""
+    }, {
+        "id": 451,
+        "kind": 256,
+        "name": "AjaxFileEventHandlerProps",
+        "url": "interfaces/_util_ajax_ajaxfileevent_.ajaxfileeventhandlerprops.html",
+        "classes": "tsd-kind-interface tsd-parent-kind-external-module",
+        "parent": "\"util/ajax/AjaxFileEvent\""
+    }, {
+        "id": 452,
+        "kind": 1024,
+        "name": "handler",
+        "url": "interfaces/_util_ajax_ajaxfileevent_.ajaxfileeventhandlerprops.html#handler",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/AjaxFileEvent\".AjaxFileEventHandlerProps"
+    }, {
+        "id": 453,
+        "kind": 1024,
+        "name": "options",
+        "url": "interfaces/_util_ajax_ajaxfileevent_.ajaxfileeventhandlerprops.html#options",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/AjaxFileEvent\".AjaxFileEventHandlerProps"
+    }, {
+        "id": 454,
+        "kind": 1,
+        "name": "\"util/ajax/Ajax\"",
+        "url": "modules/_util_ajax_ajax_.html",
+        "classes": "tsd-kind-external-module"
+    }, {
+        "id": 455,
+        "kind": 256,
+        "name": "AjaxProps",
+        "url": "interfaces/_util_ajax_ajax_.ajaxprops.html",
+        "classes": "tsd-kind-interface tsd-parent-kind-external-module",
+        "parent": "\"util/ajax/Ajax\""
+    }, {
+        "id": 456,
+        "kind": 1024,
+        "name": "async",
+        "url": "interfaces/_util_ajax_ajax_.ajaxprops.html#async",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/Ajax\".AjaxProps"
+    }, {
+        "id": 457,
+        "kind": 1024,
+        "name": "user",
+        "url": "interfaces/_util_ajax_ajax_.ajaxprops.html#user",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/Ajax\".AjaxProps"
+    }, {
+        "id": 458,
+        "kind": 1024,
+        "name": "password",
+        "url": "interfaces/_util_ajax_ajax_.ajaxprops.html#password",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/Ajax\".AjaxProps"
+    }, {
+        "id": 459,
+        "kind": 1024,
+        "name": "headers",
+        "url": "interfaces/_util_ajax_ajax_.ajaxprops.html#headers",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/Ajax\".AjaxProps"
+    }, {
+        "id": 460,
+        "kind": 1024,
+        "name": "contentType",
+        "url": "interfaces/_util_ajax_ajax_.ajaxprops.html#contenttype",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/Ajax\".AjaxProps"
+    }, {
+        "id": 461,
+        "kind": 1024,
+        "name": "timeout",
+        "url": "interfaces/_util_ajax_ajax_.ajaxprops.html#timeout",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/Ajax\".AjaxProps"
+    }, {
+        "id": 462,
+        "kind": 1024,
+        "name": "withCredentials",
+        "url": "interfaces/_util_ajax_ajax_.ajaxprops.html#withcredentials",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/Ajax\".AjaxProps"
+    }, {
+        "id": 463,
+        "kind": 1024,
+        "name": "params",
+        "url": "interfaces/_util_ajax_ajax_.ajaxprops.html#params",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/Ajax\".AjaxProps"
+    }, {
+        "id": 464,
+        "kind": 1024,
+        "name": "queries",
+        "url": "interfaces/_util_ajax_ajax_.ajaxprops.html#queries",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/Ajax\".AjaxProps"
+    }, {
+        "id": 465,
+        "kind": 256,
+        "name": "AjaxPropsWithData",
+        "url": "interfaces/_util_ajax_ajax_.ajaxpropswithdata.html",
+        "classes": "tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter",
+        "parent": "\"util/ajax/Ajax\""
+    }, {
+        "id": 466,
+        "kind": 1024,
+        "name": "data",
+        "url": "interfaces/_util_ajax_ajax_.ajaxpropswithdata.html#data",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/Ajax\".AjaxPropsWithData"
+    }, {
+        "id": 467,
+        "kind": 1024,
+        "name": "upload",
+        "url": "interfaces/_util_ajax_ajax_.ajaxpropswithdata.html#upload",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"util/ajax/Ajax\".AjaxPropsWithData"
+    }, {
+        "id": 468,
+        "kind": 1024,
+        "name": "async",
+        "url": "interfaces/_util_ajax_ajax_.ajaxpropswithdata.html#async",
+        "classes": "tsd-kind-property tsd-parent-kind-interface tsd-is-inherited",
+        "parent": "\"util/ajax/Ajax\".AjaxPropsWithData"
+    }, {
+        "id": 469,
+        "kind": 1024,
+        "name": "user",
+        "url": "interfaces/_util_ajax_ajax_.ajaxpropswithdata.html#user",
+        "classes": "tsd-kind-property tsd-parent-kind-interface tsd-is-inherited",
+        "parent": "\"util/ajax/Ajax\".AjaxPropsWithData"
+    }, {
+        "id": 470,
+        "kind": 1024,
+        "name": "password",
+        "url": "interfaces/_util_ajax_ajax_.ajaxpropswithdata.html#password",
+        "classes": "tsd-kind-property tsd-parent-kind-interface tsd-is-inherited",
+        "parent": "\"util/ajax/Ajax\".AjaxPropsWithData"
+    }, {
+        "id": 471,
+        "kind": 1024,
+        "name": "headers",
+        "url": "interfaces/_util_ajax_ajax_.ajaxpropswithdata.html#headers",
+        "classes": "tsd-kind-property tsd-parent-kind-interface tsd-is-inherited",
+        "parent": "\"util/ajax/Ajax\".AjaxPropsWithData"
+    }, {
+        "id": 472,
+        "kind": 1024,
+        "name": "contentType",
+        "url": "interfaces/_util_ajax_ajax_.ajaxpropswithdata.html#contenttype",
+        "classes": "tsd-kind-property tsd-parent-kind-interface tsd-is-inherited",
+        "parent": "\"util/ajax/Ajax\".AjaxPropsWithData"
+    }, {
+        "id": 473,
+        "kind": 1024,
+        "name": "timeout",
+        "url": "interfaces/_util_ajax_ajax_.ajaxpropswithdata.html#timeout",
+        "classes": "tsd-kind-property tsd-parent-kind-interface tsd-is-inherited",
+        "parent": "\"util/ajax/Ajax\".AjaxPropsWithData"
+    }, {
+        "id": 474,
+        "kind": 1024,
+        "name": "withCredentials",
+        "url": "interfaces/_util_ajax_ajax_.ajaxpropswithdata.html#withcredentials",
+        "classes": "tsd-kind-property tsd-parent-kind-interface tsd-is-inherited",
+        "parent": "\"util/ajax/Ajax\".AjaxPropsWithData"
+    }, {
+        "id": 475,
+        "kind": 1024,
+        "name": "params",
+        "url": "interfaces/_util_ajax_ajax_.ajaxpropswithdata.html#params",
+        "classes": "tsd-kind-property tsd-parent-kind-interface tsd-is-inherited",
+        "parent": "\"util/ajax/Ajax\".AjaxPropsWithData"
+    }, {
+        "id": 476,
+        "kind": 1024,
+        "name": "queries",
+        "url": "interfaces/_util_ajax_ajax_.ajaxpropswithdata.html#queries",
+        "classes": "tsd-kind-property tsd-parent-kind-interface tsd-is-inherited",
+        "parent": "\"util/ajax/Ajax\".AjaxPropsWithData"
+    }, {
+        "id": 477,
+        "kind": 256,
+        "name": "FileAjaxPropsWithData",
+        "url": "interfaces/_util_ajax_ajax_.fileajaxpropswithdata.html",
+        "classes": "tsd-kind-interface tsd-parent-kind-external-module",
+        "parent": "\"util/ajax/Ajax\""
+    }, {
+        "id": 478,
+        "kind": 1024,
+        "name": "data",
+        "url": "interfaces/_util_ajax_ajax_.fileajaxpropswithdata.html#data",
+        "classes": "tsd-kind-property tsd-parent-kind-interface tsd-is-inherited",
+        "parent": "\"util/ajax/Ajax\".FileAjaxPropsWithData"
+    }, {
+        "id": 479,
+        "kind": 1024,
+        "name": "upload",
+        "url": "interfaces/_util_ajax_ajax_.fileajaxpropswithdata.html#upload",
+        "classes": "tsd-kind-property tsd-parent-kind-interface tsd-is-inherited",
+        "parent": "\"util/ajax/Ajax\".FileAjaxPropsWithData"
+    }, {
+        "id": 480,
+        "kind": 1024,
+        "name": "async",
+        "url": "interfaces/_util_ajax_ajax_.fileajaxpropswithdata.html#async",
+        "classes": "tsd-kind-property tsd-parent-kind-interface tsd-is-inherited",
+        "parent": "\"util/ajax/Ajax\".FileAjaxPropsWithData"
+    }, {
+        "id": 481,
+        "kind": 1024,
+        "name": "user",
+        "url": "interfaces/_util_ajax_ajax_.fileajaxpropswithdata.html#user",
+        "classes": "tsd-kind-property tsd-parent-kind-interface tsd-is-inherited",
+        "parent": "\"util/ajax/Ajax\".FileAjaxPropsWithData"
+    }, {
+        "id": 482,
+        "kind": 1024,
+        "name": "password",
+        "url": "interfaces/_util_ajax_ajax_.fileajaxpropswithdata.html#password",
+        "classes": "tsd-kind-property tsd-parent-kind-interface tsd-is-inherited",
+        "parent": "\"util/ajax/Ajax\".FileAjaxPropsWithData"
+    }, {
+        "id": 483,
+        "kind": 1024,
+        "name": "headers",
+        "url": "interfaces/_util_ajax_ajax_.fileajaxpropswithdata.html#headers",
+        "classes": "tsd-kind-property tsd-parent-kind-interface tsd-is-inherited",
+        "parent": "\"util/ajax/Ajax\".FileAjaxPropsWithData"
+    }, {
+        "id": 484,
+        "kind": 1024,
+        "name": "contentType",
+        "url": "interfaces/_util_ajax_ajax_.fileajaxpropswithdata.html#contenttype",
+        "classes": "tsd-kind-property tsd-parent-kind-interface tsd-is-inherited",
+        "parent": "\"util/ajax/Ajax\".FileAjaxPropsWithData"
+    }, {
+        "id": 485,
+        "kind": 1024,
+        "name": "timeout",
+        "url": "interfaces/_util_ajax_ajax_.fileajaxpropswithdata.html#timeout",
+        "classes": "tsd-kind-property tsd-parent-kind-interface tsd-is-inherited",
+        "parent": "\"util/ajax/Ajax\".FileAjaxPropsWithData"
+    }, {
+        "id": 486,
+        "kind": 1024,
+        "name": "withCredentials",
+        "url": "interfaces/_util_ajax_ajax_.fileajaxpropswithdata.html#withcredentials",
+        "classes": "tsd-kind-property tsd-parent-kind-interface tsd-is-inherited",
+        "parent": "\"util/ajax/Ajax\".FileAjaxPropsWithData"
+    }, {
+        "id": 487,
+        "kind": 1024,
+        "name": "params",
+        "url": "interfaces/_util_ajax_ajax_.fileajaxpropswithdata.html#params",
+        "classes": "tsd-kind-property tsd-parent-kind-interface tsd-is-inherited",
+        "parent": "\"util/ajax/Ajax\".FileAjaxPropsWithData"
+    }, {
+        "id": 488,
+        "kind": 1024,
+        "name": "queries",
+        "url": "interfaces/_util_ajax_ajax_.fileajaxpropswithdata.html#queries",
+        "classes": "tsd-kind-property tsd-parent-kind-interface tsd-is-inherited",
+        "parent": "\"util/ajax/Ajax\".FileAjaxPropsWithData"
+    }, {
+        "id": 489,
+        "kind": 128,
+        "name": "Ajax",
+        "url": "classes/_util_ajax_ajax_.ajax.html",
+        "classes": "tsd-kind-class tsd-parent-kind-external-module",
+        "parent": "\"util/ajax/Ajax\""
+    }, {
+        "id": 490,
+        "kind": 1024,
+        "name": "_defaults",
+        "url": "classes/_util_ajax_ajax_.ajax.html#_defaults",
+        "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 491,
+        "kind": 1024,
+        "name": "ContentTypeHeder",
+        "url": "classes/_util_ajax_ajax_.ajax.html#contenttypeheder",
+        "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 492,
+        "kind": 1024,
+        "name": "AllowMethodsHeader",
+        "url": "classes/_util_ajax_ajax_.ajax.html#allowmethodsheader",
+        "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 493,
+        "kind": 1024,
+        "name": "AllowOriginHeader",
+        "url": "classes/_util_ajax_ajax_.ajax.html#alloworiginheader",
+        "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 494,
+        "kind": 2048,
+        "name": "fetch",
+        "url": "classes/_util_ajax_ajax_.ajax.html#fetch",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 495,
+        "kind": 2048,
+        "name": "configureUpload",
+        "url": "classes/_util_ajax_ajax_.ajax.html#configureupload",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 496,
+        "kind": 2048,
+        "name": "getRequestData",
+        "url": "classes/_util_ajax_ajax_.ajax.html#getrequestdata",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 497,
+        "kind": 2048,
+        "name": "setContentType",
+        "url": "classes/_util_ajax_ajax_.ajax.html#setcontenttype",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 498,
+        "kind": 2048,
+        "name": "isSuccess",
+        "url": "classes/_util_ajax_ajax_.ajax.html#issuccess",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 499,
+        "kind": 2048,
+        "name": "getResponse",
+        "url": "classes/_util_ajax_ajax_.ajax.html#getresponse",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 500,
+        "kind": 2048,
+        "name": "parseHeaders",
+        "url": "classes/_util_ajax_ajax_.ajax.html#parseheaders",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 501,
+        "kind": 2048,
+        "name": "getResponseType",
+        "url": "classes/_util_ajax_ajax_.ajax.html#getresponsetype",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 502,
+        "kind": 2048,
+        "name": "getResponseData",
+        "url": "classes/_util_ajax_ajax_.ajax.html#getresponsedata",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 503,
+        "kind": 2048,
+        "name": "get",
+        "url": "classes/_util_ajax_ajax_.ajax.html#get",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 504,
+        "kind": 2048,
+        "name": "post",
+        "url": "classes/_util_ajax_ajax_.ajax.html#post",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 505,
+        "kind": 2048,
+        "name": "put",
+        "url": "classes/_util_ajax_ajax_.ajax.html#put",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 506,
+        "kind": 2048,
+        "name": "delete",
+        "url": "classes/_util_ajax_ajax_.ajax.html#delete",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 507,
+        "kind": 2048,
+        "name": "patch",
+        "url": "classes/_util_ajax_ajax_.ajax.html#patch",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 508,
+        "kind": 2048,
+        "name": "head",
+        "url": "classes/_util_ajax_ajax_.ajax.html#head",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 509,
+        "kind": 2048,
+        "name": "options",
+        "url": "classes/_util_ajax_ajax_.ajax.html#options",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 510,
+        "kind": 2048,
+        "name": "upload",
+        "url": "classes/_util_ajax_ajax_.ajax.html#upload",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 511,
+        "kind": 2048,
+        "name": "dataToFormData",
+        "url": "classes/_util_ajax_ajax_.ajax.html#datatoformdata",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 512,
+        "kind": 2048,
+        "name": "setup",
+        "url": "classes/_util_ajax_ajax_.ajax.html#setup",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"util/ajax/Ajax\".Ajax"
+    }, {
+        "id": 513,
+        "kind": 1,
+        "name": "\"util/ajax/AjaxUtil\"",
+        "url": "modules/_util_ajax_ajaxutil_.html",
+        "classes": "tsd-kind-external-module"
+    }, {
+        "id": 514,
+        "kind": 64,
+        "name": "hasSupportFileApi",
+        "url": "modules/_util_ajax_ajaxutil_.html#hassupportfileapi",
+        "classes": "tsd-kind-function tsd-parent-kind-external-module",
+        "parent": "\"util/ajax/AjaxUtil\""
+    }, {
+        "id": 515,
+        "kind": 64,
+        "name": "hasSupportAjaxUploadProgressEvents",
+        "url": "modules/_util_ajax_ajaxutil_.html#hassupportajaxuploadprogressevents",
+        "classes": "tsd-kind-function tsd-parent-kind-external-module",
+        "parent": "\"util/ajax/AjaxUtil\""
+    }, {
+        "id": 516,
+        "kind": 1,
+        "name": "\"util/ajax/index\"",
+        "url": "modules/_util_ajax_index_.html",
+        "classes": "tsd-kind-external-module"
     }]
 };

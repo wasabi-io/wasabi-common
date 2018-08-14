@@ -3,7 +3,7 @@ import Objects from "wasabi-common/lib/types/Objects";
 import Types from "wasabi-common/lib/util/Types";
 
 /* tslint:disable no-unused-expression */
-describe("util/Objects", () => {
+describe("types/Objects", () => {
     it("has", () => {
         expect(Objects.has({})).to.be.false;
         expect(Objects.has({a: "5"})).to.be.true;

@@ -2,7 +2,7 @@
 --require source-map-support/register
 --require ./tools/test/helper.ts
 --require ./tools/test/mockCss.js
---timeout 5000
+--timeout 10000
 -R spec
 --ui bdd
 --watch-extensions tsx,ts
