@@ -37,4 +37,5 @@ module.exports = function (cmd, parameters, task) {
             process.exit(code);
         }
     });
+    process.on("exit", () => command.kill())
 };

@@ -49,7 +49,7 @@ export default class Collection {
         if (!array) {
             return items;
         }
-        for (let i = 0; i < array.length; i++) {
+        for (let i = 0; i < array.length; i = i + 1) {
             const result = callback(array[i], i as any);
             if (result !== undefined) {
                 items[items.length] = result as any;
@@ -98,7 +98,7 @@ export default class Collection {
         if (!array) {
             return true;
         }
-        for (let i = 0; i < array.length; i++) {
+        for (let i = 0; i < array.length; i = i + 1) {
             if (callback(array[i], i as any) === false) {
                 return false;
             }

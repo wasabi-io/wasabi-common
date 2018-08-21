@@ -254,7 +254,7 @@ Types.Map[Types.ToString.Array] = new Type<any[]>({
         if (src.length !== dest.length) {
             return false;
         }
-        for (let i = 0; i < src.length; i++) {
+        for (let i = 0; i < src.length; i = i + 1) {
             stack = stack || [];
             if (!equals(src[i], dest[i], stack)) {
                 return false;
@@ -264,7 +264,7 @@ Types.Map[Types.ToString.Array] = new Type<any[]>({
     },
     getClone: (o: any[], ignoreList?: string[]): any[] => {
         const cloneArray = [];
-        for (let i = 0; i < o.length; i++) {
+        for (let i = 0; i < o.length; i = i + 1) {
             cloneArray[i] = Types.getClone(o[i], ignoreList);
         }
         return cloneArray;

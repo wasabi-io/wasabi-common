@@ -41,7 +41,8 @@ export class AliasResolver {
             if (match) {
                 if (match.length === 1) {
                     return alias.paths;
-                } else if (match.length === 2) {
+                }
+                if (match.length === 2) {
                     const newPaths = [];
                     for (const path of alias.paths) {
                         newPaths.push(join(path, match[1]));

@@ -25,7 +25,8 @@ const asEs6Module = (module: any, name?: string) => {
     if (module.__esModule) {
         if (has(name)) {
             return module[name];
-        } else if (module.default) {
+        }
+        if (module.default) {
             return module.default;
         }
         // Checks one module is exist or not.
@@ -33,7 +34,7 @@ const asEs6Module = (module: any, name?: string) => {
         let moduleKey;
         for (const key in module) {
             if (module.hasOwnProperty(key) && key !== "__esModule") {
-                count++;
+                count = count + 1;
                 moduleKey = key;
             }
         }

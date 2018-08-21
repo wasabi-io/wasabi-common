@@ -2,8 +2,8 @@ interface Object {
     assign(target: any, ...varArgs: any[]): Object;
 }
 
-if (typeof Object.assign !== "function") {
-    Object.assign = (target: any, ...varArgs: any[]): Object => {
+if (typeof (Object as any).assign !== "function") {
+    (Object as any) = (target: any, ...varArgs: any[]): Object => {
         // .length of function is 2
         if (target == null) { // TypeError if undefined or null
             throw new TypeError("Cannot convert undefined or null to object");

@@ -1,5 +1,11 @@
 import {Props} from "../types";
 import {has} from "./Functions";
+import Arrays from "../types/Arrays";
+
+export interface ParsedHash {
+    paths: string[];
+    queries: Props<string>;
+}
 
 export default class UrlUtil {
     public static getLocation(href: string) {
@@ -99,5 +105,36 @@ export default class UrlUtil {
         const sections = str.split('?');
         str = sections.shift() + (sections.length > 0 ? '?' : '') + sections.join('&');
         return str;
+    }
+
+    public static parseHash(locationHash: string): ParsedHash {
+        const hash = (locationHash || "#/").substring(1);
+
+        const paramIndex = hash.indexOf("?");
+        const pathPart = paramIndex !== -1 ? hash.substring(1, paramIndex) : hash;
+        const queryPart = paramIndex !== -1 ? hash.substring(1, paramIndex) : "";
+
+        let paths = pathPart.split("/").filter((path: string) => has(path));
+        paths = Arrays.removeValue(paths, "");
+
+        const queries = UrlUtil.parseQueries(queryPart);
+        return {
+            paths,
+            queries
+        };
+    }
+
+    public static parseQueries(query: string) {
+        const result: Props<string> = {};
+        if (!query) return result;
+        query.split('&').forEach((item) => {
+            if (item) {
+                const startIndex = item.indexOf('=');
+                const key = startIndex !== -1 ? item.substring(1, startIndex) : item;
+                result[key] = startIndex !== -1 ? item.substring(startIndex) : "";
+            }
+            return result;
+        });
+        return result;
     }
 }

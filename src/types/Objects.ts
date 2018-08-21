@@ -40,7 +40,7 @@ export default class Objects {
      * @return {boolean}
      */
     public static has<T extends Props>(src: T, key?: string): boolean {
-        return has(src) && ( has(key) ? src.hasOwnProperty(key) : Objects.getLength(src) > 0);
+        return has(src) && (has(key) ? src.hasOwnProperty(key) : Objects.getLength(src) > 0);
     }
 
     /**
@@ -52,7 +52,7 @@ export default class Objects {
      */
     public static getLength<T extends Props>(src: T): number {
         let i = 0;
-        Collection.forEachObject(src, () => i++);
+        Collection.forEachObject(src, () => i = i + 1);
         return i;
     }
 

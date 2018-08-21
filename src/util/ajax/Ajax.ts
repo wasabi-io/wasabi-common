@@ -32,9 +32,10 @@ export interface FileAjaxPropsWithData extends AjaxPropsWithData<Props<any>> {
 
 export default class Ajax {
     public static _defaults: AjaxDefaults = new AjaxDefaultsConstructor();
-    public static readonly ContentTypeHeder = "Content-Type";
-    public static readonly AllowMethodsHeader = "Access-Control-Allow-Methods";
-    public static readonly AllowOriginHeader = "Access-Control-Allow-Origin";
+    public static readonly ContentTypeHeader = "Content-Type";
+    public static readonly ResponseTypeHeader = "content-type";
+    public static readonly AllowMethodsHeader = "access-control-allow-methods";
+    public static readonly AllowOriginHeader = "access-control-allow-origin";
 
     public static fetch(method: string, url: string, props?: AjaxPropsWithData): Promise<AjaxResponse> {
         const client: XMLHttpRequest = ajaxHttp();
@@ -50,7 +51,7 @@ export default class Ajax {
                 }
                 clientProps.headers = clientProps.headers || {};
 
-                const contentType = Ajax.setContentType(client, clientProps.contentType || clientProps.headers[Ajax.ContentTypeHeder] || this._defaults.contentType);
+                const contentType = Ajax.setContentType(client, clientProps.contentType || clientProps.headers[Ajax.ContentTypeHeader] || this._defaults.contentType);
 
                 client.onreadystatechange = () => {
                     if (client.readyState === 4) {
@@ -120,7 +121,7 @@ export default class Ajax {
         if (cType.indexOf("charset") === -1) {
             cType = `${cType}; charset=utf-8`;
         }
-        client.setRequestHeader(Ajax.ContentTypeHeder, cType);
+        client.setRequestHeader(Ajax.ContentTypeHeader, cType);
         if (cType) {
             return cType.split(";")[0].trim();
         }
@@ -135,7 +136,14 @@ export default class Ajax {
         let data;
         let error;
         let status = xhr.status;
-        const responseType = Ajax.getResponseType(xhr);
+
+        const headers = Ajax.parseHeaders(xhr.getAllResponseHeaders());
+        let responseType = headers[Ajax.ResponseTypeHeader];
+        if (responseType) {
+            responseType = responseType.split(";")[0].trim();
+        }
+        const allowedMethods = headers[Ajax.AllowMethodsHeader];
+        const allowedOrigin = headers[Ajax.AllowOriginHeader];
         try {
             data = Ajax.getResponseData(responseType, xhr);
         } catch (e) {
@@ -145,9 +153,6 @@ export default class Ajax {
         if (err) {
             error = err;
         }
-        const headers = Ajax.parseHeaders(xhr.getAllResponseHeaders());
-        const allowedMethods = headers[Ajax.AllowMethodsHeader];
-        const allowedOrigin = headers[Ajax.AllowOriginHeader];
         const statusText = xhr.statusText;
         const responseURL = xhr.responseURL;
         if (Ajax.isSuccess(status)) {
@@ -165,17 +170,10 @@ export default class Ajax {
             const index = head.indexOf(":");
             if (index !== -1) {
                 const name = head.substring(0, index);
-                headers[name] = head.substring(index + 1).trim();
+                headers[name.toLowerCase()] = head.substring(index + 1).trim();
             }
         }
         return headers;
-    }
-
-    public static getResponseType(xhr: XMLHttpRequest) {
-        let contentType = xhr.getResponseHeader(Ajax.ContentTypeHeder);
-        if (!contentType) return null;
-        contentType = contentType.split(";")[0].trim();
-        return contentType;
     }
 
     public static getResponseData(responseType: string, xhr: XMLHttpRequest) {

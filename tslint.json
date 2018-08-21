@@ -1,6 +1,8 @@
 {
   "extends": "tslint-config-airbnb",
   "rules": {
+    "no-parameter-reassignment": false,
+    "no-function-constructor-with-string-args": false,
     "object-curly-spacing": [
       "error",
       "never"

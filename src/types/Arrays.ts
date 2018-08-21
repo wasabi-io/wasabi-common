@@ -47,7 +47,9 @@ export default class Arrays {
             if (index < src.length) {
                 src.splice(index, 0, value);
                 return true;
-            } else if (index === src.length) {
+            }
+
+            if (index === src.length) {
                 src[index] = value;
                 return true;
             }
@@ -77,10 +79,10 @@ export default class Arrays {
      * @return {any[]}
      */
     public static removeValue(src: any[], value: any) {
-        for (let i = 0; i < src.length; i++) {
+        for (let i = 0; i < src.length; i = i + 1) {
             if (src[i] === value) {
                 src.splice(i, 1);
-                i--;
+                i = i - 1;
             }
         }
         return src;
@@ -96,13 +98,11 @@ export default class Arrays {
         if (!Arrays.has(src)) {
             return destination;
         }
-        if (!destination) {
-            destination = [];
-        }
+        const dest = destination || [];
         Collection.forEachArray(src, (item: any) => {
-            destination.push(item);
+            dest.push(item);
         });
-        return destination;
+        return dest;
     }
 
     /**
@@ -136,7 +136,7 @@ export default class Arrays {
      */
     public static map<T>(array: any[], callback: (item: any, index?: number, obj?: Props) => T): T[] {
         const result = [];
-        for (let i = 0; i < array.length; i++) {
+        for (let i = 0; i < array.length; i = i + 1) {
             const callbackResult = callback(array[i], i, array);
             if (has(callbackResult)) {
                 result[result.length] = callbackResult;
@@ -152,7 +152,7 @@ export default class Arrays {
      * @returns {boolean}
      */
     public static forEach(array: any[], callback: (item: any, index?: number, obj?: Props) => boolean | void): boolean {
-        for (let i = 0; i < array.length; i++) {
+        for (let i = 0; i < array.length; i = i + 1) {
             const callbackResult = callback(array[i], i, array);
             if (callbackResult === false) {
                 return false;

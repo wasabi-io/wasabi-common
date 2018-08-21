@@ -18,8 +18,8 @@ export default class Strings {
         if (!has(src)) {
             return false;
         }
-        src = Strings.trim(src);
-        return ((has(index) && src.length > index) || src.length > 0);
+        const source = Strings.trim(src);
+        return ((has(index) && source.length > index) || source.length > 0);
     }
 
     /**
@@ -55,8 +55,7 @@ export default class Strings {
         if (!value || !searchString || value.length < searchString.length) {
             return false;
         }
-        position = position || 0;
-        return value.substr(position, searchString.length) === searchString;
+        return value.substr(position || 0, searchString.length) === searchString;
     }
 
     /**
@@ -70,8 +69,7 @@ export default class Strings {
         if (!value || !searchString || value.length < searchString.length) {
             return false;
         }
-        position = position || value.length;
-        return value.substring(position - searchString.length, position) === searchString;
+        return value.substring((position || value.length) - searchString.length, position) === searchString;
     }
 
     /**
@@ -130,13 +128,11 @@ export default class Strings {
      * @return {string}
      */
     public static lPad(value: string, pad: string, length: number) {
-        if (!Strings.has(value)) {
-            value = "";
+        let val = Strings.has(value) ? value : "";
+        while (val.length < length) {
+            val = pad + val;
         }
-        while (value.length < length) {
-            value = pad + value;
-        }
-        return value;
+        return val;
     }
 
     /**
@@ -147,13 +143,11 @@ export default class Strings {
      * @return {string}
      */
     public static rPad(value: string, pad: string, length: number) {
-        if (!Strings.has(value)) {
-            value = "";
+        let val = Strings.has(value) ? value : "";
+        while (val.length < length) {
+            val = val + pad;
         }
-        while (value.length < length) {
-            value = value + pad;
-        }
-        return value;
+        return val;
     }
 
     /**
