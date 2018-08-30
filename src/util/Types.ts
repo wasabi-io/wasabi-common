@@ -1,4 +1,5 @@
 import Type, {IType} from "../lang/Type";
+import "../prototype";
 
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 
@@ -133,7 +134,7 @@ export default class Types {
      * @param dest
      * @return {boolean}
      */
-    public static equals(src: any, dest: any): boolean {
+    public static equals(src: any, dest: any, stack?: any[]): boolean {
         return Types.getType(src).equals(src, dest);
     }
 
@@ -228,40 +229,31 @@ Types.Map[Types.ToString.Function] = new Type<Function>({
     isJsonType: (): boolean => false,
     isPrimitive: (): boolean => false,
 });
+
 const equals = (src: any, dest: any, stack?: any[]) => {
-    switch (Types.getRawName(src)) {
-        case Types.ToString.Object:
-        case Types.ToString.Array:
-            if (stack.indexOf(src) !== -1) {
-                return src === dest;
-            }
-            stack.push(src, dest);
+    if (!src || !dest) return src === dest;
+    const keys = Object.keys(dest);
+    let keyCount = 0;
+    const s = stack || [];
+    if (s.indexOf(src) !== -1 && s.indexOf(dest !== -1)) {
+        return true;
     }
-    const type = Types.getType(src);
-    return type.equals(src, dest, stack);
+    s.push(src, dest);
+    for (const key in src) {
+        if (src.hasOwnProperty(key)) {
+            if (!dest.hasOwnProperty(key)) return false;
+            if (!Types.equals(src[key], dest[key], s)) {
+                return false;
+            }
+            keyCount = keyCount + 1;
+        }
+    }
+    return keys.length === keyCount;
 };
 
 // Array Type
 Types.Map[Types.ToString.Array] = new Type<any[]>({
-    equals: (src: any[], dest: any[], stack?: any[]): boolean => {
-        if (!src || !dest) {
-            return src === dest;
-        }
-        const isEqual = Types.getType(src) === Types.getType(dest);
-        if (!isEqual) {
-            return false;
-        }
-        if (src.length !== dest.length) {
-            return false;
-        }
-        for (let i = 0; i < src.length; i = i + 1) {
-            stack = stack || [];
-            if (!equals(src[i], dest[i], stack)) {
-                return false;
-            }
-        }
-        return true;
-    },
+    equals,
     getClone: (o: any[], ignoreList?: string[]): any[] => {
         const cloneArray = [];
         for (let i = 0; i < o.length; i = i + 1) {
@@ -284,24 +276,7 @@ Types.Map[Types.ToString.Array] = new Type<any[]>({
 });
 
 Types.Map[Types.ToString.Object] = new Type<any>({
-    equals: (src: any, dest: any, stack?: any[]): boolean => {
-        if (!src || !dest) {
-            return src === dest;
-        }
-        const isEqual = Types.getType(src) === Types.getType(dest);
-        if (!isEqual) {
-            return false;
-        }
-        for (const key in src) {
-            if (hasOwnProperty.call(src, key)) {
-                stack = stack || [];
-                if (!equals(src[key], dest[key], stack)) {
-                    return false;
-                }
-            }
-        }
-        return isEqual;
-    },
+    equals,
     getClone: (o: any, ignoreList?: string[]): any => {
         const cloneObject: any = {};
         for (const key in o) {

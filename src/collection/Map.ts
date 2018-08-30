@@ -1,5 +1,5 @@
 import {has} from "../util/Functions";
-import Collection, { MapItems } from "./Collection";
+import Collection, {MapItems} from "./Collection";
 import Iterator from "./Iterator";
 
 export class Entry<K = string | number, V = any> {
