@@ -8,13 +8,18 @@ export interface ArrayMapEvents<T> {
 
 export default class ArrayMap<T extends Props<any> = Props<any>> {
     private _data: T[] = [];
-    private dataMap: Props<number> = {};
+    private dataMap: Props<number>;
     private _alias: string;
     private _key: string;
     private _keys: string[];
     private _events: ArrayMapEvents<T>;
+    private createMap: () => Props<number>;
 
-    public constructor(keys: string | string[], items?: T[], events?: ArrayMapEvents<T>) {
+    public constructor(keys: string | string[], items?: T[], events?: ArrayMapEvents<T>, createMap?: () => Props<number>) {
+        this.createMap = createMap || (() => {
+            return {};
+        });
+        this.dataMap = this.createMap();
         if (typeof keys === "string") {
             this._key = keys;
             this._alias = keys;
@@ -253,7 +258,7 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
     }
 
     public refresh() {
-        this.dataMap = {};
+        this.dataMap = this.createMap();
         for (let i = 0; i < this.length; i = i + 1) {
             this.dataMap[this.key(this.data[i])] = i;
         }
