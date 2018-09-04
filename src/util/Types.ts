@@ -132,10 +132,11 @@ export default class Types {
      * Checks the given src is equals the given dest or not.
      * @param src
      * @param dest
+     * @param stack?: any[]
      * @return {boolean}
      */
     public static equals(src: any, dest: any, stack?: any[]): boolean {
-        return Types.getType(src).equals(src, dest);
+        return Types.getType(src).equals(src, dest, stack);
     }
 
     /**
