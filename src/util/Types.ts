@@ -235,10 +235,10 @@ const equals = (src: any, dest: any, stack?: any[]) => {
     const keys = Object.keys(dest);
     let keyCount = 0;
     const s = stack || [];
-    if (s.indexOf(src) !== -1 && s.indexOf(dest !== -1)) {
+    if (s.indexOf(src) !== -1) {
         return true;
     }
-    s.push(src, dest);
+    s.push(src);
     for (const key in src) {
         if (src.hasOwnProperty(key)) {
             if (!dest.hasOwnProperty(key)) return false;

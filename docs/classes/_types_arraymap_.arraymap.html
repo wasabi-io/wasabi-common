@@ -95,7 +95,7 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_types_arraymap_.arraymap.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
+						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_types_arraymap_.arraymap.html#_alias" class="tsd-kind-icon">_alias</a></li>
@@ -103,8 +103,9 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_types_arraymap_.arraymap.html#_events" class="tsd-kind-icon">_events</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_types_arraymap_.arraymap.html#_key" class="tsd-kind-icon">_key</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_types_arraymap_.arraymap.html#_keys" class="tsd-kind-icon">_keys</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_types_arraymap_.arraymap.html#createmap" class="tsd-kind-icon">create<wbr>Map</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_types_arraymap_.arraymap.html#datamap" class="tsd-kind-icon">data<wbr>Map</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_types_arraymap_.arraymap.html#newmap" class="tsd-kind-icon">new<wbr>Map</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_types_arraymap_.arraymap.html#defaultkey" class="tsd-kind-icon">default<wbr>Key</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -128,7 +129,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_types_arraymap_.arraymap.html#join" class="tsd-kind-icon">join</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_types_arraymap_.arraymap.html#key" class="tsd-kind-icon">key</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_types_arraymap_.arraymap.html#lastindexof" class="tsd-kind-icon">last<wbr>Index<wbr>Of</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_types_arraymap_.arraymap.html#onadded" class="tsd-kind-icon">on<wbr>Added</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_types_arraymap_.arraymap.html#oncreated" class="tsd-kind-icon">on<wbr>Created</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_types_arraymap_.arraymap.html#ondeleted" class="tsd-kind-icon">on<wbr>Deleted</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_types_arraymap_.arraymap.html#onupdated" class="tsd-kind-icon">on<wbr>Updated</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_types_arraymap_.arraymap.html#pop" class="tsd-kind-icon">pop</a></li>
@@ -155,40 +156,19 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Array<wbr>Map<span class="tsd-signature-symbol">(</span>keys<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, items<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, events<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_types_arraymap_.arraymapevents.html" class="tsd-signature-type">ArrayMapEvents</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, createMap<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_types_arraymap_.arraymap.html" class="tsd-signature-type">ArrayMap</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Array<wbr>Map<span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_types_arraymap_.arraymapprops.html" class="tsd-signature-type">ArrayMapProps</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_types_arraymap_.arraymap.html" class="tsd-signature-type">ArrayMap</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L16">types/ArrayMap.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L26">types/ArrayMap.ts:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>keys: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> items: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> events: <a href="../interfaces/_types_arraymap_.arraymapevents.html" class="tsd-signature-type">ArrayMapEvents</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> createMap: <span class="tsd-signature-type">function</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_objects_.props.html" class="tsd-signature-type">Props</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-returns-title">Returns <a href="../interfaces/_types_objects_.props.html" class="tsd-signature-type">Props</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> props: <a href="../interfaces/_types_arraymap_.arraymapprops.html" class="tsd-signature-type">ArrayMapProps</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_types_arraymap_.arraymap.html" class="tsd-signature-type">ArrayMap</a></h4>
@@ -196,7 +176,7 @@
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_alias" class="tsd-anchor"></a>
@@ -204,7 +184,7 @@
 					<div class="tsd-signature tsd-kind-icon">_alias<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L12">types/ArrayMap.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L22">types/ArrayMap.ts:22</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -214,7 +194,7 @@
 					<div class="tsd-signature tsd-kind-icon">_data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L10">types/ArrayMap.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L20">types/ArrayMap.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -224,7 +204,7 @@
 					<div class="tsd-signature tsd-kind-icon">_events<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_types_arraymap_.arraymapevents.html" class="tsd-signature-type">ArrayMapEvents</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L15">types/ArrayMap.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L25">types/ArrayMap.ts:25</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -234,7 +214,7 @@
 					<div class="tsd-signature tsd-kind-icon">_key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L13">types/ArrayMap.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L23">types/ArrayMap.ts:23</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -244,34 +224,9 @@
 					<div class="tsd-signature tsd-kind-icon">_keys<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L14">types/ArrayMap.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L24">types/ArrayMap.ts:24</a></li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="createmap" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> create<wbr>Map</h3>
-					<div class="tsd-signature tsd-kind-icon">create<wbr>Map<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L16">types/ArrayMap.ts:16</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-siganture">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_objects_.props.html" class="tsd-signature-type">Props</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-returns-title">Returns <a href="../interfaces/_types_objects_.props.html" class="tsd-signature-type">Props</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="datamap" class="tsd-anchor"></a>
@@ -279,7 +234,42 @@
 					<div class="tsd-signature tsd-kind-icon">data<wbr>Map<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_types_objects_.props.html" class="tsd-signature-type">Props</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L11">types/ArrayMap.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L21">types/ArrayMap.ts:21</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="newmap" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> new<wbr>Map</h3>
+					<div class="tsd-signature tsd-kind-icon">new<wbr>Map<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L26">types/ArrayMap.ts:26</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_objects_.props.html" class="tsd-signature-type">Props</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-returns-title">Returns <a href="../interfaces/_types_objects_.props.html" class="tsd-signature-type">Props</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="defaultkey" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> default<wbr>Key</h3>
+					<div class="tsd-signature tsd-kind-icon">default<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"id"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;id&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L19">types/ArrayMap.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -296,7 +286,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L289">types/ArrayMap.ts:289</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L293">types/ArrayMap.ts:293</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -314,7 +304,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L186">types/ArrayMap.ts:186</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L191">types/ArrayMap.ts:191</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
@@ -322,7 +312,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L192">types/ArrayMap.ts:192</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L197">types/ArrayMap.ts:197</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -346,7 +336,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L196">types/ArrayMap.ts:196</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L201">types/ArrayMap.ts:201</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
@@ -354,7 +344,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L202">types/ArrayMap.ts:202</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L207">types/ArrayMap.ts:207</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -377,7 +367,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L256">types/ArrayMap.ts:256</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L260">types/ArrayMap.ts:260</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -394,7 +384,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L41">types/ArrayMap.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L44">types/ArrayMap.ts:44</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -414,7 +404,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L293">types/ArrayMap.ts:293</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L297">types/ArrayMap.ts:297</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -431,19 +421,19 @@
 					<a name="clone" class="tsd-anchor"></a>
 					<h3>clone</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">clone<span class="tsd-signature-symbol">(</span>items<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_types_arraymap_.arraymap.html" class="tsd-signature-type">ArrayMap</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">clone<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_types_arraymap_.arraymap.html" class="tsd-signature-type">ArrayMap</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L313">types/ArrayMap.ts:313</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L326">types/ArrayMap.ts:326</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> items: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> data: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_types_arraymap_.arraymap.html" class="tsd-signature-type">ArrayMap</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -454,13 +444,13 @@
 					<a name="concat" class="tsd-anchor"></a>
 					<h3>concat</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">concat<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>items<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_types_arraymap_.arraymap.html" class="tsd-signature-type">ArrayMap</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">concat<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>items<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><a href="_types_arraymap_.arraymap.html" class="tsd-signature-type">ArrayMap</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_types_arraymap_.arraymap.html" class="tsd-signature-type">ArrayMap</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L96">types/ArrayMap.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L100">types/ArrayMap.ts:100</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -471,7 +461,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>items: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>items: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><a href="_types_arraymap_.arraymap.html" class="tsd-signature-type">ArrayMap</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Additional items to add to the end of array1.</p>
 									</div>
@@ -491,7 +481,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L282">types/ArrayMap.ts:282</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L286">types/ArrayMap.ts:286</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -514,7 +504,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L241">types/ArrayMap.ts:241</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L245">types/ArrayMap.ts:245</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -551,7 +541,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L109">types/ArrayMap.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L116">types/ArrayMap.ts:116</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -605,7 +595,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L52">types/ArrayMap.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L55">types/ArrayMap.ts:55</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -628,7 +618,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L251">types/ArrayMap.ts:251</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L255">types/ArrayMap.ts:255</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -656,16 +646,16 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="onadded" class="tsd-anchor"></a>
-					<h3>on<wbr>Added</h3>
+					<a name="oncreated" class="tsd-anchor"></a>
+					<h3>on<wbr>Created</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">on<wbr>Added<span class="tsd-signature-symbol">(</span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Created<span class="tsd-signature-symbol">(</span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L301">types/ArrayMap.ts:301</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L305">types/ArrayMap.ts:305</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -694,7 +684,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L309">types/ArrayMap.ts:309</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L319">types/ArrayMap.ts:319</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -723,7 +713,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L305">types/ArrayMap.ts:305</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L312">types/ArrayMap.ts:312</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -755,7 +745,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L85">types/ArrayMap.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L89">types/ArrayMap.ts:89</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -777,7 +767,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L45">types/ArrayMap.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L48">types/ArrayMap.ts:48</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -800,7 +790,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L260">types/ArrayMap.ts:260</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L264">types/ArrayMap.ts:264</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -817,7 +807,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L206">types/ArrayMap.ts:206</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L211">types/ArrayMap.ts:211</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -840,7 +830,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L125">types/ArrayMap.ts:125</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L132">types/ArrayMap.ts:132</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -862,7 +852,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L267">types/ArrayMap.ts:267</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L271">types/ArrayMap.ts:271</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -888,7 +878,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L66">types/ArrayMap.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L70">types/ArrayMap.ts:70</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -914,7 +904,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L136">types/ArrayMap.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L139">types/ArrayMap.ts:139</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -936,7 +926,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L148">types/ArrayMap.ts:148</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L151">types/ArrayMap.ts:151</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -973,7 +963,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L156">types/ArrayMap.ts:156</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L161">types/ArrayMap.ts:161</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1028,7 +1018,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L165">types/ArrayMap.ts:165</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L170">types/ArrayMap.ts:170</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1065,7 +1055,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L179">types/ArrayMap.ts:179</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L184">types/ArrayMap.ts:184</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1096,7 +1086,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/a3cc8a6/src/types/ArrayMap.ts#L224">types/ArrayMap.ts:224</a></li>
+									<li>Defined in <a href="https://github.com/wasabi-io/wasabi-common/blob/02dcf35/src/types/ArrayMap.ts#L229">types/ArrayMap.ts:229</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1172,10 +1162,13 @@
 								<a href="_types_arraymap_.arraymap.html#_keys" class="tsd-kind-icon">_keys</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_types_arraymap_.arraymap.html#createmap" class="tsd-kind-icon">create<wbr>Map</a>
+								<a href="_types_arraymap_.arraymap.html#datamap" class="tsd-kind-icon">data<wbr>Map</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_types_arraymap_.arraymap.html#datamap" class="tsd-kind-icon">data<wbr>Map</a>
+								<a href="_types_arraymap_.arraymap.html#newmap" class="tsd-kind-icon">new<wbr>Map</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_types_arraymap_.arraymap.html#defaultkey" class="tsd-kind-icon">default<wbr>Key</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="_types_arraymap_.arraymap.html#data" class="tsd-kind-icon">data</a>
@@ -1217,7 +1210,7 @@
 								<a href="_types_arraymap_.arraymap.html#lastindexof" class="tsd-kind-icon">last<wbr>Index<wbr>Of</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_types_arraymap_.arraymap.html#onadded" class="tsd-kind-icon">on<wbr>Added</a>
+								<a href="_types_arraymap_.arraymap.html#oncreated" class="tsd-kind-icon">on<wbr>Created</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_types_arraymap_.arraymap.html#ondeleted" class="tsd-kind-icon">on<wbr>Deleted</a>
@@ -1270,6 +1263,9 @@
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
 						<a href="../interfaces/_types_arraymap_.arraymapevents.html" class="tsd-kind-icon">Array<wbr>Map<wbr>Events</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="../interfaces/_types_arraymap_.arraymapprops.html" class="tsd-kind-icon">Array<wbr>Map<wbr>Props</a>
 					</li>
 				</ul>
 			</nav>
