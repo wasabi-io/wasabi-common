@@ -193,4 +193,46 @@ export default class Arrays {
         }
         return resultArray;
     }
+
+    /**
+     * Returns the index of the last occurrence of a specified value in an array.
+     * @param data The given array to be searched.
+     * @param searchElement The value to locate in the array.
+     * @param fromIndex The array index at which to begin the search. If fromIndex is omitted, the search starts at the last index in the array.
+     */
+    public static indexOf<T extends Props<any>>(data: T[], searchElement: T, fromIndex?: number): number {
+        if (!searchElement || !Arrays.has(data)) return -1;
+        dataLabel: for (let i = (fromIndex || 0); i < data.length; i = i + 1) {
+            for (const key in searchElement) {
+                if (searchElement.hasOwnProperty(key)) {
+                    if (searchElement[key] !== data[i][key]) {
+                        continue dataLabel;
+                    }
+                }
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * Returns the index of the first occurrence of a value in an array.
+     * @param data The given array to be searched.
+     * @param searchElement The value to locate in the array.
+     * @param fromIndex The array index at which to begin the search. If fromIndex is omitted, the search starts at index 0.
+     */
+    public static lastIndexOf<T extends Props<any>>(data: T[], searchElement: T, fromIndex?: number): number {
+        if (!searchElement || !Arrays.has(data)) return -1;
+        dataLabel: for (let i = data.length - 1; i >= (fromIndex || 0); i = i - 1) {
+            for (const key in searchElement) {
+                if (searchElement.hasOwnProperty(key)) {
+                    if (searchElement[key] !== data[i][key]) {
+                        continue dataLabel;
+                    }
+                }
+                return i;
+            }
+        }
+        return -1;
+    }
 }

@@ -1,10 +1,16 @@
-import {Props} from "./Objects";
+import {default as Objects, Props} from "./Objects";
 import {has} from "../util/Functions";
+import Binder from "../lang/Binder";
+import Arrays from "./Arrays";
 
 export interface ArrayMapEvents<T> {
     onCreated?: (index: number, key: any, value: T) => any;
     onUpdated?: (index: number, key: any, value: T, oldValue: T) => any;
-    onDeleted?: (index: number, key: any, value: T) => any;
+    onDeleted?: (value: T[]) => any;
+}
+
+export interface ArrayMapGetKey<T> {
+    (item: T): string;
 }
 
 export interface ArrayMapProps<T extends Props<any> = Props<any>> {
@@ -13,6 +19,11 @@ export interface ArrayMapProps<T extends Props<any> = Props<any>> {
     data?: T[];
     events?: ArrayMapEvents<T>;
     newMap?: () => Props<any>;
+    getKey?: ArrayMapGetKey<T>;
+}
+
+export interface ArrayMapGetItem<T> {
+    (item: T, index?: number): string;
 }
 
 export default class ArrayMap<T extends Props<any> = Props<any>> {
@@ -24,11 +35,18 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
     private _keys: string[];
     private _events: ArrayMapEvents<T>;
     private newMap: () => Props<any>;
+    private _getKey: ArrayMapGetKey<T>;
+
     public constructor(props?: ArrayMapProps<T>) {
         const p = props || {};
         this.newMap = p.newMap || (() => Object.create({}));
         this.dataMap = this.newMap();
         this._events = p.events || {};
+        Binder.bindAll(this);
+        this._getKey = p.getKey;
+        if (p.getKey) {
+            this.getKey = p.getKey;
+        }
         if (this._key || !this._keys) {
             this._key = p.key || ArrayMap.defaultKey;
             this._alias = this._key;
@@ -41,46 +59,17 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
         }
     }
 
-    public get nameOfKey() {
-        return this._alias;
-    }
-
-    public push(...items: T[]): number {
+    public push(...items: (T | T[])[]): number {
         for (const item of items) {
-            this.last = item;
+            if (item) {
+                if (item instanceof Array) {
+                    this.push.apply(this, item);
+                } else {
+                    this.last = item;
+                }
+            }
         }
         return this.data.length;
-    }
-
-    public key(value: T | number) {
-        let item = typeof value === "number" ? this.data[value] : value;
-        if (!item) return;
-        if (!this._keys) {
-            return item[this._key];
-        }
-        for (let i = 0; i < this._keys.length; i = i + 1) {
-            item = item[this._keys[i]];
-            if (!item) {
-                return;
-            }
-        }
-        return item;
-    }
-
-    public setKey(key: string, value: T) {
-        if (!this._keys) {
-            value[this._key] = key;
-            return value;
-        }
-        let i = 0;
-        for (; i < this._keys.length - 1; i = i + 1) {
-            const k = this._keys[i];
-            if (!value[k]) {
-                value[k] = {};
-            }
-        }
-        value[this._keys[i]] = key;
-        return value;
     }
 
     /**
@@ -113,15 +102,16 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
      * @param separator A string used to separate one element of an array from the next in the resulting String. If omitted, the array elements are separated with a comma.
      * @param get
      */
-    public join(separator: string, get?: (item: T) => string): string {
-        const findElement = get ? get : this.key;
+    public join(separator: string, get?: (item: T, index?: number) => string): string {
+        const findElement: ArrayMapGetItem<T> = get ? get : this.key;
         const delimiter = separator ? separator : "";
         let result = "";
-        for (let i = 0; i < this.data.length - 1; i = i + 1) {
-            result = `${result}${findElement(this.data[i])}${delimiter}`;
+        const lastIndex = this._data.length - 1;
+        for (let i = 0; i < lastIndex; i = i + 1) {
+            result = `${result}${findElement(this._data[i], i)}${delimiter}`;
         }
-        if (this.data.length > 0) {
-            result = `${result}${findElement(this.data[this.data.length - 1])}${delimiter}`;
+        if (this._data.length > 0) {
+            result = `${result}${findElement(this._data[lastIndex], lastIndex)}`;
         }
         return result;
     }
@@ -149,9 +139,7 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
      * @param end The end of the specified portion of the array.
      */
     public slice(start?: number, end?: number): ArrayMap<T> {
-        const newArrayMap = this.clone();
-        newArrayMap.push.apply(this, this._data.slice(start, end));
-        return newArrayMap;
+        return this.clone(this._data.slice(start, end));
     }
 
     /**
@@ -167,23 +155,34 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
      * @param start The zero-based location in the array from which to start removing elements.
      * @param deleteCount The number of elements to remove.
      */
-    public splice(start: number, deleteCount?: number): ArrayMap<T> {
-        const items = this.clone(this._data.splice(start, deleteCount));
-        for (const item of items.data) {
-            const key = this.key(item);
-            const index = this.dataMap[key];
-            this.onDeleted(index, key, item);
+    public splice(start: number, deleteCount?: number): ArrayMap<T> | undefined {
+        const items = this._data.splice(start, deleteCount);
+        if (!Arrays.has(items)) {
+            return;
         }
-        return items;
+        const array = this.clone(items);
+        for (const item of items) {
+            const key = this.key(item);
+            delete this.dataMap[key];
+        }
+        this.onDeleted(items);
+        return array;
     }
 
     /**
      * Inserts new elements at the start of an array.
      * @param items  Elements to insert at the start of the Array.
      */
-    public unshift(...items: T[]): number {
+    public unshift(...items: (T | T[])[]): number {
         for (let i = items.length - 1; i >= 0; i = i - 1) {
-            this.first = items[i];
+            const item = items[i];
+            if (item) {
+                if (item instanceof Array) {
+                    this.unshift.apply(this, item);
+                } else {
+                    this.first = item;
+                }
+            }
         }
         return this.data.length;
     }
@@ -195,7 +194,7 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
     }
 
     public set first(item: T) {
-        this.upsert(item, 0, (item: T) => this.data.unshift(item));
+        this.upsert(item, (item: T) => this.data.unshift(item));
     }
 
     public get last(): T {
@@ -205,32 +204,14 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
     }
 
     public set last(item: T) {
-        this.upsert(item, this.data.length, (item: T) => this.data.push(item) - 1);
+        this.upsert(item, (item: T) => this.data.push(item) - 1);
     }
 
-    private remove(value: number | string | T) {
-        let foundIndex;
-        if (!has(value)) {
-            return;
-        }
-        if (typeof value === "number") {
-            foundIndex = value;
-        } else {
-            foundIndex = this.indexOf(value);
-        }
-        if (!has(foundIndex) || foundIndex === -1) return;
-        const key = this.key(foundIndex);
-        const item = this.data[foundIndex];
-        this.data.splice(foundIndex, 1);
-        this.onDeleted(foundIndex, key, item);
-        return item;
-    }
-
-    private upsert(item: T, lastIndex: number, fn: (item: T) => number) {
-        const key = this.assertKey(item);
+    private upsert(item: T, fn: (item: T) => number) {
+        const key: string = ArrayMap.assertKey(this, item);
         let index = this.dataMap[key];
         if (has(index)) {
-            return this.set(index, item);
+            this.remove(index);
         }
         index = fn.call(undefined, item);
         this.onCreated(index, key, item);
@@ -243,8 +224,13 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
      * @param fromIndex The array index at which to begin the search. If fromIndex is omitted, the search starts at index 0.
      */
     public indexOf(searchElement: T | string, fromIndex?: number): number {
-        const key: string = typeof searchElement === "string" ? searchElement : this.key(searchElement);
-        return this.dataMap[key] || -1;
+        if (!searchElement) return -1;
+        const key = typeof searchElement === "string" ? searchElement : this.key(searchElement);
+        if (has(key)) {
+            const ind = this.dataMap[key];
+            return has(ind) ? ind : -1;
+        }
+        return Arrays.indexOf(this._data, searchElement as T, fromIndex);
     }
 
     /**
@@ -253,8 +239,13 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
      * @param fromIndex The array index at which to begin the search. If fromIndex is omitted, the search starts at the last index in the array.
      */
     public lastIndexOf(searchElement: T | string, fromIndex?: number): number {
-        const key: string = typeof searchElement === "string" ? searchElement : this.key(searchElement);
-        return this.dataMap[key] || -1;
+        if (!searchElement) return -1;
+        const key = typeof searchElement === "string" ? searchElement : this.key(searchElement);
+        if (has(key)) {
+            const ind = this.dataMap[key];
+            return has(ind) ? ind : -1;
+        }
+        return Arrays.lastIndexOf(this._data, searchElement as T, fromIndex);
     }
 
     public get length() {
@@ -278,9 +269,25 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
         if (!valueKey) {
             this.setKey(this.key(oldValue), value);
         }
-        this.data[ind] = value;
+        this.data[ind] = Objects.replace(value, oldValue);
         this.onUpdated(ind, valueKey, value, oldValue);
         return true;
+    }
+
+    public setKey(key: string, value: T) {
+        if (!this._keys) {
+            value[this._key] = key;
+            return value;
+        }
+        let i = 0;
+        for (; i < this._keys.length - 1; i = i + 1) {
+            const k = this._keys[i];
+            if (!value[k]) {
+                value[k] = {};
+            }
+        }
+        value[this._keys[i]] = key;
+        return value;
     }
 
     public get(key: number | string): T {
@@ -290,16 +297,33 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
         }
     }
 
-    public get data() {
-        return this._data;
+    public removeByIndex(value: number): T | undefined {
+        return ArrayMap.removeByIndex(this, value);
     }
 
-    public assertKey(item: T | number) {
-        const key = this.key(item);
-        if (!key) {
-            throw new Error("map key cannot be empty or null !");
-        }
-        return key;
+    public removeByKey(value: string) {
+        return this.removeByIndex(this.dataMap[value]);
+    }
+
+    public remove(value: number | string | T): T | undefined {
+        return ArrayMap.remove(this, value);
+    }
+
+    public key(value: T | number): string {
+        const item: T = typeof value === "number" ? this.data[value] : value;
+        return this.getKey(item);
+    }
+
+    public getKey(item: T): string {
+        return ArrayMap.getKey(this, item);
+    }
+
+    public get nameOfKey() {
+        return this._alias;
+    }
+
+    public get data() {
+        return this._data;
     }
 
     public onCreated(index: number, key: any, value: T) {
@@ -316,10 +340,9 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
         }
     }
 
-    public onDeleted(index: number, key: any, value: T) {
-        delete this.dataMap[key];
+    public onDeleted(value: T[]) {
         if (this._events.onDeleted) {
-            this._events.onDeleted(index, key, value);
+            this._events.onDeleted(value);
         }
     }
 
@@ -327,9 +350,64 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
         return new ArrayMap<T>({
             key: this._key,
             keys: this._keys ? this._keys.slice(0) : undefined,
-            data : data || this._data,
+            data: data || this._data,
             newMap: this.newMap,
-            events: Object.create(this._events)
+            events: Object.create(this._events),
+            getKey: this._getKey
         });
+    }
+
+    public static removeByIndex<T extends Props<any>>(map: ArrayMap<T>, value: number): T | undefined {
+        if (!has(value)) {
+            return;
+        }
+        const item = map._data[value];
+        if (!item) {
+            return;
+        }
+        map._data.splice(value, 1);
+        const key = map.key(item);
+        delete map.dataMap[key];
+        map.onDeleted([item]);
+        return item;
+    }
+
+    public static remove<T extends Props<any>>(map: ArrayMap<T>, value: number | string | T): T | undefined {
+        if (typeof value === "number") {
+            return ArrayMap.removeByIndex(map, value);
+        }
+        if (typeof  value === "string") {
+            return map.removeByKey(value);
+        }
+        if (has(value)) {
+            const key = map.key(value);
+            if (key) {
+                return map.removeByKey(key);
+            }
+        }
+        return;
+    }
+
+    public static getKey<T extends Props<any>>(map: ArrayMap<T>, item: T): string {
+        if (!item) return;
+        if (!map._keys) {
+            return item[map._key];
+        }
+        let result: any = item;
+        for (let i = 0; i < map._keys.length; i = i + 1) {
+            result = result[map._keys[i]];
+            if (!result) {
+                return;
+            }
+        }
+        return result;
+    }
+
+    public static assertKey<T extends Props<any>>(map: ArrayMap<T>, item: T | number): string {
+        const key = map.key(item);
+        if (!key) {
+            throw new Error("map key cannot be empty or null !");
+        }
+        return key;
     }
 }

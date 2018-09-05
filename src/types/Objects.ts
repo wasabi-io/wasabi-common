@@ -280,4 +280,24 @@ export default class Objects {
         }
         return props as R;
     }
+
+    public static replace<S extends Props<any>, D extends Props<any>>(src: S, dest: D): D {
+        if (dest) {
+            for (const key in dest) {
+                if (dest.hasOwnProperty(key)) {
+                    delete dest[key];
+                }
+            }
+        }
+        if (src) {
+            const destination: D = dest || {} as D;
+            for (const key in src) {
+                if (src.hasOwnProperty(key)) {
+                    destination[key] = src[key];
+                }
+            }
+            return destination;
+        }
+        return dest;
+    }
 }
