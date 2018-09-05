@@ -47,7 +47,7 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
         if (p.getKey) {
             this.getKey = p.getKey;
         }
-        if (this._key || !this._keys) {
+        if (p.key || !p.keys) {
             this._key = p.key || ArrayMap.defaultKey;
             this._alias = this._key;
         } else {
@@ -69,15 +69,15 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
                 }
             }
         }
-        return this.data.length;
+        return this._data.length;
     }
 
     /**
      * Removes the last element from an array and returns it.
      */
     public pop(): T {
-        if (this.data.length > 0) {
-            return this.remove(this.data.length - 1);
+        if (this._data.length > 0) {
+            return this.remove(this._data.length - 1);
         }
         return;
     }
@@ -184,22 +184,22 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
                 }
             }
         }
-        return this.data.length;
+        return this._data.length;
     }
 
     public get first(): T {
-        if (this.data.length > 0) {
-            return this.data[0];
+        if (this._data.length > 0) {
+            return this._data[0];
         }
     }
 
     public set first(item: T) {
-        this.upsert(item, (item: T) => this.data.unshift(item));
+        this.upsert(item, (item: T) => this._data.unshift(item));
     }
 
     public get last(): T {
-        if (this.data.length > 0) {
-            return this.data[this.data.length - 1];
+        if (this._data.length > 0) {
+            return this.data[this._data.length - 1];
         }
     }
 
