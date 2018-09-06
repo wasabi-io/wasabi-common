@@ -330,15 +330,17 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
     public set data(data: T[]) {
         this.dataMap = {};
         this._data = [];
-        for (let i = 0; i < data.length; i = i + 1) {
-            const item = data[i];
-            const key = ArrayMap.assertKey(this, item);
-            if (!has(this.dataMap[key])) {
-                this._data[i] = item;
-                this.dataMap[key] = i;
+        if(data) {
+            for (let i = 0; i < data.length; i = i + 1) {
+                const item = data[i];
+                const key = ArrayMap.assertKey(this, item);
+                if (!has(this.dataMap[key])) {
+                    this._data[i] = item;
+                    this.dataMap[key] = i;
+                }
             }
         }
-        this.onInit(this.data);
+        this.onInit(this._data);
     }
 
     public onInit(data: T[]) {
