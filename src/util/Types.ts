@@ -236,14 +236,15 @@ const equals = (src: any, dest: any, stack?: any[]) => {
     const keys = Object.keys(dest);
     let keyCount = 0;
     const s = stack || [];
-    if (s.indexOf(src) !== -1) {
+    const index = s.indexOf(src);
+    if (index !== -1 && s[index] === src && s[index + 1] === dest) {
         return true;
     }
-    s.push(src);
+    s.push(src, dest);
     for (const key in src) {
         if (src.hasOwnProperty(key)) {
             if (!dest.hasOwnProperty(key)) return false;
-            if (!Types.equals(src[key], dest[key], s)) {
+            if (!Types.equals(src[key], dest[key], stack)) {
                 return false;
             }
             keyCount = keyCount + 1;
