@@ -4,6 +4,7 @@ import Binder from "../lang/Binder";
 import Arrays from "./Arrays";
 
 export interface ArrayMapEvents<T> {
+    onInit?: (data: T[]) => any;
     onCreated?: (index: number, key: any, value: T) => any;
     onUpdated?: (index: number, key: any, value: T, oldValue: T) => any;
     onDeleted?: (value: T[]) => any;
@@ -55,7 +56,7 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
             this._alias = this._keys.join(".");
         }
         if (p.data) {
-            this.push.apply(this, p.data);
+            this.data = p.data;
         }
     }
 
@@ -324,6 +325,26 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
 
     public get data() {
         return this._data;
+    }
+
+    public set data(data: T[]) {
+        this.dataMap = {};
+        this._data = [];
+        for (let i = 0; i < data.length; i = i + 1) {
+            const item = data[i];
+            const key = ArrayMap.assertKey(this, item);
+            if (!has(this.dataMap[key])) {
+                this._data[i] = item;
+                this.dataMap[key] = i;
+            }
+        }
+        this.onInit(this.data);
+    }
+
+    public onInit(data: T[]) {
+        if (this._events.onInit) {
+            this._events.onInit(data);
+        }
     }
 
     public onCreated(index: number, key: any, value: T) {
