@@ -1,5 +1,6 @@
 import Type, {IType} from "../lang/Type";
 import "../prototype";
+import {deepEquals} from "./Functions";
 
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 
@@ -101,7 +102,7 @@ export default class Types {
      * @public
      */
     public static getTypeByName(name: string): IType<any> {
-        const type = Types.Map["[object " + name + "]"];
+        const type = Types.Map[`[object ${name}]`];
         return type ? type : UnknownType;
     }
 
@@ -135,8 +136,8 @@ export default class Types {
      * @param stack?: any[]
      * @return {boolean}
      */
-    public static equals(src: any, dest: any, stack?: any[]): boolean {
-        return Types.getType(src).equals(src, dest, stack);
+    public static equals(src: any, dest: any): boolean {
+        return Types.getType(src).equals(src, dest);
     }
 
     /**
@@ -155,9 +156,9 @@ export default class Types {
      */
     public static addType<T>(obj: string | T, type: IType<T>) {
         if (!type) {
-            throw new Error("Given type ( " + type + " ) is empty or null !");
+            throw new Error(`Given type ( ${type} ) is empty or null !`);
         }
-        const key = typeof obj === "string" ? "[object " + obj + "]" : Type.getRawName(obj);
+        const key = typeof obj === "string" ? `[object ${obj}]` : Type.getRawName(obj);
         const newType = Types.Map[key];
         if (newType) {
             throw new Error("You cannot add some types. That's used by core code.");
@@ -231,31 +232,9 @@ Types.Map[Types.ToString.Function] = new Type<Function>({
     isPrimitive: (): boolean => false,
 });
 
-const equals = (src: any, dest: any, stack?: any[]) => {
-    if (!src || !dest) return src === dest;
-    const keys = Object.keys(dest);
-    let keyCount = 0;
-    const s = stack || [];
-    const index = s.indexOf(src);
-    if (index !== -1 && s[index] === src && s[index + 1] === dest) {
-        return true;
-    }
-    s.push(src, dest);
-    for (const key in src) {
-        if (src.hasOwnProperty(key)) {
-            if (!dest.hasOwnProperty(key)) return false;
-            if (!Types.equals(src[key], dest[key], stack)) {
-                return false;
-            }
-            keyCount = keyCount + 1;
-        }
-    }
-    return keys.length === keyCount;
-};
-
 // Array Type
 Types.Map[Types.ToString.Array] = new Type<any[]>({
-    equals,
+    equals: deepEquals,
     getClone: (o: any[], ignoreList?: string[]): any[] => {
         const cloneArray = [];
         for (let i = 0; i < o.length; i = i + 1) {
@@ -278,7 +257,7 @@ Types.Map[Types.ToString.Array] = new Type<any[]>({
 });
 
 Types.Map[Types.ToString.Object] = new Type<any>({
-    equals,
+    equals: deepEquals,
     getClone: (o: any, ignoreList?: string[]): any => {
         const cloneObject: any = {};
         for (const key in o) {

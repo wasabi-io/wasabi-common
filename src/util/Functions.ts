@@ -1,4 +1,5 @@
 import "../prototype";
+import * as deepEquals from "fast-deep-equal";
 
 const startIndex: number = "[object ".length;
 
@@ -53,5 +54,6 @@ export {
     getType,
     has,
     asEs6Module,
-    getOrDefault
+    getOrDefault,
+    deepEquals
 };

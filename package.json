@@ -1,6 +1,6 @@
 {
   "name": "wasabi-common",
-  "version": "2.5.9",
+  "version": "2.5.10",
   "description": "lib/index.js",
   "main": "lib/index.js",
   "typings": "lib/index",
@@ -60,6 +60,7 @@
     "instrument": true
   },
   "dependencies": {
-    "es6-promise": "^4.2.4"
+    "es6-promise": "^4.2.4",
+    "fast-deep-equal": "^2.0.1"
   }
 }
