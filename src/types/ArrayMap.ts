@@ -275,20 +275,8 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
         return true;
     }
 
-    public setKey(key: string, value: T) {
-        if (!this._keys) {
-            value[this._key] = key;
-            return value;
-        }
-        let i = 0;
-        for (; i < this._keys.length - 1; i = i + 1) {
-            const k = this._keys[i];
-            if (!value[k]) {
-                value[k] = {};
-            }
-        }
-        value[this._keys[i]] = key;
-        return value;
+    public setKey(key: string, item: T): T {
+       return ArrayMap.setKey(this, key, item);
     }
 
     public get(key: number | string): T {
@@ -330,7 +318,7 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
     public set data(data: T[]) {
         this.dataMap = {};
         this._data = [];
-        if(data) {
+        if (data) {
             for (let i = 0; i < data.length; i = i + 1) {
                 const item = data[i];
                 const key = ArrayMap.assertKey(this, item);
@@ -409,6 +397,26 @@ export default class ArrayMap<T extends Props<any> = Props<any>> {
             }
         }
         return;
+    }
+
+    public static setKey<T extends Props<any>>(map: ArrayMap<T>, key: string, item: T): T {
+        if (!map._keys) {
+            item[map._key] = key;
+            return item;
+        }
+        let i = 0;
+        let value = item;
+        for (; i < map._keys.length - 1; i = i + 1) {
+            const k = map._keys[i];
+            let child = value[k];
+            if (!has(child)) {
+                child = {};
+                value[k] = child;
+            }
+            value = child;
+        }
+        value[map._keys[i]] = key;
+        return item;
     }
 
     public static getKey<T extends Props<any>>(map: ArrayMap<T>, item: T): string {
