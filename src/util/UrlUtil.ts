@@ -113,7 +113,7 @@ export default class UrlUtil {
         const startIndex = hash.indexOf("?");
         const endIndex = startIndex + 1;
         const pathPart = startIndex !== -1 ? hash.substring(1, startIndex) : hash;
-        const queryPart = hash.length > endIndex ? hash.substring(1, endIndex) : "";
+        const queryPart = hash.length > endIndex ? hash.substring(endIndex) : "";
 
         let paths = pathPart.split("/").filter((path: string) => has(path));
         paths = Arrays.removeValue(paths, "");
