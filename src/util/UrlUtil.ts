@@ -111,9 +111,8 @@ export default class UrlUtil {
         const hash = (locationHash || "#/").substring(1);
 
         const startIndex = hash.indexOf("?");
-        const endIndex = startIndex + 1;
         const pathPart = startIndex !== -1 ? hash.substring(1, startIndex) : hash;
-        const queryPart = hash.length > endIndex ? hash.substring(endIndex) : "";
+        const queryPart = hash.substring(startIndex);
 
         let paths = pathPart.split("/").filter((path: string) => has(path));
         paths = Arrays.removeValue(paths, "");
