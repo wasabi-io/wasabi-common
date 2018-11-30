@@ -110,9 +110,10 @@ export default class UrlUtil {
     public static parseHash(locationHash: string): ParsedHash {
         const hash = (locationHash || "#/").substring(1);
 
-        const paramIndex = hash.indexOf("?");
-        const pathPart = paramIndex !== -1 ? hash.substring(1, paramIndex) : hash;
-        const queryPart = paramIndex !== -1 ? hash.substring(1, paramIndex) : "";
+        const startIndex = hash.indexOf("?");
+        const endIndex = startIndex + 1;
+        const pathPart = startIndex !== -1 ? hash.substring(1, startIndex) : hash;
+        const queryPart = hash.length > endIndex ? hash.substring(1, endIndex) : "";
 
         let paths = pathPart.split("/").filter((path: string) => has(path));
         paths = Arrays.removeValue(paths, "");
