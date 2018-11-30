@@ -130,8 +130,9 @@ export default class UrlUtil {
         query.split('&').forEach((item) => {
             if (item) {
                 const startIndex = item.indexOf('=');
+                const endIndex = startIndex + 1;
                 const key = startIndex !== -1 ? item.substring(1, startIndex) : item;
-                result[key] = startIndex !== -1 ? item.substring(startIndex) : "";
+                result[key] = startIndex !== -1 ? item.length > endIndex ? item.substring(endIndex) : "" : "";
             }
             return result;
         });
