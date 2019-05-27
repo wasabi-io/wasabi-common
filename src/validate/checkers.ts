@@ -71,9 +71,8 @@ const checkers = {
                 case Types.ToString.Object:
                     return Objects.has(value);
                 default:
-                    has(value);
+                    return has(value);
             }
-            return true;
         },
         message: "${name} is required",
     },
